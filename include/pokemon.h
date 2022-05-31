@@ -1,6 +1,6 @@
 #ifndef POKEMON_H
 #define POKEMON_H
-
+ #include "list.h"
 typedef struct Movement {
     char name[30];
     char type[30];
