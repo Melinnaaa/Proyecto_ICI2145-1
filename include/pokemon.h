@@ -10,9 +10,11 @@ typedef struct Movement {
 } Movement;
 
 typedef struct Pokemon{
-char type[30];
+int ID;
+List* type;
 char name[30];
-Movement* moves[4];
+int HP;
+//Movement* moves[4];
 } Pokemon;
 
 void loadMovements();
