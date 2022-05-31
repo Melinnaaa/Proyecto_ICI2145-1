@@ -1,18 +1,10 @@
 #include <stdio.h>
 #include <string.h>
-
 #include "hashmap.h"
-
 #include "menu.h"
 #include "pokemon.h"
 #include "item.h"
 #include "player.h"
-
-struct Movements {
-    HashMap *data;
-} movements;
-
-void loadMovements();
 
 void loadProfiles();
 void showPlayers();
@@ -26,7 +18,7 @@ int main() {
     for (int i = 0; i < 2; i++) {
         createPlayer(&players[i]);
     }
-    
+    HashMap *movements;
     int in = -1;
     loadMovements();
     while (in != 0) {
@@ -86,12 +78,6 @@ void showPlayer(Player *p)
             showItem(p->inventory[i].item);
         }
     }
-}
-
-//TODO
-void loadMovements()
-{
-    return;
 }
 
 //TODO
