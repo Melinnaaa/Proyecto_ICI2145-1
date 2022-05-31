@@ -116,3 +116,22 @@ void showPlayer(Player *p)
         }
     }
 }
+
+//TODO
+void loadMovements()
+{
+    return;
+}
+
+//TODO
+void loadProfiles()
+{
+    return;
+}
+
+//TODO
+void showItem(Item *item)
+{
+    return;
+}
+
