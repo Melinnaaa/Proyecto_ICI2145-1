@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 typedef struct {
 
@@ -28,6 +29,7 @@ typedef struct {
 
 void createPlayer(Player *player);
 void showPlayer(Player *player);
+
 typedef struct {
 
 } HashMap;
@@ -37,9 +39,19 @@ struct Movements {
     HashMap *data;
 } movements;
 
+
 void loadMovements();
 
 int main() {
+    printf("pokemon.exe\n");
+
+    // Jugadores
+    Player players[2];
+    for (int i = 0; i < 2; i++) {
+        createPlayer(&players[i]);
+    }
+    
+    char in = -1;
     loadMovements();
     while (in != 0) {
         switch(in)  {
