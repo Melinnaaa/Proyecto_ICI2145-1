@@ -18,6 +18,12 @@ int HP;
 //Movement* moves[4];
 } Pokemon;
 
+typedef struct PlayerPokemon {
+    Pokemon *ptr;
+    Movement *movements[4];
+    int pps[4];
+} PlayerPokemon;
+
 
 void loadMovements(HashMap* movementMap);
 void loadPokemons(HashMap *map);
