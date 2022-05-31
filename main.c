@@ -12,13 +12,15 @@ void showPlayers();
 
 int main() {
     printf("Bienvenido a pokemon.exe\n");
-    loadPokemons();
+    HashMap *movements = createMap(218);
+    HashMap* pokemons = createMap(917);
+    loadPokemons(pokemons);
+    loadMovements(movements);
     // Jugadores
     Player players[2];
     for (int i = 0; i < 2; i++) {
         createPlayer(&players[i]);
     }
-    //HashMap *movements;
     int in = -1;
     //loadMovements();
     while (in != 0) {
@@ -37,7 +39,7 @@ int main() {
             }
             case 3: // Mostrar jugadores
             {
-                showPlayers();
+                showPlayers(players);
                 break;
             }
         }
