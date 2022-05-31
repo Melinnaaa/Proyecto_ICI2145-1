@@ -14,6 +14,11 @@ typedef struct {
     Item *item;
     int qty;
 } PlayerItem;
+
+void showItem(Item *item);
+
+
+
     // Inventario
     PlayerItem inventory[10];
 } Player;
