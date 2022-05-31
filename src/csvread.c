@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 //Función que lee el archivo 
 char* get_csv_field (char * tmp, int k) 
