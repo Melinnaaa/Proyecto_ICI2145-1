@@ -2,10 +2,8 @@
 #include <string.h>
 
 #include "menu.h"
+#include "pokemon.h"
 
-typedef struct {
-
-} Pokemon;
 
 typedef struct {
     int ID;
