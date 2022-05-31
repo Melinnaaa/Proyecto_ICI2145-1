@@ -1,0 +1,37 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Iinclude",
+      "-g",
+      "-Wall",
+      "-Werror",
+      "-std=c99",
+      "-o",
+      "out/menu.o",
+      "src/menu.c"
+    ],
+    "directory": "/home/krr/Proyecto_ICI2145-1",
+    "file": "/home/krr/Proyecto_ICI2145-1/src/menu.c",
+    "output": "/home/krr/Proyecto_ICI2145-1/out/menu.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Iinclude",
+      "out/menu.o",
+      "-g",
+      "-Wall",
+      "-Werror",
+      "-std=c99",
+      "-o",
+      "pokemon",
+      "main.c"
+    ],
+    "directory": "/home/krr/Proyecto_ICI2145-1",
+    "file": "/home/krr/Proyecto_ICI2145-1/main.c",
+    "output": "/home/krr/Proyecto_ICI2145-1/pokemon"
+  }
+]
