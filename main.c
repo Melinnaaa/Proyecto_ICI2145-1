@@ -56,6 +56,15 @@ void createPlayer(Player *p)
     }
 }
 
+//menu
+void showPlayers(Player *players)
+{   
+    for (int i = 0; i < 2; i++)
+    {
+        showPlayer(&players[i]);
+    }
+}
+
 void showPlayer(Player *p)
 {
     printf("Jugador %s\n", p->name);
