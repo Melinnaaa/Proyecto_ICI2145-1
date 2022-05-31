@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "menu.h"
+
 typedef struct {
 
 } Pokemon;
@@ -54,9 +56,11 @@ int main() {
         createPlayer(&players[i]);
     }
     
-    char in = -1;
+    int in = -1;
     loadMovements();
     while (in != 0) {
+        showMenu();
+        scanf("%d", &in);
         switch(in)  {
             case 1: // Cargar perfiles
             loadProfiles();
