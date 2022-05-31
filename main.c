@@ -6,7 +6,8 @@ typedef struct {
 
 typedef struct {
     int ID;
-     
+    char name[30];
+    int price;
 } Item;
 
 typedef struct {
