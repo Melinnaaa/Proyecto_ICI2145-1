@@ -19,7 +19,7 @@ void createProfile(HashMap *pokeMap)
 
     /* Par y pokémon utilizados para la búsqueda */
     HashMapPair *pair;
-    Pokemon *pk;
+    PlayerPokemon playerPokemon;
 
     char tmp[20];
 
@@ -39,8 +39,9 @@ void createProfile(HashMap *pokeMap)
 
     if (pair != NULL)
     {
-        pk = pair->value;
-
+        playerPokemon.ptr = pair->value;
+        player.pokemons[0] = playerPokemon;
+        randomizeMovements(&playerPokemon);
     }
 
 
