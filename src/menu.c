@@ -16,10 +16,33 @@ void showMenu()
 void createProfile(HashMap *pokeMap)
 {
     Player player;
-    printf("Ingrese el nombre del jugador: ");
+
+    /* Par y pokémon utilizados para la búsqueda */
+    HashMapPair *pair;
+    Pokemon *pk;
+
+    char tmp[20];
+
     fflush(stdin);
+
+    createPlayer(&player);
+    printf("Ingrese el nombre del jugador: ");
+
     scanf("%[^\n]*s", player.name);
     getchar();
+
+    printf("Ingresa el nombre de tu primer pokémon\n");
+    scanf("%[^\n]*s", tmp);
+    getchar();
+
+    pair = searchMap(pokeMap, tmp);
+
+    if (pair != NULL)
+    {
+        pk = pair->value;
+
+    }
+
 
 }
 
