@@ -88,7 +88,18 @@ void loadMovements(HashMap* movementMap)
                 }
             }  
         }
-        insertMap(movementMap, tmpMove->name, tmpMove);
+        /* Se busca si existe un mapa del tipo X */
+        HashMapPair *pair = searchMap(movementMap, tmpMove->type);
+        if(pair == NULL)
+        {
+            /* si no existe se crea y se añade el movimiento */
+            HashMap* tmp = createMap(20);
+            insertMap(tmp, tmpMove->name, tmpMove);
+            insertMap(movementMap, tmpMove->type, tmp);
+        } else {
+            /* si existe se añade el movimiento */
+            insertMap(pair->value, tmpMove->name, tmpMove);
+        }
     }
     fclose(moves);
 }
