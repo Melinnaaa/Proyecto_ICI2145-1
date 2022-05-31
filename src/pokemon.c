@@ -44,6 +44,7 @@ void loadPokemons()
         }
         
     }
+    fclose(pokemon);
 }
 
 void loadMovements();
