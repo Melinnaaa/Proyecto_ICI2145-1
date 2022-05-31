@@ -41,6 +41,9 @@ struct Movements {
 
 
 void loadMovements();
+void loadProfiles();
+void showPlayers();
+
 
 int main() {
     printf("pokemon.exe\n");
