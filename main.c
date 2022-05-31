@@ -41,6 +41,17 @@ void loadMovements();
 
 int main() {
     loadMovements();
+    while (in != 0) {
+        switch(in)  {
+            case 1: // Cargar perfiles
+            loadProfiles();
+            break;
+            case 2: // Mostrar jugadores
+            showPlayers();
+            break;
+        }
+    }
+    printf("Shao\n");
     
     return 0;
 }
