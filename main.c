@@ -22,15 +22,16 @@ int main() {
         createPlayer(&players[i]);
     }
     int in = -1;
-    //loadMovements();
     while (in != 0) {
         showMenu();
         scanf("%d", &in);
+        getchar();
         switch(in)  
         {
             case 1: // Crear perfil
             {
                 createProfile();
+                break;
             }
             case 2: // Cargar perfiles
             {
