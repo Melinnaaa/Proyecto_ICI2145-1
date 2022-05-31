@@ -9,7 +9,6 @@
 #include "player.h"
 
 struct Movements {
-    FILE *csv;
     HashMap *data;
 } movements;
 
