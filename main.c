@@ -10,7 +10,11 @@ typedef struct {
 } Item;
 
 typedef struct {
-    Item *inventory;
+    Item *item;
+    int qty;
+} PlayerItem;
+    // Inventario
+    PlayerItem inventory[10];
 } Player;
 
 typedef struct {
