@@ -4,7 +4,8 @@
 
 typedef struct {
     char name[30];
-    int wins, losses;
+    int wins;
+    int losses;
     // Inventario
     PlayerItem inventory[10];
 } Player;
