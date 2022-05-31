@@ -2,4 +2,5 @@
 out
 .cache/clangd/index
 .ccls-cache
-pokemon*
+pokemon.exe
+pokemon
