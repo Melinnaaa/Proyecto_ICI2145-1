@@ -30,7 +30,7 @@ int main() {
         {
             case 1: // Crear perfil
             {
-                createProfile();
+                createProfile(pokemons);
                 break;
             }
             case 2: // Cargar perfiles
