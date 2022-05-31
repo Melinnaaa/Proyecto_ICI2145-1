@@ -17,7 +17,7 @@ int HP;
 //Movement* moves[4];
 } Pokemon;
 
-void loadMovements();
+void loadMovements(HashMap* movementMap);
 void loadPokemons();
 
 #endif
