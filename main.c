@@ -48,7 +48,7 @@ void showPlayers();
 
 
 int main() {
-    printf("pokemon.exe\n");
+    printf("Bienvenido a pokemon.exe\n");
 
     // Jugadores
     Player players[2];
@@ -61,13 +61,22 @@ int main() {
     while (in != 0) {
         showMenu();
         scanf("%d", &in);
-        switch(in)  {
-            case 1: // Cargar perfiles
-            loadProfiles();
-            break;
-            case 2: // Mostrar jugadores
-            showPlayers();
-            break;
+        switch(in)  
+        {
+            case 1: // Crear perfil
+            {
+                createProfile();
+            }
+            case 2: // Cargar perfiles
+            {
+                loadProfiles();
+                break;
+            }
+            case 3: // Mostrar jugadores
+            {
+                showPlayers();
+                break;
+            }
         }
     }
     printf("Shao\n");
