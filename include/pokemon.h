@@ -28,5 +28,7 @@ typedef struct PlayerPokemon {
 void loadMovements(HashMap* movementMap);
 void loadPokemons(HashMap *map);
 
+void randomizeMovements(PlayerPokemon *ppk);
+
 
 #endif
