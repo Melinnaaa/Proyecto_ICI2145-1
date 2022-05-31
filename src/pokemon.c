@@ -1,5 +1,7 @@
 #include "pokemon.h"
 #include  <stdio.h>
+#include "list.h"
+#include "hashmap.h"
 
 void loadPokemons()
 {
@@ -29,7 +31,8 @@ void loadPokemons()
                 }
                 case 2:
                 {
-                    tmpPkm->type =
+                    tmpPkm->type = listCreate();
+                    printf("%s\n", aux);
                     break;
                 }
                 case 3:
