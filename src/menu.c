@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "menu.h"
+#include "player.h"
 
 void showMenu()
 {
@@ -10,6 +11,11 @@ void showMenu()
 
 void createProfile()
 {
+    Player player;
     printf("Ingrese el nombre del jugador: ");
+    fflush(stdin);
+    scanf("%[^\n]*s", player.name);
+    getchar();
+
 }
 
