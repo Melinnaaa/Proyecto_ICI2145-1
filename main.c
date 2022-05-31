@@ -1,46 +1,20 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "hashmap.h"
+
 #include "menu.h"
 #include "pokemon.h"
-
-
-typedef struct {
-    int ID;
-    char name[30];
-    int price;
-} Item;
-
-typedef struct {
-    Item *item;
-    int qty;
-} PlayerItem;
-
-void showItem(Item *item);
-
-
-
-typedef struct {
-    char name[30];
-    int wins, losses;
-    // Inventario
-    PlayerItem inventory[10];
-} Player;
-
-void createPlayer(Player *player);
-void showPlayer(Player *player);
-
-typedef struct {
-
-} HashMap;
+#include "item.h"
+#include "player.h"
 
 struct Movements {
     FILE *csv;
     HashMap *data;
 } movements;
 
-
 void loadMovements();
+
 void loadProfiles();
 void showPlayers();
 
