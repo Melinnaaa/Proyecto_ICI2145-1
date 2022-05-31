@@ -6,7 +6,7 @@
 #include "csvread.h"
 #include "util.h"
 
-void loadPokemons()
+void loadPokemons(HashMap *map)
 {
     FILE* pokemon = fopen ("out.csv", "r");
     char linea[1024];
@@ -40,10 +40,10 @@ void loadPokemons()
                     tmpPkm->HP = atoi(aux);
                     break;
                 }
-            }  
-        }
-        
-    }
+            } // switch  
+        } //for
+        insertMap(map, tmpPkm->name, tmpPkm);
+    } // while
     fclose(pokemon);
 }
 
@@ -92,3 +92,4 @@ void loadMovements(HashMap* movementMap)
     }
     fclose(moves);
 }
+

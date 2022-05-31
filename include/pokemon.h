@@ -1,6 +1,7 @@
 #ifndef POKEMON_H
 #define POKEMON_H
- #include "list.h"
+#include "list.h"
+#include "hashmap.h"
 typedef struct Movement {
     char name[30];
     char type[30];
@@ -17,7 +18,9 @@ int HP;
 //Movement* moves[4];
 } Pokemon;
 
+
 void loadMovements(HashMap* movementMap);
-void loadPokemons();
+void loadPokemons(HashMap *map);
+
 
 #endif
