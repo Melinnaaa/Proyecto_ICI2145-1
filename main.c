@@ -19,6 +19,9 @@ void showItem(Item *item);
 
 
 
+typedef struct {
+    char name[30];
+    int wins, losses;
     // Inventario
     PlayerItem inventory[10];
 } Player;
