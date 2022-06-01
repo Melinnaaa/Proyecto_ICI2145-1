@@ -10,6 +10,8 @@ typedef struct Movement {
     float accuracy;
 } Movement;
 
+void loadMovements(HashMap* movementMap);
+
 typedef struct Pokemon{
 int ID;
 List* type;
@@ -18,6 +20,9 @@ int HP;
 //Movement* moves[4];
 } Pokemon;
 
+void loadPokemons(HashMap *map);
+void showPokemon(Pokemon *pokemon);
+
 typedef struct PlayerPokemon {
     Pokemon *ptr;
     Movement *movements[4];
@@ -25,10 +30,9 @@ typedef struct PlayerPokemon {
 } PlayerPokemon;
 
 
-void loadMovements(HashMap* movementMap);
-void loadPokemons(HashMap *map);
-
 void randomizeMovements(PlayerPokemon *ppk);
+
+
 
 
 #endif
