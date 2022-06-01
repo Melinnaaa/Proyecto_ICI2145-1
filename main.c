@@ -30,7 +30,8 @@ int main() {
         {
             case 1: // Crear perfil
             {
-                createProfile(pokemons);
+                createProfile(players, pokemons);
+
                 break;
             }
             case 2: // Cargar perfiles
@@ -45,7 +46,7 @@ int main() {
             }
         }
     }
-    printf("Shao\n");
+    printf("lo vimoh\n");
     
     return 0;
 }
@@ -59,6 +60,9 @@ void createPlayer(Player *p)
         p->inventory[i].qty = 0;
         p->inventory[i].item = NULL;
     }
+    p->wins = 0;
+    p->losses = 0;
+ 
 }
 
 //menu
@@ -75,6 +79,8 @@ void showPlayer(Player *p)
     printf("Jugador %s\n", p->name);
     printf("Victorias %d\n", p->wins);
     printf("Derrotas %d\n", p->losses);
+    printf("Ratio victorias / derrotas %f\n", (p->losses && p->wins)  ?
+            ((float)p->wins / p->losses) : 0 );
     // Inventario
     for(int i = 0; i < 10; i++) {
         if(p->inventory[i].item != NULL) {
