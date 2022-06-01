@@ -107,6 +107,7 @@ void randomizeMovements(PlayerPokemon *ppk, HashMap* map)
 {
     /* Recorremos la lista de los tipos */
     int j = 0;
+    int l = 0;
     HashMap* tmp;
     int num;
     /* i: string que recorre los tipos
@@ -117,17 +118,27 @@ void randomizeMovements(PlayerPokemon *ppk, HashMap* map)
     {
         /* si el siguiente elemento es NULL Y
          * si estamos en el primer elemento */
+        tmp = searchMap(map, i)->value;
         if (listNext(ppk->ptr->type) && j == 0)
         {
             for (int k = 0 ; k < 4 ; k++)
             {
-                tmp = searchMap(map, i)->value;
                 num = ((rand()  % ((map->capacity) - 1) + 1));
-                searchMap(tmp, num);
+                while (tmp->buckets[num] != NULL)
+                    num++;
+                ppk->movements[k] = tmp->buckets[num]->value;
             }
             
         } else { // si no
             /* añadimos dos movimientos */
+            for (int k = 0 ; k < 2 ; k++)
+            {
+                num = ((rand()  % ((map->capacity) - 1) + 1));
+                while (tmp->buckets[num] != NULL)
+                    num++;
+                ppk->movements[l] = tmp->buckets[num]->value;
+            }
+            l++;
         }
         
         j++;
