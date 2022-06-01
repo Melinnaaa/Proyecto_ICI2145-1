@@ -4,3 +4,6 @@ out
 .ccls-cache
 pokemon.exe
 pokemon
+.vscode/configurationCache.log
+.vscode/dryrun.log
+.vscode/targets.log
