@@ -15,7 +15,7 @@ void showMenu()
     printf("3. Mostrar Perfiles: \n");
 }
 
-void createProfile(Player *player, HashMap *pokeMap)
+void createProfile(Player *player, HashMap *pokeMap, HashMap *movements)
 {
     /* Par y pokémon utilizados para la búsqueda */
     HashMapPair *pair;
@@ -68,6 +68,7 @@ void createProfile(Player *player, HashMap *pokeMap)
             if (pair != NULL)
             {
                 playerPokemon.ptr = pair->value;
+                randomizeMovements(&playerPokemon, movements);
                 player[j].pokemons[i] = playerPokemon;
                 showPokemon(playerPokemon.ptr);
             } else {

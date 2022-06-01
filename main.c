@@ -34,7 +34,7 @@ int main() {
         {
             case 1: // Crear perfil
             {
-                createProfile(players, pokemons);
+                createProfile(players, pokemons, movements);
 
                 break;
             }

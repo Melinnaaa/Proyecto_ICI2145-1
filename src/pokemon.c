@@ -31,7 +31,7 @@ void loadPokemons(HashMap *map)
                 }
                 case 2://Se guarda los tipos
                 {
-                    tmpPkm->type = strToList(aux, ",");
+                    tmpPkm->type = strToList(aux, ", ");
                     break;
                 }
                 case 3://Se guarda la vida
@@ -105,6 +105,9 @@ void loadMovements(HashMap* movementMap)
 
 void randomizeMovements(PlayerPokemon *ppk, HashMap* map)
 {
+    printf("!!%s\n", 
+            (
+             (Movement*)(searchMap(searchMap(map, "Lucha")->value,"Jump Kick")->value))->name);
     /* Recorremos la lista de los tipos */
     int j = 0;
     int l = 0;
@@ -119,13 +122,18 @@ void randomizeMovements(PlayerPokemon *ppk, HashMap* map)
         /* si el siguiente elemento es NULL Y
          * si estamos en el primer elemento */
         tmp = searchMap(map, i)->value;
-        if (listNext(ppk->ptr->type) && j == 0)
+        if (ppk->ptr->type->current->next == NULL && j == 0)
         {
             for (int k = 0 ; k < 4 ; k++)
             {
-                num = ((rand()  % ((map->capacity) - 1) + 1));
-                while (tmp->buckets[num] != NULL)
+                num = ((rand()  % ((tmp->capacity/2) - 1) + 1));
+                printf("num %d\n, ", num);
+                while (tmp->buckets[num] == NULL) {
+
+                    if (num > tmp->capacity)
+                        num = 0;
                     num++;
+                }
                 ppk->movements[k] = tmp->buckets[num]->value;
             }
             
@@ -133,9 +141,12 @@ void randomizeMovements(PlayerPokemon *ppk, HashMap* map)
             /* añadimos dos movimientos */
             for (int k = 0 ; k < 2 ; k++)
             {
-                num = ((rand()  % ((map->capacity) - 1) + 1));
-                while (tmp->buckets[num] != NULL)
+                num = ((rand()  % ((tmp->capacity) - 1) + 1));
+                while (tmp->buckets[num] == NULL || tmp->buckets[num]->value == NULL) {
+                    if (num > tmp->capacity) 
+                        num = 0;
                     num++;
+                }
                 ppk->movements[l] = tmp->buckets[num]->value;
             }
             l++;
