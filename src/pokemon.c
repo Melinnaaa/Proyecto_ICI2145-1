@@ -152,3 +152,13 @@ void showPokemon(Pokemon* pokemon)
     printf("Tipo/s del pokemon: ");
     showList(pokemon->type);
 }
+
+void showPlayerPokemon(PlayerPokemon *pokemon)
+{
+    showPokemon(pokemon->ptr);
+    printf("Movimientos: \n");
+    for(int i = 0; i < 4; i++)
+    {
+        printf("  %s\n", pokemon->movements[i]->name);
+    }
+}

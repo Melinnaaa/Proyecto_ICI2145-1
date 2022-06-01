@@ -91,6 +91,11 @@ void showPlayer(Player *p)
             showItem(p->inventory[i].item);
         }
     }
+
+    for(int i = 0; i < 4; i++) 
+    {
+        showPlayerPokemon(&p->pokemons[i]);
+    }
 }
 
 //TODO
