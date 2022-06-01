@@ -1,918 +1,918 @@
-0,Abomasnow,"Grass, Ice",90
-1,Abomasnow-Mega,"Grass, Ice",90
-2,Abra,Psychic,25
-3,Absol,Dark,65
-4,Absol-Mega,Dark,65
-5,Accelgor,Bug,80
-6,Aegislash,"Steel, Ghost",60
-7,Aegislash-Blade,"Steel, Ghost",60
-8,Aerodactyl,"Rock, Flying",80
-9,Aerodactyl-Mega,"Rock, Flying",80
-10,Aggron,"Rock, Steel",70
-11,Aggron-Mega,Steel,70
+0,Abomasnow,"Planta, Hielo",90
+1,Abomasnow-Mega,"Planta, Hielo",90
+2,Abra,Psiquico,25
+3,Absol,Siniestro,65
+4,Absol-Mega,Siniestro,65
+5,Accelgor,Bicho,80
+6,Aegislash,"Acero, Fantasma",60
+7,Aegislash-Blade,"Acero, Fantasma",60
+8,Aerodactyl,"Roca, Volador",80
+9,Aerodactyl-Mega,"Roca, Volador",80
+10,Aggron,"Roca, Acero",70
+11,Aggron-Mega,Acero,70
 12,Aipom,Normal,55
-13,Alakazam,Psychic,55
-14,Alakazam-Mega,Psychic,55
-15,Alomomola,Water,165
-16,Altaria,"Dragon, Flying",75
-17,Altaria-Mega,"Dragon, Fairy",75
-18,Amaura,"Rock, Ice",77
+13,Alakazam,Psiquico,55
+14,Alakazam-Mega,Psiquico,55
+15,Alomomola,Agua,165
+16,Altaria,"Dragon, Volador",75
+17,Altaria-Mega,"Dragon, Hada",75
+18,Amaura,"Roca, Hielo",77
 19,Ambipom,Normal,75
-20,Amoonguss,"Grass, Poison",114
-21,Ampharos,Electric,90
-22,Ampharos-Mega,"Electric, Dragon",90
-23,Anorith,"Bug, Rock",45
-24,Araquanid,"Water, Bug",68
-25,Arbok,Poison,60
-26,Arcanine,Fire,90
+20,Amoonguss,"Planta, Veneno",114
+21,Ampharos,Electrico,90
+22,Ampharos-Mega,"Electrico, Dragon",90
+23,Anorith,"Bicho, Roca",45
+24,Araquanid,"Agua, Bicho",68
+25,Arbok,Veneno,60
+26,Arcanine,Fuego,90
 27,Arceus,Normal,120
-28,Archen,"Rock, Flying",55
-29,Archeops,"Rock, Flying",75
-30,Ariados,"Bug, Poison",70
-31,Armaldo,"Bug, Rock",75
-32,Aromatisse,Fairy,101
-33,Aron,"Rock, Steel",50
-34,Articuno,"Ice, Flying",90
+28,Archen,"Roca, Volador",55
+29,Archeops,"Roca, Volador",75
+30,Ariados,"Bicho, Veneno",70
+31,Armaldo,"Bicho, Roca",75
+32,Aromatisse,Hada,101
+33,Aron,"Roca, Acero",50
+34,Articuno,"Hielo, Volador",90
 35,Audino,Normal,103
-36,Audino-Mega,"Normal, Fairy",103
-37,Aurorus,"Rock, Ice",123
-38,Avalugg,Ice,95
+36,Audino-Mega,"Normal, Hada",103
+37,Aurorus,"Roca, Hielo",123
+38,Avalugg,Hielo,95
 39,Axew,Dragon,46
-40,Azelf,Psychic,75
-41,Azumarill,"Water, Fairy",100
-42,Azurill,"Normal, Fairy",50
+40,Azelf,Psiquico,75
+41,Azumarill,"Agua, Hada",100
+42,Azurill,"Normal, Hada",50
 43,Bagon,Dragon,45
-44,Baltoy,"Ground, Psychic",40
-45,Banette,Ghost,64
-46,Banette-Mega,Ghost,64
-47,Barbaracle,"Rock, Water",72
-48,Barboach,"Ground, Water",50
-49,Basculin,Water,70
-50,Bastiodon,"Rock, Steel",60
-51,Bayleef,Grass,60
-52,Beartic,Ice,95
-53,Beautifly,"Bug, Flying",60
-54,Beedrill,"Bug, Poison",65
-55,Beedrill-Mega,"Bug, Poison",65
-56,Beheeyem,Psychic,75
-57,Beldum,"Psychic, Steel",40
-58,Bellossom,Grass,75
-59,Bellsprout,"Grass, Poison",50
-60,Bergmite,Ice,56
-61,Bewear,"Normal, Fighting",120
-62,Bibarel,"Normal, Water",79
+44,Baltoy,"Tierra, Psiquico",40
+45,Banette,Fantasma,64
+46,Banette-Mega,Fantasma,64
+47,Barbaracle,"Roca, Agua",72
+48,Barboach,"Tierra, Agua",50
+49,Basculin,Agua,70
+50,Bastiodon,"Roca, Acero",60
+51,Bayleef,Planta,60
+52,Beartic,Hielo,95
+53,Beautifly,"Bicho, Volador",60
+54,Beedrill,"Bicho, Veneno",65
+55,Beedrill-Mega,"Bicho, Veneno",65
+56,Beheeyem,Psiquico,75
+57,Beldum,"Psiquico, Acero",40
+58,Bellossom,Planta,75
+59,Bellsprout,"Planta, Veneno",50
+60,Bergmite,Hielo,56
+61,Bewear,"Normal, Lucha",120
+62,Bibarel,"Normal, Agua",79
 63,Bidoof,Normal,59
-64,Binacle,"Rock, Water",42
-65,Bisharp,"Dark, Steel",65
-66,Blacephalon,"Fire, Ghost",53
-67,Blastoise,Water,79
-68,Blastoise-Mega,Water,79
-69,Blaziken,"Fire, Fighting",80
-70,Blaziken-Mega,"Fire, Fighting",80
+64,Binacle,"Roca, Agua",42
+65,Bisharp,"Siniestro, Acero",65
+66,Blacephalon,"Fuego, Fantasma",53
+67,Blastoise,Agua,79
+68,Blastoise-Mega,Agua,79
+69,Blaziken,"Fuego, Lucha",80
+70,Blaziken-Mega,"Fuego, Lucha",80
 71,Blissey,Normal,255
-72,Blitzle,Electric,45
-73,Boldore,Rock,70
-74,Bonsly,Rock,50
+72,Blitzle,Electrico,45
+73,Boldore,Roca,70
+74,Bonsly,Roca,50
 75,Bouffalant,Normal,95
-76,Bounsweet,Grass,42
-77,Braixen,Fire,59
-78,Braviary,"Flying, Normal",100
-79,Breloom,"Fighting, Grass",60
-80,Brionne,Water,60
-81,Bronzong,"Psychic, Steel",67
-82,Bronzor,"Psychic, Steel",57
-83,Bruxish,"Psychic, Water",68
-84,Budew,"Grass, Poison",40
-85,Buizel,Water,55
-86,Bulbasaur,"Grass, Poison",45
+76,Bounsweet,Planta,42
+77,Braixen,Fuego,59
+78,Braviary,"Volador, Normal",100
+79,Breloom,"Lucha, Planta",60
+80,Brionne,Agua,60
+81,Bronzong,"Psiquico, Acero",67
+82,Bronzor,"Psiquico, Acero",57
+83,Bruxish,"Psiquico, Agua",68
+84,Budew,"Planta, Veneno",40
+85,Buizel,Agua,55
+86,Bulbasaur,"Planta, Veneno",45
 87,Buneary,Normal,55
 88,Bunnelby,Normal,38
-89,Burmy,Bug,40
-90,Butterfree,"Bug, Flying",60
-91,Buzzwole,"Bug, Fighting",107
-92,Cacnea,Grass,50
-93,Cacturne,"Dark, Grass",70
-94,Camerupt,"Fire, Ground",70
-95,Camerupt-Mega,"Fire, Ground",70
-96,Carbink,"Rock, Fairy",50
-97,Carnivine,Grass,74
-98,Carracosta,"Rock, Water",74
-99,Carvanha,"Dark, Water",45
-100,Cascoon,Bug,50
+89,Burmy,Bicho,40
+90,Butterfree,"Bicho, Volador",60
+91,Buzzwole,"Bicho, Lucha",107
+92,Cacnea,Planta,50
+93,Cacturne,"Siniestro, Planta",70
+94,Camerupt,"Fuego, Tierra",70
+95,Camerupt-Mega,"Fuego, Tierra",70
+96,Carbink,"Roca, Hada",50
+97,Carnivine,Planta,74
+98,Carracosta,"Roca, Agua",74
+99,Carvanha,"Siniestro, Agua",45
+100,Cascoon,Bicho,50
 101,Castform,Normal,70
-102,Caterpie,Bug,45
-103,Celebi,"Grass, Psychic",100
-104,Celesteela,"Steel, Flying",97
-105,Chandelure,"Fire, Ghost",60
+102,Caterpie,Bicho,45
+103,Celebi,"Planta, Psiquico",100
+104,CeleAceroa,"Acero, Volador",97
+105,Chandelure,"Fuego, Fantasma",60
 106,Chansey,Normal,250
-107,Charizard,"Fire, Flying",78
-108,Charizard-Mega-X,"Fire, Dragon",78
-109,Charizard-Mega-Y,"Fire, Flying",78
-110,Charjabug,"Bug, Electric",57
-111,Charmander,Fire,39
-112,Charmeleon,Fire,58
-113,Chatot,"Flying, Normal",76
-114,Cherrim,Grass,70
-115,Cherubi,Grass,45
-116,Chesnaught,"Grass, Fighting",88
-117,Chespin,Grass,56
-118,Chikorita,Grass,45
-119,Chimchar,Fire,44
-120,Chimecho,Psychic,75
-121,Chinchou,"Electric, Water",75
-122,Chingling,Psychic,45
+107,Charizard,"Fuego, Volador",78
+108,Charizard-Mega-X,"Fuego, Dragon",78
+109,Charizard-Mega-Y,"Fuego, Volador",78
+110,CharjaBicho,"Bicho, Electrico",57
+111,Charmander,Fuego,39
+112,Charmeleon,Fuego,58
+113,Chatot,"Volador, Normal",76
+114,Cherrim,Planta,70
+115,Cherubi,Planta,45
+116,Chesnaught,"Planta, Lucha",88
+117,Chespin,Planta,56
+118,Chikorita,Planta,45
+119,Chimchar,Fuego,44
+120,Chimecho,Psiquico,75
+121,Chinchou,"Electrico, Agua",75
+122,Chingling,Psiquico,45
 123,Cinccino,Normal,75
-124,Clamperl,Water,35
-125,Clauncher,Water,50
-126,Clawitzer,Water,71
-127,Claydol,"Ground, Psychic",60
-128,Clefable,Fairy,95
-129,Clefairy,Fairy,70
-130,Cleffa,Fairy,50
-131,Cloyster,"Ice, Water",50
-132,Cobalion,"Fighting, Steel",91
-133,Cofagrigus,Ghost,58
-134,Combee,"Bug, Flying",30
-135,Combusken,"Fighting, Fire",60
-136,Comfey,Fairy,51
-137,Conkeldurr,Fighting,105
-138,Corphish,Water,43
-139,Corsola,"Rock, Water",65
-140,Cosmoem,Psychic,43
-141,Cosmog,Psychic,43
-142,Cottonee,"Grass, Fairy",40
-143,Crabominable,"Fighting, Ice",97
-144,Crabrawler,Fighting,47
-145,Cradily,"Grass, Rock",86
-146,Cranidos,Rock,67
-147,Crawdaunt,"Dark, Water",63
-148,Cresselia,Psychic,120
-149,Croagunk,"Fighting, Poison",48
-150,Crobat,"Flying, Poison",85
-151,Croconaw,Water,65
-152,Crustle,"Bug, Rock",70
-153,Cryogonal,Ice,80
-154,Cubchoo,Ice,55
-155,Cubone,Ground,50
-156,Cutiefly,"Bug, Fairy",40
-157,Cyndaquil,Fire,39
-158,Darkrai,Dark,70
-159,Darmanitan,Fire,105
-160,Darmanitan-Zen,"Fire, Psychic",105
-161,Dartrix,"Grass, Flying",78
-162,Darumaka,Fire,70
-163,Decidueye,"Grass, Ghost",78
-164,Dedenne,"Electric, Fairy",67
-165,Deerling,"Grass, Normal",60
-166,Deino,"Dark, Dragon",52
+124,Clamperl,Agua,35
+125,Clauncher,Agua,50
+126,Clawitzer,Agua,71
+127,Claydol,"Tierra, Psiquico",60
+128,Clefable,Hada,95
+129,CleHada,Hada,70
+130,Cleffa,Hada,50
+131,Cloyster,"Hielo, Agua",50
+132,Cobalion,"Lucha, Acero",91
+133,Cofagrigus,Fantasma,58
+134,Combee,"Bicho, Volador",30
+135,Combusken,"Lucha, Fuego",60
+136,Comfey,Hada,51
+137,Conkeldurr,Lucha,105
+138,Corphish,Agua,43
+139,Corsola,"Roca, Agua",65
+140,Cosmoem,Psiquico,43
+141,Cosmog,Psiquico,43
+142,Cottonee,"Planta, Hada",40
+143,Crabominable,"Lucha, Hielo",97
+144,Crabrawler,Lucha,47
+145,Cradily,"Planta, Roca",86
+146,Cranidos,Roca,67
+147,Crawdaunt,"Siniestro, Agua",63
+148,Cresselia,Psiquico,120
+149,Croagunk,"Lucha, Veneno",48
+150,Crobat,"Volador, Veneno",85
+151,Croconaw,Agua,65
+152,Crustle,"Bicho, Roca",70
+153,Cryogonal,Hielo,80
+154,Cubchoo,Hielo,55
+155,Cubone,Tierra,50
+156,Cutiefly,"Bicho, Hada",40
+157,Cyndaquil,Fuego,39
+158,Siniestrorai,Siniestro,70
+159,Darmanitan,Fuego,105
+160,Darmanitan-Zen,"Fuego, Psiquico",105
+161,Dartrix,"Planta, Volador",78
+162,Darumaka,Fuego,70
+163,Decidueye,"Planta, Fantasma",78
+164,Dedenne,"Electrico, Hada",67
+165,Deerling,"Planta, Normal",60
+166,Deino,"Siniestro, Dragon",52
 167,Delcatty,Normal,70
-168,Delibird,"Flying, Ice",45
-169,Delphox,"Fire, Psychic",75
-170,Deoxys,Psychic,50
-171,Deoxys-Attack,Psychic,50
-172,Deoxys-Defense,Psychic,50
-173,Deoxys-Speed,Psychic,50
-174,Dewgong,"Ice, Water",90
-175,Dewott,Water,75
-176,Dewpider,"Water, Bug",38
-177,Dhelmise,"Ghost, Grass",70
-178,Dialga,"Dragon, Steel",100
-179,Diancie,"Rock, Fairy",50
-180,Diancie-Mega,"Rock, Fairy",50
-181,Diggersby,"Normal, Ground",85
-182,Diglett,Ground,10
-183,Diglett-Alola,"Ground, Steel",10
+168,Delibird,"Volador, Hielo",45
+169,Delphox,"Fuego, Psiquico",75
+170,Deoxys,Psiquico,50
+171,Deoxys-Attack,Psiquico,50
+172,Deoxys-Defense,Psiquico,50
+173,Deoxys-Speed,Psiquico,50
+174,Dewgong,"Hielo, Agua",90
+175,Dewott,Agua,75
+176,Dewpider,"Agua, Bicho",38
+177,Dhelmise,"Fantasma, Planta",70
+178,Dialga,"Dragon, Acero",100
+179,Diancie,"Roca, Hada",50
+180,Diancie-Mega,"Roca, Hada",50
+181,Diggersby,"Normal, Tierra",85
+182,Diglett,Tierra,10
+183,Diglett-Alola,"Tierra, Acero",10
 184,Ditto,Normal,48
-185,Dodrio,"Flying, Normal",60
-186,Doduo,"Flying, Normal",35
-187,Donphan,Ground,90
-188,Doublade,"Steel, Ghost",59
-189,Dragalge,"Poison, Dragon",65
+185,Dodrio,"Volador, Normal",60
+186,Doduo,"Volador, Normal",35
+187,Donphan,Tierra,90
+188,Doublade,"Acero, Fantasma",59
+189,Dragalge,"Veneno, Dragon",65
 190,Dragonair,Dragon,61
-191,Dragonite,"Dragon, Flying",91
+191,Dragonite,"Dragon, Volador",91
 192,Drampa,"Normal, Dragon",78
-193,Drapion,"Dark, Poison",70
+193,Drapion,"Siniestro, Veneno",70
 194,Dratini,Dragon,41
-195,Drifblim,"Flying, Ghost",150
-196,Drifloon,"Flying, Ghost",90
-197,Drilbur,Ground,60
-198,Drowzee,Psychic,60
+195,Drifblim,"Volador, Fantasma",150
+196,Drifloon,"Volador, Fantasma",90
+197,Drilbur,Tierra,60
+198,Drowzee,Psiquico,60
 199,Druddigon,Dragon,77
-200,Ducklett,"Flying, Water",62
-201,Dugtrio,Ground,35
-202,Dugtrio-Alola,"Ground, Steel",35
+200,Ducklett,"Volador, Agua",62
+201,Dugtrio,Tierra,35
+202,Dugtrio-Alola,"Tierra, Acero",35
 203,Dunsparce,Normal,100
-204,Duosion,Psychic,65
-205,Durant,"Bug, Steel",58
-206,Dusclops,Ghost,40
-207,Dusknoir,Ghost,45
-208,Duskull,Ghost,20
-209,Dustox,"Bug, Poison",60
-210,Dwebble,"Bug, Rock",50
-211,Eelektrik,Electric,65
-212,Eelektross,Electric,85
+204,Duosion,Psiquico,65
+205,Durant,"Bicho, Acero",58
+206,Dusclops,Fantasma,40
+207,Dusknoir,Fantasma,45
+208,Duskull,Fantasma,20
+209,Dustox,"Bicho, Veneno",60
+210,Dwebble,"Bicho, Roca",50
+211,Eelektrik,Electrico,65
+212,Eelektross,Electrico,85
 213,Eevee,Normal,55
-214,Ekans,Poison,35
-215,Electabuzz,Electric,65
-216,Electivire,Electric,75
-217,Electrike,Electric,40
-218,Electrode,Electric,60
-219,Elekid,Electric,45
-220,Elgyem,Psychic,55
-221,Emboar,"Fighting, Fire",110
-222,Emolga,"Electric, Flying",55
-223,Empoleon,"Steel, Water",84
-224,Entei,Fire,115
-225,Escavalier,"Bug, Steel",70
-226,Espeon,Psychic,65
-227,Espurr,Psychic,62
-228,Excadrill,"Ground, Steel",110
-229,Exeggcute,"Grass, Psychic",60
-230,Exeggutor,"Grass, Psychic",95
-231,Exeggutor-Alola,"Grass, Dragon",95
+214,Ekans,Veneno,35
+215,Electabuzz,Electrico,65
+216,Electivire,Electrico,75
+217,Electrike,Electrico,40
+218,Electrode,Electrico,60
+219,Elekid,Electrico,45
+220,Elgyem,Psiquico,55
+221,Emboar,"Lucha, Fuego",110
+222,Emolga,"Electrico, Volador",55
+223,Empoleon,"Acero, Agua",84
+224,Entei,Fuego,115
+225,Escavalier,"Bicho, Acero",70
+226,Espeon,Psiquico,65
+227,Espurr,Psiquico,62
+228,Excadrill,"Tierra, Acero",110
+229,Exeggcute,"Planta, Psiquico",60
+230,Exeggutor,"Planta, Psiquico",95
+231,Exeggutor-Alola,"Planta, Dragon",95
 232,Exploud,Normal,104
-233,Farfetchd,"Normal, Flying",52
-234,Fearow,"Flying, Normal",65
-235,Feebas,Water,20
-236,Fennekin,Fire,40
-237,Feraligatr,Water,85
-238,Ferroseed,"Grass, Steel",44
-239,Ferrothorn,"Grass, Steel",74
-240,Finneon,Water,49
-241,Flaaffy,Electric,70
-242,Flabebe,Fairy,44
-243,Flareon,Fire,65
-244,Fletchinder,"Fire, Flying",62
-245,Fletchling,"Normal, Flying",45
-246,Floatzel,Water,85
-247,Floette,Fairy,54
-248,Floette-Eternal,Fairy,74
-249,Florges,Fairy,78
-250,Flygon,"Dragon, Ground",80
-251,Fomantis,Grass,40
-252,Foongus,"Grass, Poison",69
-253,Forretress,"Bug, Steel",75
+233,Farfetchd,"Normal, Volador",52
+234,Fearow,"Volador, Normal",65
+235,Feebas,Agua,20
+236,Fennekin,Fuego,40
+237,Feraligatr,Agua,85
+238,Ferroseed,"Planta, Acero",44
+239,Ferrothorn,"Planta, Acero",74
+240,Finneon,Agua,49
+241,Flaaffy,Electrico,70
+242,Flabebe,Hada,44
+243,Flareon,Fuego,65
+244,Fletchinder,"Fuego, Volador",62
+245,Fletchling,"Normal, Volador",45
+246,Floatzel,Agua,85
+247,Floette,Hada,54
+248,Floette-Eternal,Hada,74
+249,Florges,Hada,78
+250,Flygon,"Dragon, Tierra",80
+251,Fomantis,Planta,40
+252,Foongus,"Planta, Veneno",69
+253,Forretress,"Bicho, Acero",75
 254,Fraxure,Dragon,66
-255,Frillish,"Ghost, Water",55
-256,Froakie,Water,41
-257,Frogadier,Water,54
-258,Froslass,"Ghost, Ice",70
+255,Frillish,"Fantasma, Agua",55
+256,Froakie,Agua,41
+257,Frogadier,Agua,54
+258,Froslass,"Fantasma, Hielo",70
 259,Furfrou,Normal,75
 260,Furret,Normal,85
-261,Gabite,"Dragon, Ground",68
-262,Gallade,"Fighting, Psychic",68
-263,Gallade-Mega,"Psychic, Fighting",68
-264,Galvantula,"Bug, Electric",70
-265,Garbodor,Poison,80
-266,Garchomp,"Dragon, Ground",108
-267,Garchomp-Mega,"Dragon, Ground",108
-268,Gardevoir,"Psychic, Fairy",68
-269,Gardevoir-Mega,"Psychic, Fairy",68
-270,Gastly,"Ghost, Poison",30
-271,Gastrodon,"Ground, Water",111
-272,Genesect,"Bug, Steel",71
-273,Gengar,"Ghost, Poison",60
-274,Gengar-Mega,"Ghost, Poison",60
-275,Geodude,"Ground, Rock",40
-276,Geodude-Alola,"Rock, Electric",40
-277,Gible,"Dragon, Ground",58
-278,Gigalith,Rock,85
-279,Girafarig,"Normal, Psychic",70
-280,Giratina,"Dragon, Ghost",150
-281,Giratina-Origin,"Dragon, Ghost",150
-282,Glaceon,Ice,65
-283,Glalie,Ice,80
-284,Glalie-Mega,Ice,80
+261,Gabite,"Dragon, Tierra",68
+262,Gallade,"Lucha, Psiquico",68
+263,Gallade-Mega,"Psiquico, Lucha",68
+264,Galvantula,"Bicho, Electrico",70
+265,Garbodor,Veneno,80
+266,Garchomp,"Dragon, Tierra",108
+267,Garchomp-Mega,"Dragon, Tierra",108
+268,Gardevoir,"Psiquico, Hada",68
+269,Gardevoir-Mega,"Psiquico, Hada",68
+270,Gastly,"Fantasma, Veneno",30
+271,Gastrodon,"Tierra, Agua",111
+272,Genesect,"Bicho, Acero",71
+273,Gengar,"Fantasma, Veneno",60
+274,Gengar-Mega,"Fantasma, Veneno",60
+275,Geodude,"Tierra, Roca",40
+276,Geodude-Alola,"Roca, Electrico",40
+277,Gible,"Dragon, Tierra",58
+278,Gigalith,Roca,85
+279,Girafarig,"Normal, Psiquico",70
+280,Giratina,"Dragon, Fantasma",150
+281,Giratina-Origin,"Dragon, Fantasma",150
+282,Glaceon,Hielo,65
+283,Glalie,Hielo,80
+284,Glalie-Mega,Hielo,80
 285,Glameow,Normal,49
-286,Gligar,"Ground, Flying",65
-287,Gliscor,"Ground, Flying",75
-288,Gloom,"Grass, Poison",60
-289,Gogoat,Grass,123
-290,Golbat,"Flying, Poison",75
-291,Goldeen,Water,45
-292,Golduck,Water,80
-293,Golem,"Ground, Rock",80
-294,Golem-Alola,"Rock, Electric",80
-295,Golett,"Ghost, Ground",59
-296,Golisopod,"Bug, Water",75
-297,Golurk,"Ghost, Ground",89
+286,Gligar,"Tierra, Volador",65
+287,Gliscor,"Tierra, Volador",75
+288,Gloom,"Planta, Veneno",60
+289,Gogoat,Planta,123
+290,Golbat,"Volador, Veneno",75
+291,Goldeen,Agua,45
+292,Golduck,Agua,80
+293,Golem,"Tierra, Roca",80
+294,Golem-Alola,"Roca, Electrico",80
+295,Golett,"Fantasma, Tierra",59
+296,Golisopod,"Bicho, Agua",75
+297,Golurk,"Fantasma, Tierra",89
 298,Goodra,Dragon,90
 299,Goomy,Dragon,45
-300,Gorebyss,Water,55
-301,Gothita,Psychic,45
-302,Gothitelle,Psychic,70
-303,Gothorita,Psychic,60
-304,Gourgeist,"Ghost, Grass",65
-305,Gourgeist-Large,"Ghost, Grass",75
-306,Gourgeist-Small,"Ghost, Grass",55
-307,Gourgeist-Super,"Ghost, Grass",85
-308,Granbull,Fairy,90
-309,Graveler,"Ground, Rock",55
-310,Graveler-Alola,"Rock, Electric",55
-311,Greninja,"Water, Dark",72
-312,Greninja-Ash,"Water, Dark",72
-313,Grimer,Poison,80
-314,Grimer-Alola,"Poison, Dark",80
-315,Grotle,Grass,75
-316,Groudon,Ground,100
-317,Groudon-Primal,"Ground, Fire",100
-318,Grovyle,Grass,50
-319,Growlithe,Fire,55
-320,Grubbin,Bug,47
-321,Grumpig,Psychic,80
-322,Gulpin,Poison,70
+300,Gorebyss,Agua,55
+301,Gothita,Psiquico,45
+302,Gothitelle,Psiquico,70
+303,Gothorita,Psiquico,60
+304,Gourgeist,"Fantasma, Planta",65
+305,Gourgeist-Large,"Fantasma, Planta",75
+306,Gourgeist-Small,"Fantasma, Planta",55
+307,Gourgeist-Super,"Fantasma, Planta",85
+308,Granbull,Hada,90
+309,Graveler,"Tierra, Roca",55
+310,Graveler-Alola,"Roca, Electrico",55
+311,Greninja,"Agua, Siniestro",72
+312,Greninja-Ash,"Agua, Siniestro",72
+313,Grimer,Veneno,80
+314,Grimer-Alola,"Veneno, Siniestro",80
+315,Grotle,Planta,75
+316,Groudon,Tierra,100
+317,Groudon-Primal,"Tierra, Fuego",100
+318,Grovyle,Planta,50
+319,Growlithe,Fuego,55
+320,Grubbin,Bicho,47
+321,Grumpig,Psiquico,80
+322,Gulpin,Veneno,70
 323,Gumshoos,Normal,88
-324,Gurdurr,Fighting,85
-325,Guzzlord,"Dark, Dragon",223
-326,Gyarados,"Flying, Water",95
-327,Gyarados-Mega,"Water, Dark",95
-328,Hakamo-o,"Dragon, Fighting",55
+324,Gurdurr,Lucha,85
+325,Guzzlord,"Siniestro, Dragon",223
+326,Gyarados,"Volador, Agua",95
+327,Gyarados-Mega,"Agua, Siniestro",95
+328,Hakamo-o,"Dragon, Lucha",55
 329,Happiny,Normal,100
-330,Hariyama,Fighting,144
-331,Haunter,"Ghost, Poison",45
-332,Hawlucha,"Fighting, Flying",78
+330,Hariyama,Lucha,144
+331,Haunter,"Fantasma, Veneno",45
+332,Hawlucha,"Lucha, Volador",78
 333,Haxorus,Dragon,76
-334,Heatmor,Fire,85
-335,Heatran,"Fire, Steel",91
-336,Heliolisk,"Electric, Normal",62
-337,Helioptile,"Electric, Normal",44
-338,Heracross,"Bug, Fighting",80
-339,Heracross-Mega,"Bug, Fighting",80
+334,Heatmor,Fuego,85
+335,Heatran,"Fuego, Acero",91
+336,Heliolisk,"Electrico, Normal",62
+337,Helioptile,"Electrico, Normal",44
+338,Heracross,"Bicho, Lucha",80
+339,Heracross-Mega,"Bicho, Lucha",80
 340,Herdier,Normal,65
-341,Hippopotas,Ground,68
-342,Hippowdon,Ground,108
-343,Hitmonchan,Fighting,50
-344,Hitmonlee,Fighting,50
-345,Hitmontop,Fighting,50
-346,Ho-Oh,"Fire, Flying",106
-347,Honchkrow,"Dark, Flying",100
-348,Honedge,"Steel, Ghost",45
-349,Hoopa,"Psychic, Ghost",80
-350,Hoopa-Unbound,"Psychic, Dark",80
-351,Hoothoot,"Flying, Normal",60
-352,Hoppip,"Flying, Grass",35
-353,Horsea,Water,30
-354,Houndoom,"Dark, Fire",75
-355,Houndoom-Mega,"Dark, Fire",75
-356,Houndour,"Dark, Fire",45
-357,Huntail,Water,55
-358,Hydreigon,"Dark, Dragon",92
-359,Hypno,Psychic,85
-360,Igglybuff,"Normal, Fairy",90
-361,Illumise,Bug,65
-362,Incineroar,"Fire, Dark",95
-363,Infernape,"Fighting, Fire",76
-364,Inkay,"Dark, Psychic",53
-365,Ivysaur,"Grass, Poison",60
+341,Hippopotas,Tierra,68
+342,Hippowdon,Tierra,108
+343,Hitmonchan,Lucha,50
+344,Hitmonlee,Lucha,50
+345,Hitmontop,Lucha,50
+346,Ho-Oh,"Fuego, Volador",106
+347,Honchkrow,"Siniestro, Volador",100
+348,Honedge,"Acero, Fantasma",45
+349,Hoopa,"Psiquico, Fantasma",80
+350,Hoopa-Unbound,"Psiquico, Siniestro",80
+351,Hoothoot,"Volador, Normal",60
+352,Hoppip,"Volador, Planta",35
+353,Horsea,Agua,30
+354,Houndoom,"Siniestro, Fuego",75
+355,Houndoom-Mega,"Siniestro, Fuego",75
+356,Houndour,"Siniestro, Fuego",45
+357,Huntail,Agua,55
+358,Hydreigon,"Siniestro, Dragon",92
+359,Hypno,Psiquico,85
+360,Igglybuff,"Normal, Hada",90
+361,Illumise,Bicho,65
+362,Incineroar,"Fuego, Siniestro",95
+363,Infernape,"Lucha, Fuego",76
+364,Inkay,"Siniestro, Psiquico",53
+365,Ivysaur,"Planta, Veneno",60
 366,Jangmo-o,Dragon,45
-367,Jellicent,"Ghost, Water",100
-368,Jigglypuff,"Normal, Fairy",115
-369,Jirachi,"Psychic, Steel",100
-370,Jolteon,Electric,65
-371,Joltik,"Bug, Electric",50
-372,Jumpluff,"Flying, Grass",75
-373,Jynx,"Ice, Psychic",65
-374,Kabuto,"Rock, Water",30
-375,Kabutops,"Rock, Water",60
-376,Kadabra,Psychic,40
-377,Kakuna,"Bug, Poison",45
+367,JellHielont,"Fantasma, Agua",100
+368,Jigglypuff,"Normal, Hada",115
+369,Jirachi,"Psiquico, Acero",100
+370,Jolteon,Electrico,65
+371,Joltik,"Bicho, Electrico",50
+372,Jumpluff,"Volador, Planta",75
+373,Jynx,"Hielo, Psiquico",65
+374,Kabuto,"Roca, Agua",30
+375,Kabutops,"Roca, Agua",60
+376,Kadabra,Psiquico,40
+377,Kakuna,"Bicho, Veneno",45
 378,Kangaskhan,Normal,105
 379,Kangaskhan-Mega,Normal,105
-380,Karrablast,Bug,50
-381,Kartana,"Grass, Steel",59
+380,Karrablast,Bicho,50
+381,Kartana,"Planta, Acero",59
 382,Kecleon,Normal,60
-383,Keldeo,"Fighting, Water",91
-384,Kingdra,"Dragon, Water",75
-385,Kingler,Water,55
-386,Kirlia,"Psychic, Fairy",38
-387,Klang,Steel,60
-388,Klefki,"Steel, Fairy",57
-389,Klink,Steel,40
-390,Klinklang,Steel,60
-391,Koffing,Poison,40
+383,Keldeo,"Lucha, Agua",91
+384,Kingdra,"Dragon, Agua",75
+385,Kingler,Agua,55
+386,Kirlia,"Psiquico, Hada",38
+387,Klang,Acero,60
+388,Klefki,"Acero, Hada",57
+389,Klink,Acero,40
+390,Klinklang,Acero,60
+391,Koffing,Veneno,40
 392,Komala,Normal,65
-393,Kommo-o,"Dragon, Fighting",75
-394,Krabby,Water,30
-395,Kricketot,Bug,37
-396,Kricketune,Bug,77
-397,Krokorok,"Dark, Ground",60
-398,Krookodile,"Dark, Ground",95
-399,Kyogre,Water,100
-400,Kyogre-Primal,Water,100
-401,Kyurem,"Dragon, Ice",125
-402,Kyurem-Black,"Dragon, Ice",125
-403,Kyurem-White,"Dragon, Ice",125
-404,Lairon,"Rock, Steel",60
-405,Lampent,"Fire, Ghost",60
-406,Landorus,"Flying, Ground",89
-407,Landorus-Therian,"Flying, Ground",89
-408,Lanturn,"Electric, Water",125
-409,Lapras,"Ice, Water",130
-410,Larvesta,"Bug, Fire",55
-411,Larvitar,"Ground, Rock",50
-412,Latias,"Dragon, Psychic",80
-413,Latias-Mega,"Dragon, Psychic",80
-414,Latios,"Dragon, Psychic",80
-415,Latios-Mega,"Dragon, Psychic",80
-416,Leafeon,Grass,65
-417,Leavanny,"Bug, Grass",75
-418,Ledian,"Bug, Flying",55
-419,Ledyba,"Bug, Flying",40
+393,Kommo-o,"Dragon, Lucha",75
+394,Krabby,Agua,30
+395,Kricketot,Bicho,37
+396,Kricketune,Bicho,77
+397,Krokorok,"Siniestro, Tierra",60
+398,Krookodile,"Siniestro, Tierra",95
+399,Kyogre,Agua,100
+400,Kyogre-Primal,Agua,100
+401,Kyurem,"Dragon, Hielo",125
+402,Kyurem-Black,"Dragon, Hielo",125
+403,Kyurem-White,"Dragon, Hielo",125
+404,Lairon,"Roca, Acero",60
+405,Lampent,"Fuego, Fantasma",60
+406,Landorus,"Volador, Tierra",89
+407,Landorus-Therian,"Volador, Tierra",89
+408,Lanturn,"Electrico, Agua",125
+409,Lapras,"Hielo, Agua",130
+410,Larvesta,"Bicho, Fuego",55
+411,Larvitar,"Tierra, Roca",50
+412,Latias,"Dragon, Psiquico",80
+413,Latias-Mega,"Dragon, Psiquico",80
+414,Latios,"Dragon, Psiquico",80
+415,Latios-Mega,"Dragon, Psiquico",80
+416,Leafeon,Planta,65
+417,Leavanny,"Bicho, Planta",75
+418,Ledian,"Bicho, Volador",55
+419,Ledyba,"Bicho, Volador",40
 420,Lickilicky,Normal,110
 421,Lickitung,Normal,90
-422,Liepard,Dark,64
-423,Lileep,"Grass, Rock",66
-424,Lilligant,Grass,70
+422,Liepard,Siniestro,64
+423,Lileep,"Planta, Roca",66
+424,Lilligant,Planta,70
 425,Lillipup,Normal,45
 426,Linoone,Normal,78
-427,Litleo,"Fire, Normal",62
-428,Litten,Fire,45
-429,Litwick,"Fire, Ghost",50
-430,Lombre,"Grass, Water",60
+427,Litleo,"Fuego, Normal",62
+428,Litten,Fuego,45
+429,Litwick,"Fuego, Fantasma",50
+430,Lombre,"Planta, Agua",60
 431,Lopunny,Normal,65
-432,Lopunny-Mega,"Normal, Fighting",65
-433,Lotad,"Grass, Water",40
+432,Lopunny-Mega,"Normal, Lucha",65
+433,Lotad,"Planta, Agua",40
 434,Loudred,Normal,84
-435,Lucario,"Fighting, Steel",70
-436,Lucario-Mega,"Fighting, Steel",70
-437,Ludicolo,"Grass, Water",80
-438,Lugia,"Flying, Psychic",106
-439,Lumineon,Water,69
-440,Lunala,"Psychic, Ghost",137
-441,Lunatone,"Psychic, Rock",90
-442,Lurantis,Grass,70
-443,Luvdisc,Water,43
-444,Luxio,Electric,60
-445,Luxray,Electric,80
-446,Lycanroc,Rock,75
-447,Lycanroc-Dusk,Rock,75
-448,Lycanroc-Midnight,Rock,85
-449,Machamp,Fighting,90
-450,Machoke,Fighting,80
-451,Machop,Fighting,70
-452,Magby,Fire,45
-453,Magcargo,"Fire, Rock",60
-454,Magearna,"Steel, Fairy",80
-455,Magikarp,Water,20
-456,Magmar,Fire,65
-457,Magmortar,Fire,75
-458,Magnemite,"Electric, Steel",25
-459,Magneton,"Electric, Steel",50
-460,Magnezone,"Electric, Steel",70
-461,Makuhita,Fighting,72
-462,Malamar,"Dark, Psychic",86
-463,Mamoswine,"Ground, Ice",110
-464,Manaphy,Water,100
-465,Mandibuzz,"Dark, Flying",110
-466,Manectric,Electric,70
-467,Manectric-Mega,Electric,70
-468,Mankey,Fighting,40
-469,Mantine,"Flying, Water",85
-470,Mantyke,"Flying, Water",45
-471,Maractus,Grass,75
-472,Mareanie,"Poison, Water",50
-473,Mareep,Electric,55
-474,Marill,"Water, Fairy",70
-475,Marowak,Ground,60
-476,Marowak-Alola,"Fire, Ghost",60
-477,Marshadow,"Fighting, Ghost",90
-478,Marshtomp,"Ground, Water",70
-479,Masquerain,"Bug, Flying",70
-480,Mawile,"Steel, Fairy",50
-481,Mawile-Mega,"Steel, Fairy",50
-482,Medicham,"Fighting, Psychic",60
-483,Medicham-Mega,"Fighting, Psychic",60
-484,Meditite,"Fighting, Psychic",30
-485,Meganium,Grass,80
-486,Meloetta,"Normal, Psychic",100
-487,Meloetta-Pirouette,"Normal, Fighting",100
-488,Meowstic-F,Psychic,74
-489,Meowstic-M,Psychic,74
+435,Lucario,"Lucha, Acero",70
+436,Lucario-Mega,"Lucha, Acero",70
+437,Ludicolo,"Planta, Agua",80
+438,Lugia,"Volador, Psiquico",106
+439,Lumineon,Agua,69
+440,Lunala,"Psiquico, Fantasma",137
+441,Lunatone,"Psiquico, Roca",90
+442,Lurantis,Planta,70
+443,Luvdisc,Agua,43
+444,Luxio,Electrico,60
+445,Luxray,Electrico,80
+446,Lycanroc,Roca,75
+447,Lycanroc-Dusk,Roca,75
+448,Lycanroc-Midnight,Roca,85
+449,Machamp,Lucha,90
+450,Machoke,Lucha,80
+451,Machop,Lucha,70
+452,Magby,Fuego,45
+453,Magcargo,"Fuego, Roca",60
+454,Magearna,"Acero, Hada",80
+455,Magikarp,Agua,20
+456,Magmar,Fuego,65
+457,Magmortar,Fuego,75
+458,Magnemite,"Electrico, Acero",25
+459,Magneton,"Electrico, Acero",50
+460,Magnezone,"Electrico, Acero",70
+461,Makuhita,Lucha,72
+462,Malamar,"Siniestro, Psiquico",86
+463,Mamoswine,"Tierra, Hielo",110
+464,Manaphy,Agua,100
+465,Mandibuzz,"Siniestro, Volador",110
+466,Manectric,Electrico,70
+467,Manectric-Mega,Electrico,70
+468,Mankey,Lucha,40
+469,Mantine,"Volador, Agua",85
+470,Mantyke,"Volador, Agua",45
+471,Maractus,Planta,75
+472,Mareanie,"Veneno, Agua",50
+473,Mareep,Electrico,55
+474,Marill,"Agua, Hada",70
+475,Marowak,Tierra,60
+476,Marowak-Alola,"Fuego, Fantasma",60
+477,Marshadow,"Lucha, Fantasma",90
+478,Marshtomp,"Tierra, Agua",70
+479,Masquerain,"Bicho, Volador",70
+480,Mawile,"Acero, Hada",50
+481,Mawile-Mega,"Acero, Hada",50
+482,Medicham,"Lucha, Psiquico",60
+483,Medicham-Mega,"Lucha, Psiquico",60
+484,Meditite,"Lucha, Psiquico",30
+485,Meganium,Planta,80
+486,Meloetta,"Normal, Psiquico",100
+487,Meloetta-Pirouette,"Normal, Lucha",100
+488,Meowstic-F,Psiquico,74
+489,Meowstic-M,Psiquico,74
 490,Meowth,Normal,40
-491,Meowth-Alola,Dark,40
-492,Mesprit,Psychic,80
-493,Metagross,"Psychic, Steel",80
-494,Metagross-Mega,"Steel, Psychic",80
-495,Metang,"Psychic, Steel",60
-496,Metapod,Bug,50
-497,Mew,Psychic,100
-498,Mewtwo,Psychic,106
-499,Mewtwo-Mega-X,"Psychic, Fighting",106
-500,Mewtwo-Mega-Y,Psychic,106
-501,Mienfoo,Fighting,45
-502,Mienshao,Fighting,65
-503,Mightyena,Dark,70
-504,Milotic,Water,95
+491,Meowth-Alola,Siniestro,40
+492,Mesprit,Psiquico,80
+493,Metagross,"Psiquico, Acero",80
+494,Metagross-Mega,"Acero, Psiquico",80
+495,Metang,"Psiquico, Acero",60
+496,Metapod,Bicho,50
+497,Mew,Psiquico,100
+498,Mewtwo,Psiquico,106
+499,Mewtwo-Mega-X,"Psiquico, Lucha",106
+500,Mewtwo-Mega-Y,Psiquico,106
+501,Mienfoo,Lucha,45
+502,Mienshao,Lucha,65
+503,Mightyena,Siniestro,70
+504,Milotic,Agua,95
 505,Miltank,Normal,95
-506,Mime Jr.,"Psychic, Fairy",20
-507,Mimikyu,"Ghost, Fairy",55
+506,Mime Jr.,"Psiquico, Hada",20
+507,Mimikyu,"Fantasma, Hada",55
 508,Minccino,Normal,55
-509,Minior,"Rock, Flying",60
-510,Minior-Meteor,"Rock, Flying",60
-511,Minun,Electric,60
-512,Misdreavus,Ghost,60
-513,Mismagius,Ghost,60
-514,Moltres,"Fire, Flying",90
-515,Monferno,"Fighting, Fire",64
-516,Morelull,"Grass, Fairy",40
-517,Mothim,"Bug, Flying",70
-518,Mr. Mime,"Psychic, Fairy",40
-519,Mudbray,Ground,70
-520,Mudkip,Water,50
-521,Mudsdale,Ground,100
-522,Muk,Poison,105
-523,Muk-Alola,"Poison, Dark",105
+509,Minior,"Roca, Volador",60
+510,Minior-Meteor,"Roca, Volador",60
+511,Minun,Electrico,60
+512,Misdreavus,Fantasma,60
+513,Mismagius,Fantasma,60
+514,Moltres,"Fuego, Volador",90
+515,Monferno,"Lucha, Fuego",64
+516,Morelull,"Planta, Hada",40
+517,Mothim,"Bicho, Volador",70
+518,Mr. Mime,"Psiquico, Hada",40
+519,Mudbray,Tierra,70
+520,Mudkip,Agua,50
+521,Mudsdale,Tierra,100
+522,Muk,Veneno,105
+523,Muk-Alola,"Veneno, Siniestro",105
 524,Munchlax,Normal,135
-525,Munna,Psychic,76
-526,Murkrow,"Dark, Flying",60
-527,Musharna,Psychic,116
-528,Naganadel,"Poison, Dragon",73
-529,Natu,"Flying, Psychic",40
-530,Necrozma,Psychic,97
-531,Necrozma-Dawn Wings,"Psychic, Ghost",97
-532,Necrozma-Dawn Wings-Ultra,"Psychic, Dragon",97
-533,Necrozma-Dusk Mane,"Psychic, Steel",97
-534,Necrozma-Dusk Mane-Ultra,"Psychic, Dragon",97
-535,Nidoking,"Ground, Poison",81
-536,Nidoqueen,"Ground, Poison",90
-537,Nidoran-F,Poison,55
-538,Nidoran-M,Poison,46
-539,Nidorina,Poison,70
-540,Nidorino,Poison,61
-541,Nihilego,"Rock, Poison",109
-542,Nincada,"Bug, Ground",31
-543,Ninetales,Fire,73
-544,Ninetales-Alola,"Ice, Fairy",73
-545,Ninjask,"Bug, Flying",61
-546,Noctowl,"Flying, Normal",100
-547,Noibat,"Flying, Dragon",40
-548,Noivern,"Flying, Dragon",85
-549,Nosepass,Rock,30
-550,Numel,"Fire, Ground",60
-551,Nuzleaf,"Dark, Grass",70
-552,Octillery,Water,75
-553,Oddish,"Grass, Poison",45
-554,Omanyte,"Rock, Water",35
-555,Omastar,"Rock, Water",70
-556,Onix,"Ground, Rock",35
-557,Oranguru,"Normal, Psychic",90
-558,Oricorio,"Fire, Flying",75
-559,Oricorio-Pau,"Psychic, Flying",75
-560,Oricorio-Pom-Pom,"Electric, Flying",75
-561,Oricorio-Sensu,"Ghost, Flying",75
-562,Oshawott,Water,55
-563,Pachirisu,Electric,60
-564,Palkia,"Dragon, Water",90
-565,Palossand,"Ghost, Ground",85
-566,Palpitoad,"Ground, Water",75
-567,Pancham,Fighting,67
-568,Pangoro,"Fighting, Dark",95
-569,Panpour,Water,50
-570,Pansage,Grass,50
-571,Pansear,Fire,50
-572,Paras,"Bug, Grass",35
-573,Parasect,"Bug, Grass",60
-574,Passimian,Fighting,100
+525,Munna,Psiquico,76
+526,Murkrow,"Siniestro, Volador",60
+527,Musharna,Psiquico,116
+528,Naganadel,"Veneno, Dragon",73
+529,Natu,"Volador, Psiquico",40
+530,Necrozma,Psiquico,97
+531,Necrozma-Dawn Wings,"Psiquico, Fantasma",97
+532,Necrozma-Dawn Wings-Ultra,"Psiquico, Dragon",97
+533,Necrozma-Dusk Mane,"Psiquico, Acero",97
+534,Necrozma-Dusk Mane-Ultra,"Psiquico, Dragon",97
+535,Nidoking,"Tierra, Veneno",81
+536,Nidoqueen,"Tierra, Veneno",90
+537,Nidoran-F,Veneno,55
+538,Nidoran-M,Veneno,46
+539,Nidorina,Veneno,70
+540,Nidorino,Veneno,61
+541,Nihilego,"Roca, Veneno",109
+542,Nincada,"Bicho, Tierra",31
+543,Ninetales,Fuego,73
+544,Ninetales-Alola,"Hielo, Hada",73
+545,Ninjask,"Bicho, Volador",61
+546,Noctowl,"Volador, Normal",100
+547,Noibat,"Volador, Dragon",40
+548,Noivern,"Volador, Dragon",85
+549,Nosepass,Roca,30
+550,Numel,"Fuego, Tierra",60
+551,Nuzleaf,"Siniestro, Planta",70
+552,Octillery,Agua,75
+553,Oddish,"Planta, Veneno",45
+554,Omanyte,"Roca, Agua",35
+555,Omastar,"Roca, Agua",70
+556,Onix,"Tierra, Roca",35
+557,Oranguru,"Normal, Psiquico",90
+558,Oricorio,"Fuego, Volador",75
+559,Oricorio-Pau,"Psiquico, Volador",75
+560,Oricorio-Pom-Pom,"Electrico, Volador",75
+561,Oricorio-Sensu,"Fantasma, Volador",75
+562,Oshawott,Agua,55
+563,Pachirisu,Electrico,60
+564,Palkia,"Dragon, Agua",90
+565,Palossand,"Fantasma, Tierra",85
+566,Palpitoad,"Tierra, Agua",75
+567,Pancham,Lucha,67
+568,Pangoro,"Lucha, Siniestro",95
+569,Panpour,Agua,50
+570,Pansage,Planta,50
+571,Pansear,Fuego,50
+572,Paras,"Bicho, Planta",35
+573,Parasect,"Bicho, Planta",60
+574,Passimian,Lucha,100
 575,Patrat,Normal,45
-576,Pawniard,"Dark, Steel",45
-577,Pelipper,"Flying, Water",60
+576,Pawniard,"Siniestro, Acero",45
+577,Pelipper,"Volador, Agua",60
 578,Persian,Normal,65
-579,Persian-Alola,Dark,65
-580,Petilil,Grass,45
-581,Phanpy,Ground,90
-582,Phantump,"Ghost, Grass",43
-583,Pheromosa,"Bug, Fighting",71
-584,Phione,Water,80
-585,Pichu,Electric,20
-586,Pidgeot,"Flying, Normal",83
-587,Pidgeot-Mega,"Normal, Flying",83
-588,Pidgeotto,"Flying, Normal",63
-589,Pidgey,"Flying, Normal",40
-590,Pidove,"Flying, Normal",50
-591,Pignite,"Fighting, Fire",90
-592,Pikachu,Electric,35
-593,Pikipek,"Normal, Flying",35
-594,Piloswine,"Ground, Ice",100
-595,Pineco,Bug,50
-596,Pinsir,Bug,65
-597,Pinsir-Mega,"Bug, Flying",65
-598,Piplup,Water,53
-599,Plusle,Electric,60
-600,Poipole,Poison,67
-601,Politoed,Water,90
-602,Poliwag,Water,40
-603,Poliwhirl,Water,65
-604,Poliwrath,"Fighting, Water",90
-605,Ponyta,Fire,50
-606,Poochyena,Dark,35
-607,Popplio,Water,50
+579,Persian-Alola,Siniestro,65
+580,Petilil,Planta,45
+581,Phanpy,Tierra,90
+582,Phantump,"Fantasma, Planta",43
+583,Pheromosa,"Bicho, Lucha",71
+584,Phione,Agua,80
+585,Pichu,Electrico,20
+586,Pidgeot,"Volador, Normal",83
+587,Pidgeot-Mega,"Normal, Volador",83
+588,Pidgeotto,"Volador, Normal",63
+589,Pidgey,"Volador, Normal",40
+590,Pidove,"Volador, Normal",50
+591,Pignite,"Lucha, Fuego",90
+592,Pikachu,Electrico,35
+593,Pikipek,"Normal, Volador",35
+594,Piloswine,"Tierra, Hielo",100
+595,Pineco,Bicho,50
+596,Pinsir,Bicho,65
+597,Pinsir-Mega,"Bicho, Volador",65
+598,Piplup,Agua,53
+599,Plusle,Electrico,60
+600,Poipole,Veneno,67
+601,Politoed,Agua,90
+602,Poliwag,Agua,40
+603,Poliwhirl,Agua,65
+604,Poliwrath,"Lucha, Agua",90
+605,Ponyta,Fuego,50
+606,Poochyena,Siniestro,35
+607,Popplio,Agua,50
 608,Porygon,Normal,65
 609,Porygon-Z,Normal,85
 610,Porygon2,Normal,85
-611,Primarina,"Water, Fairy",80
-612,Primeape,Fighting,65
-613,Prinplup,Water,64
-614,Probopass,"Rock, Steel",60
-615,Psyduck,Water,50
-616,Pumpkaboo,"Ghost, Grass",49
-617,Pumpkaboo-Large,"Ghost, Grass",54
-618,Pumpkaboo-Small,"Ghost, Grass",44
-619,Pumpkaboo-Super,"Ghost, Grass",59
-620,Pupitar,"Ground, Rock",70
-621,Purrloin,Dark,41
+611,Primarina,"Agua, Hada",80
+612,Primeape,Lucha,65
+613,Prinplup,Agua,64
+614,Probopass,"Roca, Acero",60
+615,Psyduck,Agua,50
+616,Pumpkaboo,"Fantasma, Planta",49
+617,Pumpkaboo-Large,"Fantasma, Planta",54
+618,Pumpkaboo-Small,"Fantasma, Planta",44
+619,Pumpkaboo-Super,"Fantasma, Planta",59
+620,Pupitar,"Tierra, Roca",70
+621,Purrloin,Siniestro,41
 622,Purugly,Normal,71
-623,Pyroar,"Fire, Normal",86
-624,Pyukumuku,Water,55
-625,Quagsire,"Ground, Water",95
-626,Quilava,Fire,58
-627,Quilladin,Grass,61
-628,Qwilfish,"Poison, Water",65
-629,Raichu,Electric,60
-630,Raichu-Alola,"Electric, Psychic",60
-631,Raikou,Electric,90
-632,Ralts,"Psychic, Fairy",28
-633,Rampardos,Rock,97
-634,Rapidash,Fire,65
+623,Pyroar,"Fuego, Normal",86
+624,Pyukumuku,Agua,55
+625,Quagsire,"Tierra, Agua",95
+626,Quilava,Fuego,58
+627,Quilladin,Planta,61
+628,Qwilfish,"Veneno, Agua",65
+629,Raichu,Electrico,60
+630,Raichu-Alola,"Electrico, Psiquico",60
+631,Raikou,Electrico,90
+632,Ralts,"Psiquico, Hada",28
+633,Rampardos,Roca,97
+634,Rapidash,Fuego,65
 635,Raticate,Normal,55
-636,Raticate-Alola,"Dark, Normal",75
+636,Raticate-Alola,"Siniestro, Normal",75
 637,Rattata,Normal,30
-638,Rattata-Alola,"Dark, Normal",30
-639,Rayquaza,"Dragon, Flying",105
-640,Rayquaza-Mega,"Dragon, Flying",105
-641,Regice,Ice,80
+638,Rattata-Alola,"Siniestro, Normal",30
+639,Rayquaza,"Dragon, Volador",105
+640,Rayquaza-Mega,"Dragon, Volador",105
+641,RegHielo,Hielo,80
 642,Regigigas,Normal,110
-643,Regirock,Rock,80
-644,Registeel,Steel,80
-645,Relicanth,"Rock, Water",100
-646,Remoraid,Water,35
-647,Reshiram,"Dragon, Fire",100
-648,Reuniclus,Psychic,110
-649,Rhydon,"Ground, Rock",105
-650,Rhyhorn,"Ground, Rock",80
-651,Rhyperior,"Ground, Rock",115
-652,Ribombee,"Bug, Fairy",60
-653,Riolu,Fighting,40
-654,Rockruff,Rock,45
-655,Roggenrola,Rock,55
-656,Roselia,"Grass, Poison",50
-657,Roserade,"Grass, Poison",60
-658,Rotom,"Electric, Ghost",50
-659,Rotom-Fan,"Electric, Flying",50
-660,Rotom-Frost,"Electric, Ice",50
-661,Rotom-Heat,"Electric, Fire",50
-662,Rotom-Mow,"Electric, Grass",50
-663,Rotom-Wash,"Electric, Water",50
-664,Rowlet,"Grass, Flying",68
-665,Rufflet,"Flying, Normal",70
-666,Sableye,"Dark, Ghost",50
-667,Sableye-Mega,"Dark, Ghost",50
-668,Salamence,"Dragon, Flying",95
-669,Salamence-Mega,"Dragon, Flying",95
-670,Salandit,"Poison, Fire",48
-671,Salazzle,"Poison, Fire",68
-672,Samurott,Water,95
-673,Sandile,"Dark, Ground",50
-674,Sandshrew,Ground,50
-675,Sandshrew-Alola,"Ice, Steel",50
-676,Sandslash,Ground,75
-677,Sandslash-Alola,"Ice, Steel",75
-678,Sandygast,"Ghost, Ground",55
-679,Sawk,Fighting,75
-680,Sawsbuck,"Grass, Normal",80
-681,Scatterbug,Bug,38
-682,Sceptile,Grass,70
-683,Sceptile-Mega,"Grass, Dragon",70
-684,Scizor,"Bug, Steel",70
-685,Scizor-Mega,"Bug, Steel",70
-686,Scolipede,"Bug, Poison",60
-687,Scrafty,"Dark, Fighting",65
-688,Scraggy,"Dark, Fighting",50
-689,Scyther,"Bug, Flying",70
-690,Seadra,Water,55
-691,Seaking,Water,80
-692,Sealeo,"Ice, Water",90
-693,Seedot,Grass,40
-694,Seel,Water,65
-695,Seismitoad,"Ground, Water",105
+643,RegiRoca,Roca,80
+644,RegiAcero,Acero,80
+645,Relicanth,"Roca, Agua",100
+646,Remoraid,Agua,35
+647,Reshiram,"Dragon, Fuego",100
+648,Reuniclus,Psiquico,110
+649,Rhydon,"Tierra, Roca",105
+650,Rhyhorn,"Tierra, Roca",80
+651,Rhyperior,"Tierra, Roca",115
+652,Ribombee,"Bicho, Hada",60
+653,Riolu,Lucha,40
+654,Rocaruff,Roca,45
+655,Roggenrola,Roca,55
+656,Roselia,"Planta, Veneno",50
+657,Roserade,"Planta, Veneno",60
+658,Rotom,"Electrico, Fantasma",50
+659,Rotom-Fan,"Electrico, Volador",50
+660,Rotom-Frost,"Electrico, Hielo",50
+661,Rotom-Heat,"Electrico, Fuego",50
+662,Rotom-Mow,"Electrico, Planta",50
+663,Rotom-Wash,"Electrico, Agua",50
+664,Rowlet,"Planta, Volador",68
+665,Rufflet,"Volador, Normal",70
+666,Sableye,"Siniestro, Fantasma",50
+667,Sableye-Mega,"Siniestro, Fantasma",50
+668,Salamence,"Dragon, Volador",95
+669,Salamence-Mega,"Dragon, Volador",95
+670,Salandit,"Veneno, Fuego",48
+671,Salazzle,"Veneno, Fuego",68
+672,Samurott,Agua,95
+673,Sandile,"Siniestro, Tierra",50
+674,Sandshrew,Tierra,50
+675,Sandshrew-Alola,"Hielo, Acero",50
+676,Sandslash,Tierra,75
+677,Sandslash-Alola,"Hielo, Acero",75
+678,Sandygast,"Fantasma, Tierra",55
+679,Sawk,Lucha,75
+680,Sawsbuck,"Planta, Normal",80
+681,ScatterBicho,Bicho,38
+682,Sceptile,Planta,70
+683,Sceptile-Mega,"Planta, Dragon",70
+684,Scizor,"Bicho, Acero",70
+685,Scizor-Mega,"Bicho, Acero",70
+686,Scolipede,"Bicho, Veneno",60
+687,Scrafty,"Siniestro, Lucha",65
+688,Scraggy,"Siniestro, Lucha",50
+689,Scyther,"Bicho, Volador",70
+690,Seadra,Agua,55
+691,Seaking,Agua,80
+692,Sealeo,"Hielo, Agua",90
+693,Seedot,Planta,40
+694,Seel,Agua,65
+695,Seismitoad,"Tierra, Agua",105
 696,Sentret,Normal,35
-697,Serperior,Grass,75
-698,Servine,Grass,60
-699,Seviper,Poison,73
-700,Sewaddle,"Bug, Grass",45
-701,Sharpedo,"Dark, Water",70
-702,Sharpedo-Mega,"Water, Dark",70
-703,Shaymin,Grass,100
-704,Shaymin-Sky,"Flying, Grass",100
-705,Shedinja,"Bug, Ghost",1
+697,Serperior,Planta,75
+698,Servine,Planta,60
+699,Seviper,Veneno,73
+700,Sewaddle,"Bicho, Planta",45
+701,Sharpedo,"Siniestro, Agua",70
+702,Sharpedo-Mega,"Agua, Siniestro",70
+703,Shaymin,Planta,100
+704,Shaymin-Sky,"Volador, Planta",100
+705,Shedinja,"Bicho, Fantasma",1
 706,Shelgon,Dragon,65
-707,Shellder,Water,30
-708,Shellos,Water,76
-709,Shelmet,Bug,50
-710,Shieldon,"Rock, Steel",30
-711,Shiftry,"Dark, Grass",90
-712,Shiinotic,"Grass, Fairy",60
-713,Shinx,Electric,45
-714,Shroomish,Grass,60
-715,Shuckle,"Bug, Rock",20
-716,Shuppet,Ghost,44
-717,Sigilyph,"Flying, Psychic",72
-718,Silcoon,Bug,50
+707,Shellder,Agua,30
+708,Shellos,Agua,76
+709,Shelmet,Bicho,50
+710,Shieldon,"Roca, Acero",30
+711,Shiftry,"Siniestro, Planta",90
+712,Shiinotic,"Planta, Hada",60
+713,Shinx,Electrico,45
+714,Shroomish,Planta,60
+715,Shuckle,"Bicho, Roca",20
+716,Shuppet,Fantasma,44
+717,Sigilyph,"Volador, Psiquico",72
+718,Silcoon,Bicho,50
 719,Silvally,Normal,95
-720,Simipour,Water,75
-721,Simisage,Grass,75
-722,Simisear,Fire,75
-723,Skarmory,"Flying, Steel",65
-724,Skiddo,Grass,66
-725,Skiploom,"Flying, Grass",55
+720,Simipour,Agua,75
+721,Simisage,Planta,75
+722,Simisear,Fuego,75
+723,Skarmory,"Volador, Acero",65
+724,Skiddo,Planta,66
+725,Skiploom,"Volador, Planta",55
 726,Skitty,Normal,50
-727,Skorupi,"Bug, Poison",40
-728,Skrelp,"Poison, Water",50
-729,Skuntank,"Dark, Poison",103
+727,Skorupi,"Bicho, Veneno",40
+728,Skrelp,"Veneno, Agua",50
+729,Skuntank,"Siniestro, Veneno",103
 730,Slaking,Normal,150
 731,Slakoth,Normal,60
 732,Sliggoo,Dragon,68
-733,Slowbro,"Psychic, Water",95
-734,Slowbro-Mega,"Water, Psychic",95
-735,Slowking,"Psychic, Water",95
-736,Slowpoke,"Psychic, Water",90
-737,Slugma,Fire,40
-738,Slurpuff,Fairy,82
+733,Slowbro,"Psiquico, Agua",95
+734,Slowbro-Mega,"Agua, Psiquico",95
+735,Slowking,"Psiquico, Agua",95
+736,Slowpoke,"Psiquico, Agua",90
+737,Slugma,Fuego,40
+738,Slurpuff,Hada,82
 739,Smeargle,Normal,55
-740,Smoochum,"Ice, Psychic",45
-741,Sneasel,"Dark, Ice",55
-742,Snivy,Grass,45
+740,Smoochum,"Hielo, Psiquico",45
+741,Sneasel,"Siniestro, Hielo",55
+742,Snivy,Planta,45
 743,Snorlax,Normal,160
-744,Snorunt,Ice,50
-745,Snover,"Grass, Ice",60
-746,Snubbull,Fairy,60
-747,Solgaleo,"Psychic, Steel",137
-748,Solosis,Psychic,45
-749,Solrock,"Psychic, Rock",90
-750,Spearow,"Flying, Normal",40
-751,Spewpa,Bug,45
-752,Spheal,"Ice, Water",70
-753,Spinarak,"Bug, Poison",40
+744,Snorunt,Hielo,50
+745,Snover,"Planta, Hielo",60
+746,Snubbull,Hada,60
+747,Solgaleo,"Psiquico, Acero",137
+748,Solosis,Psiquico,45
+749,SolRoca,"Psiquico, Roca",90
+750,Spearow,"Volador, Normal",40
+751,Spewpa,Bicho,45
+752,Spheal,"Hielo, Agua",70
+753,Spinarak,"Bicho, Veneno",40
 754,Spinda,Normal,60
-755,Spiritomb,"Dark, Ghost",50
-756,Spoink,Psychic,60
-757,Spritzee,Fairy,78
-758,Squirtle,Water,44
-759,Stakataka,"Rock, Steel",61
+755,Spiritomb,"Siniestro, Fantasma",50
+756,Spoink,Psiquico,60
+757,Spritzee,Hada,78
+758,Squirtle,Agua,44
+759,Stakataka,"Roca, Acero",61
 760,Stantler,Normal,73
-761,Staraptor,"Flying, Normal",85
-762,Staravia,"Flying, Normal",55
-763,Starly,"Flying, Normal",40
-764,Starmie,"Psychic, Water",60
-765,Staryu,Water,30
-766,Steelix,"Ground, Steel",75
-767,Steelix-Mega,"Steel, Ground",75
-768,Steenee,Grass,52
+761,Staraptor,"Volador, Normal",85
+762,Staravia,"Volador, Normal",55
+763,Starly,"Volador, Normal",40
+764,Starmie,"Psiquico, Agua",60
+765,Staryu,Agua,30
+766,Aceroix,"Tierra, Acero",75
+767,Aceroix-Mega,"Acero, Tierra",75
+768,Steenee,Planta,52
 769,Stoutland,Normal,85
-770,Stufful,"Normal, Fighting",70
-771,Stunfisk,"Electric, Ground",109
-772,Stunky,"Dark, Poison",63
-773,Sudowoodo,Rock,70
-774,Suicune,Water,100
-775,Sunflora,Grass,75
-776,Sunkern,Grass,30
-777,Surskit,"Bug, Water",40
-778,Swablu,"Flying, Normal",45
-779,Swadloon,"Bug, Grass",55
-780,Swalot,Poison,100
-781,Swampert,"Water, Ground",100
-782,Swampert-Mega,"Water, Ground",100
-783,Swanna,"Flying, Water",75
-784,Swellow,"Flying, Normal",60
-785,Swinub,"Ground, Ice",50
-786,Swirlix,Fairy,62
-787,Swoobat,"Flying, Psychic",67
-788,Sylveon,Fairy,95
-789,Taillow,"Flying, Normal",40
-790,Talonflame,"Fire, Flying",78
-791,Tangela,Grass,65
-792,Tangrowth,Grass,100
-793,Tapu Bulu,"Grass, Fairy",70
-794,Tapu Fini,"Water, Fairy",70
-795,Tapu Koko,"Electric, Fairy",70
-796,Tapu Lele,"Psychic, Fairy",70
+770,Stufful,"Normal, Lucha",70
+771,Stunfisk,"Electrico, Tierra",109
+772,Stunky,"Siniestro, Veneno",63
+773,Sudowoodo,Roca,70
+774,Suicune,Agua,100
+775,Sunflora,Planta,75
+776,Sunkern,Planta,30
+777,Surskit,"Bicho, Agua",40
+778,Swablu,"Volador, Normal",45
+779,Swadloon,"Bicho, Planta",55
+780,Swalot,Veneno,100
+781,Swampert,"Agua, Tierra",100
+782,Swampert-Mega,"Agua, Tierra",100
+783,Swanna,"Volador, Agua",75
+784,Swellow,"Volador, Normal",60
+785,Swinub,"Tierra, Hielo",50
+786,Swirlix,Hada,62
+787,Swoobat,"Volador, Psiquico",67
+788,Sylveon,Hada,95
+789,Taillow,"Volador, Normal",40
+790,Talonflame,"Fuego, Volador",78
+791,Tangela,Planta,65
+792,Tangrowth,Planta,100
+793,Tapu Bulu,"Planta, Hada",70
+794,Tapu Fini,"Agua, Hada",70
+795,Tapu Koko,"Electrico, Hada",70
+796,Tapu Lele,"Psiquico, Hada",70
 797,Tauros,Normal,75
 798,Teddiursa,Normal,60
-799,Tentacool,"Poison, Water",40
-800,Tentacruel,"Poison, Water",80
-801,Tepig,Fire,65
-802,Terrakion,"Fighting, Rock",91
-803,Throh,Fighting,120
-804,Thundurus,"Electric, Flying",79
-805,Thundurus-Therian,"Electric, Flying",79
-806,Timburr,Fighting,75
-807,Tirtouga,"Rock, Water",54
-808,Togedemaru,"Electric, Steel",65
-809,Togekiss,"Flying, Fairy",85
-810,Togepi,Fairy,35
-811,Togetic,"Fairy, Flying",55
-812,Torchic,Fire,45
-813,Torkoal,Fire,70
-814,Tornadus,Flying,79
-815,Tornadus-Therian,Flying,79
-816,Torracat,Fire,65
-817,Torterra,"Grass, Ground",95
-818,Totodile,Water,50
-819,Toucannon,"Normal, Flying",80
-820,Toxapex,"Poison, Water",50
-821,Toxicroak,"Fighting, Poison",83
-822,Tranquill,"Flying, Normal",62
-823,Trapinch,Ground,45
-824,Treecko,Grass,40
-825,Trevenant,"Ghost, Grass",85
-826,Tropius,"Flying, Grass",99
-827,Trubbish,Poison,50
-828,Trumbeak,"Normal, Flying",55
-829,Tsareena,Grass,72
-830,Turtonator,"Fire, Dragon",60
-831,Turtwig,Grass,55
-832,Tympole,Water,50
-833,Tynamo,Electric,35
+799,Tentacool,"Veneno, Agua",40
+800,Tentacruel,"Veneno, Agua",80
+801,Tepig,Fuego,65
+802,Terrakion,"Lucha, Roca",91
+803,Throh,Lucha,120
+804,Thundurus,"Electrico, Volador",79
+805,Thundurus-Therian,"Electrico, Volador",79
+806,Timburr,Lucha,75
+807,Tirtouga,"Roca, Agua",54
+808,Togedemaru,"Electrico, Acero",65
+809,Togekiss,"Volador, Hada",85
+810,Togepi,Hada,35
+811,Togetic,"Hada, Volador",55
+812,Torchic,Fuego,45
+813,Torkoal,Fuego,70
+814,Tornadus,Volador,79
+815,Tornadus-Therian,Volador,79
+816,Torracat,Fuego,65
+817,Torterra,"Planta, Tierra",95
+818,Totodile,Agua,50
+819,Toucannon,"Normal, Volador",80
+820,Toxapex,"Veneno, Agua",50
+821,Toxicroak,"Lucha, Veneno",83
+822,Tranquill,"Volador, Normal",62
+823,Trapinch,Tierra,45
+824,Treecko,Planta,40
+825,Trevenant,"Fantasma, Planta",85
+826,Tropius,"Volador, Planta",99
+827,Trubbish,Veneno,50
+828,Trumbeak,"Normal, Volador",55
+829,Tsareena,Planta,72
+830,Turtonator,"Fuego, Dragon",60
+831,Turtwig,Planta,55
+832,Tympole,Agua,50
+833,Tynamo,Electrico,35
 834,Type: Null,Normal,95
-835,Typhlosion,Fire,78
-836,Tyranitar,"Dark, Rock",100
-837,Tyranitar-Mega,"Rock, Dark",100
-838,Tyrantrum,"Rock, Dragon",82
-839,Tyrogue,Fighting,35
-840,Tyrunt,"Rock, Dragon",58
-841,Umbreon,Dark,95
-842,Unfezant,"Flying, Normal",80
-843,Unown,Psychic,48
+835,Typhlosion,Fuego,78
+836,Tyranitar,"Siniestro, Roca",100
+837,Tyranitar-Mega,"Roca, Siniestro",100
+838,Tyrantrum,"Roca, Dragon",82
+839,Tyrogue,Lucha,35
+840,Tyrunt,"Roca, Dragon",58
+841,Umbreon,Siniestro,95
+842,Unfezant,"Volador, Normal",80
+843,Unown,Psiquico,48
 844,Ursaring,Normal,90
-845,Uxie,Psychic,75
-846,Vanillish,Ice,51
-847,Vanillite,Ice,36
-848,Vanilluxe,Ice,71
-849,Vaporeon,Water,130
-850,Venipede,"Bug, Poison",30
-851,Venomoth,"Bug, Poison",70
-852,Venonat,"Bug, Poison",60
-853,Venusaur,"Grass, Poison",80
-854,Venusaur-Mega,"Grass, Poison",80
-855,Vespiquen,"Bug, Flying",70
-856,Vibrava,"Dragon, Ground",50
-857,Victini,"Fire, Psychic",100
-858,Victreebel,"Grass, Poison",80
+845,Uxie,Psiquico,75
+846,Vanillish,Hielo,51
+847,Vanillite,Hielo,36
+848,Vanilluxe,Hielo,71
+849,Vaporeon,Agua,130
+850,Venipede,"Bicho, Veneno",30
+851,Venomoth,"Bicho, Veneno",70
+852,Venonat,"Bicho, Veneno",60
+853,Venusaur,"Planta, Veneno",80
+854,Venusaur-Mega,"Planta, Veneno",80
+855,Vespiquen,"Bicho, Volador",70
+856,Vibrava,"Dragon, Tierra",50
+857,Victini,"Fuego, Psiquico",100
+858,Victreebel,"Planta, Veneno",80
 859,Vigoroth,Normal,80
-860,Vikavolt,"Bug, Electric",77
-861,Vileplume,"Grass, Poison",75
-862,Virizion,"Fighting, Grass",91
-863,Vivillon,"Bug, Flying",80
-864,Volbeat,Bug,65
-865,Volcanion,"Fire, Water",80
-866,Volcarona,"Bug, Fire",85
-867,Voltorb,Electric,40
-868,Vullaby,"Dark, Flying",70
-869,Vulpix,Fire,38
-870,Vulpix-Alola,Ice,38
-871,Wailmer,Water,130
-872,Wailord,Water,170
-873,Walrein,"Ice, Water",110
-874,Wartortle,Water,59
+860,Vikavolt,"Bicho, Electrico",77
+861,Vileplume,"Planta, Veneno",75
+862,Virizion,"Lucha, Planta",91
+863,Vivillon,"Bicho, Volador",80
+864,Volbeat,Bicho,65
+865,Volcanion,"Fuego, Agua",80
+866,Volcarona,"Bicho, Fuego",85
+867,Voltorb,Electrico,40
+868,Vullaby,"Siniestro, Volador",70
+869,Vulpix,Fuego,38
+870,Vulpix-Alola,Hielo,38
+871,Wailmer,Agua,130
+872,Wailord,Agua,170
+873,Walrein,"Hielo, Agua",110
+874,Wartortle,Agua,59
 875,Watchog,Normal,60
-876,Weavile,"Dark, Ice",70
-877,Weedle,"Bug, Poison",40
-878,Weepinbell,"Grass, Poison",65
-879,Weezing,Poison,65
-880,Whimsicott,"Grass, Fairy",60
-881,Whirlipede,"Bug, Poison",40
-882,Whiscash,"Ground, Water",110
+876,Weavile,"Siniestro, Hielo",70
+877,Weedle,"Bicho, Veneno",40
+878,Weepinbell,"Planta, Veneno",65
+879,Weezing,Veneno,65
+880,Whimsicott,"Planta, Hada",60
+881,Whirlipede,"Bicho, Veneno",40
+882,Whiscash,"Tierra, Agua",110
 883,Whismur,Normal,64
-884,Wigglytuff,"Normal, Fairy",140
-885,Wimpod,"Bug, Water",25
-886,Wingull,"Flying, Water",40
-887,Wishiwashi,Water,45
-888,Wishiwashi-School,Water,45
-889,Wobbuffet,Psychic,190
-890,Woobat,"Flying, Psychic",65
-891,Wooper,"Ground, Water",55
-892,Wormadam,"Bug, Grass",60
-893,Wormadam-Sandy,"Bug, Ground",60
-894,Wormadam-Trash,"Bug, Steel",60
-895,Wurmple,Bug,45
-896,Wynaut,Psychic,95
-897,Xatu,"Flying, Psychic",65
-898,Xerneas,Fairy,126
-899,Xurkitree,Electric,83
-900,Yamask,Ghost,38
-901,Yanma,"Bug, Flying",65
-902,Yanmega,"Bug, Flying",86
+884,Wigglytuff,"Normal, Hada",140
+885,Wimpod,"Bicho, Agua",25
+886,Wingull,"Volador, Agua",40
+887,Wishiwashi,Agua,45
+888,Wishiwashi-School,Agua,45
+889,Wobbuffet,Psiquico,190
+890,Woobat,"Volador, Psiquico",65
+891,Wooper,"Tierra, Agua",55
+892,Wormadam,"Bicho, Planta",60
+893,Wormadam-Sandy,"Bicho, Tierra",60
+894,Wormadam-Trash,"Bicho, Acero",60
+895,Wurmple,Bicho,45
+896,Wynaut,Psiquico,95
+897,Xatu,"Volador, Psiquico",65
+898,Xerneas,Hada,126
+899,Xurkitree,Electrico,83
+900,Yamask,Fantasma,38
+901,Yanma,"Bicho, Volador",65
+902,Yanmega,"Bicho, Volador",86
 903,Yungoos,Normal,48
-904,Yveltal,"Dark, Flying",126
+904,Yveltal,"Siniestro, Volador",126
 905,Zangoose,Normal,73
-906,Zapdos,"Electric, Flying",90
-907,Zebstrika,Electric,75
-908,Zekrom,"Dragon, Electric",100
-909,Zeraora,Electric,88
+906,Zapdos,"Electrico, Volador",90
+907,Zebstrika,Electrico,75
+908,Zekrom,"Dragon, Electrico",100
+909,Zeraora,Electrico,88
 910,Zigzagoon,Normal,38
-911,Zoroark,Dark,60
-912,Zorua,Dark,40
-913,Zubat,"Flying, Poison",40
-914,Zweilous,"Dark, Dragon",72
-915,Zygarde,"Dragon, Ground",108
-916,Zygarde-10%,"Dragon, Ground",54
-917,Zygarde-Complete,"Dragon, Ground",216
+911,Zoroark,Siniestro,60
+912,Zorua,Siniestro,40
+913,Zubat,"Volador, Veneno",40
+914,Zweilous,"Siniestro, Dragon",72
+915,Zygarde,"Dragon, Tierra",108
+916,Zygarde-10%,"Dragon, Tierra",54
+917,Zygarde-Complete,"Dragon, Tierra",216
