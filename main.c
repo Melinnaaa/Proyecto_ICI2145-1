@@ -1,16 +1,20 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <time.h>
 #include "hashmap.h"
 #include "menu.h"
 #include "pokemon.h"
 #include "item.h"
 #include "player.h"
 
+
 void loadProfiles();
 void showPlayers();
 
 
 int main() {
+    srand(time(NULL));
     printf("Bienvenido a pokemon.exe\n");
     HashMap *movements = createMap(218);
     HashMap* pokemons = createMap(917);
