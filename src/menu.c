@@ -14,10 +14,8 @@ void showMenu()
     printf("3. Mostrar Perfiles: \n");
 }
 
-void createProfile(HashMap *pokeMap)
+void createProfile(Player *player, HashMap *pokeMap)
 {
-    Player player;
-
     /* Par y pokémon utilizados para la búsqueda */
     HashMapPair *pair;
     PlayerPokemon playerPokemon;
@@ -26,12 +24,9 @@ void createProfile(HashMap *pokeMap)
 
     fflush(stdin);
 
-    createPlayer(&player);
+    createPlayer(player);
 
 
-    printf("Ingrese el nombre del jugador: ");
-    scanf("%[^\n]*s", player.name);
-    getchar();
 
     for (int i = 0; i < 4; i++)
     {
