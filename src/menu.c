@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 #include "hashmap.h"
 
@@ -26,24 +27,52 @@ void createProfile(HashMap *pokeMap)
     fflush(stdin);
 
     createPlayer(&player);
-    printf("Ingrese el nombre del jugador: ");
 
+
+    printf("Ingrese el nombre del jugador: ");
     scanf("%[^\n]*s", player.name);
     getchar();
 
-    printf("Ingresa el nombre de tu primer pokémon\n");
-    scanf("%[^\n]*s", tmp);
-    getchar();
-
-    pair = searchMap(pokeMap, tmp);
-
-    if (pair != NULL)
+    for (int i = 0; i < 4; i++)
     {
-        playerPokemon.ptr = pair->value;
-        player.pokemons[0] = playerPokemon;
-        randomizeMovements(&playerPokemon);
-    }
+reask:
+        printf("Ingresa el nombre de tu ");
+        switch (i) 
+        {
+            case 0:
+              printf("primer ");
+              break;
+            case 1:
+              printf("segundo ");
+              break;
+            case 2:
+              printf("tercer ");
+              break;
+            case 3:
+              printf("cuarto ");
+              break;
+                
+        }
+        printf("pokemon: ");
 
+        scanf("%[^\n]*s", tmp);
+        tmp[0] = toupper(tmp[0]);
+        getchar();
+
+        pair = searchMap(pokeMap, tmp);
+
+        if (pair != NULL)
+        {
+            playerPokemon.ptr = pair->value;
+            player.pokemons[0] = playerPokemon;
+            //showPokemon(playerPokemon->ptr);
+        } else {
+            printf("El pokemon no existe. Por favor "
+                    "intentalo nuevamente.\n");
+            goto reask;  // Volver a preguntar por el pokemon 1
+        }
+
+    }
 
 }
 
