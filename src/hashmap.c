@@ -9,21 +9,6 @@
 
 int enlarge_called=0;
 
-struct HashMapSus
-{
-    HashMapSusPair ** buckets;
-    long size; //cantidad de datos/pairs en la tabla
-    long capacity; //capacidad de la tabla
-    long current; //indice del ultimo dato accedido
-};
-
-struct HashMap 
-{
-    HashMapPair ** buckets;
-    long size; //cantidad de datos/pairs en la tabla
-    long capacity; //capacidad de la tabla
-    long current; //indice del ultimo dato accedido
-};
 
 HashMapPair * createHashMapPair( char * key,  void * value) 
 {
