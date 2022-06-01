@@ -1,24 +1,24 @@
 0,Pound,Normal,35,40,100
-1,Karate Chop,Fighting,25,50,100
+1,Karate Chop,Lucha,25,50,100
 2,Double Slap,Normal,10,15,85
 3,Comet Punch,Normal,15,18,85
 4,Mega Punch,Normal,20,80,85
 5,Pay Day,Normal,20,40,100
-6,Fire Punch,Fire,15,75,100
-7,Ice Punch,Ice,15,75,100
-8,Thunder Punch,Electric,15,75,100
+6,Fuego Punch,Fuego,15,75,100
+7,Hielo Punch,Hielo,15,75,100
+8,Thunder Punch,Electricoo,15,75,100
 9,Scratch,Normal,35,40,100
-10,Vice Grip,Normal,30,55,100
+10,VHielo Grip,Normal,30,55,100
 14,Cut,Normal,30,50,95
-16,Wing Attack,Flying,35,60,100
-18,Fly,Flying,15,90,95
+16,Wing Attack,Volador,35,60,100
+18,Fly,Volador,15,90,95
 20,Slam,Normal,20,80,75
-21,Vine Whip,Grass,25,45,100
+21,Vine Whip,Planta,25,45,100
 22,Stomp,Normal,20,65,100
-23,Double Kick,Fighting,30,30,100
+23,Double Kick,Lucha,30,30,100
 24,Mega Kick,Normal,5,120,75
-25,Jump Kick,Fighting,10,100,95
-26,Rolling Kick,Fighting,15,60,85
+25,Jump Kick,Lucha,10,100,95
+26,Rolling Kick,Lucha,15,60,85
 28,Headbutt,Normal,15,70,100
 29,Horn Attack,Normal,25,65,100
 30,Fury Attack,Normal,20,15,85
@@ -26,193 +26,193 @@
 35,Take Down,Normal,20,90,85
 36,Thrash,Normal,10,120,100
 37,Double-Edge,Normal,15,120,100
-39,Poison Sting,Poison,35,15,100
-40,Twineedle,Bug,20,25,100
-43,Bite,Dark,25,60,100
-63,Peck,Flying,35,35,100
-64,Drill Peck,Flying,20,80,100
-65,Submission,Fighting,20,80,80
+39,Veneno Sting,Veneno,35,15,100
+40,Twineedle,Bicho,20,25,100
+43,Bite,Siniestro,25,60,100
+63,Peck,Volador,35,35,100
+64,Drill Peck,Volador,20,80,100
+65,Submission,Lucha,20,80,80
 69,Strength,Normal,15,80,100
-74,Razor Leaf,Grass,25,55,95
-88,Earthquake,Ground,10,100,100
-90,Dig,Ground,10,80,100
+74,Razor Leaf,Planta,25,55,95
+88,Earthquake,Tierra,10,100,100
+90,Dig,Tierra,10,80,100
 97,Quick Attack,Normal,30,40,100
 98,Rage,Normal,20,20,100
 119,Self-Destruct,Normal,5,200,100
 120,Egg Bomb,Normal,10,100,75
-121,Lick,Ghost,30,30,100
-124,Bone Club,Ground,20,65,85
-126,Waterfall,Water,15,80,100
+121,Lick,Fantasma,30,30,100
+124,Bone Club,Tierra,20,65,85
+126,Aguafall,Agua,15,80,100
 129,Skull Bash,Normal,10,130,100
 130,Spike Cannon,Normal,15,20,100
 131,Constrict,Normal,35,10,100
-135,High Jump Kick,Fighting,10,130,90
+135,High Jump Kick,Lucha,10,130,90
 139,Barrage,Normal,20,15,85
-140,Leech Life,Bug,10,80,100
-142,Sky Attack,Flying,5,140,90
+140,Leech Life,Bicho,10,80,100
+142,Sky Attack,Volador,5,140,90
 145,Dizzy Punch,Normal,10,70,100
 152,Explosion,Normal,5,250,100
 153,Fury Swipes,Normal,15,18,80
-154,Bonemerang,Ground,10,50,90
-156,Rock Slide,Rock,10,75,90
+154,Bonemerang,Tierra,10,50,90
+156,Roca Slide,Roca,10,75,90
 157,Hyper Fang,Normal,15,80,90
 162,Slash,Normal,20,70,100
-166,Triple Kick,Fighting,10,10,90
-167,Thief,Dark,25,60,100
-171,Flame Wheel,Fire,25,60,100
-182,Mach Punch,Fighting,30,40,100
+166,Triple Kick,Lucha,10,10,90
+167,Thief,Siniestro,25,60,100
+171,Flame Wheel,Fuego,25,60,100
+182,Mach Punch,Lucha,30,40,100
 199,Outrage,Dragon,10,120,100
-204,Rollout,Rock,20,30,90
+204,Rollout,Roca,20,30,90
 205,False Swipe,Normal,40,40,100
-208,Spark,Electric,20,65,100
-209,Fury Cutter,Bug,20,40,95
-210,Steel Wing,Steel,25,70,90
-220,Sacred Fire,Fire,5,100,95
-222,Dynamic Punch,Fighting,5,100,50
-223,Megahorn,Bug,10,120,85
-227,Pursuit,Dark,20,40,100
+208,Spark,Electrico,20,65,100
+209,Fury Cutter,Bicho,20,40,95
+210,Acero Wing,Acero,25,70,90
+220,Sacred Fuego,Fuego,5,100,95
+222,Dynamic Punch,Lucha,5,100,50
+223,Megahorn,Bicho,10,120,85
+227,Pursuit,Siniestro,20,40,100
 228,Rapid Spin,Normal,40,20,100
-230,Iron Tail,Steel,15,100,75
-231,Metal Claw,Steel,35,50,95
-237,Cross Chop,Fighting,5,100,80
-241,Crunch,Dark,15,80,100
+230,Iron Tail,Acero,15,100,75
+231,Metal Claw,Acero,35,50,95
+237,Cross Chop,Lucha,5,100,80
+241,Crunch,Siniestro,15,80,100
 244,Extreme Speed,Normal,5,80,100
-248,Rock Smash,Fighting,15,40,100
+248,Roca Smash,Lucha,15,40,100
 251,Fake Out,Normal,10,40,100
 262,Facade,Normal,20,70,100
-263,Focus Punch,Fighting,20,150,100
+263,Focus Punch,Lucha,20,150,100
 264,Smelling Salts,Normal,10,70,100
-275,Superpower,Fighting,5,120,100
-278,Revenge,Fighting,10,60,100
-279,Brick Break,Fighting,15,75,100
-281,Knock Off,Dark,20,65,100
+275,Superpower,Lucha,5,120,100
+278,Revenge,Lucha,10,60,100
+279,Brick Break,Lucha,15,75,100
+281,Knock Off,Siniestro,20,65,100
 289,Secret Power,Normal,20,70,100
-290,Dive,Water,10,80,100
-291,Arm Thrust,Fighting,20,15,100
-298,Blaze Kick,Fire,10,85,90
-300,Ice Ball,Ice,20,30,90
-301,Needle Arm,Grass,15,60,100
-304,Poison Fang,Poison,15,50,100
+290,Dive,Agua,10,80,100
+291,Arm Thrust,Lucha,20,15,100
+298,Blaze Kick,Fuego,10,85,90
+300,Hielo Ball,Hielo,20,30,90
+301,Needle Arm,Planta,15,60,100
+304,Veneno Fang,Veneno,15,50,100
 305,Crush Claw,Normal,10,75,95
-309,Astonish,Ghost,15,30,100
-326,Sky Uppercut,Fighting,15,85,90
-330,Bullet Seed,Grass,30,25,100
-332,Icicle Spear,Ice,30,25,100
+309,Astonish,Fantasma,15,30,100
+326,Sky Uppercut,Lucha,15,85,90
+330,Bullet Seed,Planta,30,25,100
+332,Icicle Spear,Hielo,30,25,100
 336,Dragon Claw,Dragon,15,80,100
-339,Bounce,Flying,5,85,85
-341,Poison Tail,Poison,25,50,100
+339,Bounce,Volador,5,85,85
+341,Veneno Tail,Veneno,25,50,100
 342,Covet,Normal,25,60,100
-343,Volt Tackle,Electric,15,120,100
-347,Leaf Blade,Grass,15,90,100
-357,Wake-Up Slap,Fighting,10,70,100
-358,Hammer Arm,Fighting,10,100,90
+343,Volt Tackle,Electrico,15,120,100
+347,Leaf Blade,Planta,15,90,100
+357,Wake-Up Slap,Lucha,10,70,100
+358,Hammer Arm,Lucha,10,100,90
 363,Feint,Normal,10,30,100
-364,Pluck,Flying,20,60,100
-368,U-turn,Bug,20,70,100
-369,Close Combat,Fighting,5,120,100
-370,Payback,Dark,10,50,100
-371,Assurance,Dark,10,60,100
+364,Pluck,Volador,20,60,100
+368,U-turn,Bicho,20,70,100
+369,Close Combat,Lucha,5,120,100
+370,Payback,Siniestro,10,50,100
+371,Assurance,Siniestro,10,60,100
 386,Last Resort,Normal,5,140,100
-388,Sucker Punch,Dark,5,70,100
-393,Flare Blitz,Fire,15,120,100
-394,Force Palm,Fighting,10,60,100
-397,Poison Jab,Poison,20,80,100
-399,Night Slash,Dark,15,70,100
-400,Aqua Tail,Water,10,90,90
-401,Seed Bomb,Grass,15,80,100
-403,X-Scissor,Bug,15,80,100
+388,Sucker Punch,Siniestro,5,70,100
+393,Flare Blitz,Fuego,15,120,100
+394,Force Palm,Lucha,10,60,100
+397,Veneno Jab,Veneno,20,80,100
+399,Night Slash,Siniestro,15,70,100
+400,Aqua Tail,Agua,10,90,90
+401,Seed Bomb,Planta,15,80,100
+403,X-Scissor,Bicho,15,80,100
 406,Dragon Rush,Dragon,10,100,75
-408,Drain Punch,Fighting,10,75,100
-412,Brave Bird,Flying,15,120,100
+408,Drain Punch,Lucha,10,75,100
+412,Brave Bird,Volador,15,120,100
 415,Giga Impact,Normal,5,150,90
-417,Bullet Punch,Steel,30,40,100
-418,Avalanche,Ice,10,60,100
-419,Ice Shard,Ice,30,40,100
-420,Shadow Claw,Ghost,15,70,100
-421,Thunder Fang,Electric,15,65,95
-422,Ice Fang,Ice,15,65,95
-423,Fire Fang,Fire,15,65,95
-424,Shadow Sneak,Ghost,30,40,100
-426,Psycho Cut,Psychic,20,70,100
-427,Zen Headbutt,Psychic,15,80,90
-430,Rock Climb,Normal,20,90,85
-437,Power Whip,Grass,10,120,85
-438,Rock Wrecker,Rock,5,150,90
-439,Cross Poison,Poison,20,70,100
-441,Iron Head,Steel,15,80,100
-443,Stone Edge,Rock,5,100,80
-449,Bug Bite,Bug,20,60,100
-451,Wood Hammer,Grass,15,120,100
-452,Aqua Jet,Water,20,40,100
-453,Attack Order,Bug,15,90,100
-456,Head Smash,Rock,5,150,80
+417,Bullet Punch,Acero,30,40,100
+418,Avalanche,Hielo,10,60,100
+419,Hielo Shard,Hielo,30,40,100
+420,Shadow Claw,Fantasma,15,70,100
+421,Thunder Fang,Electrico,15,65,95
+422,Hielo Fang,Hielo,15,65,95
+423,Fuego Fang,Fuego,15,65,95
+424,Shadow Sneak,Fantasma,30,40,100
+426,Psycho Cut,Psiquico,20,70,100
+427,Zen Headbutt,Psiquico,15,80,90
+430,Roca Climb,Normal,20,90,85
+437,Power Whip,Planta,10,120,85
+438,Roca Wrecker,Roca,5,150,90
+439,Cross Veneno,Veneno,20,70,100
+441,Iron Head,Acero,15,80,100
+443,Stone Edge,Roca,5,100,80
+449,Bicho Bite,Bicho,20,60,100
+451,Wood Hammer,Planta,15,120,100
+452,Aqua Jet,Agua,20,40,100
+453,Attack Order,Bicho,15,90,100
+456,Head Smash,Roca,5,150,80
 457,Double Hit,Normal,10,35,90
-466,Shadow Force,Ghost,5,120,100
-478,Smack Down,Rock,15,50,100
-479,Storm Throw,Fighting,10,60,100
-487,Flame Charge,Fire,20,50,100
-489,Low Sweep,Fighting,20,65,100
-491,Foul Play,Dark,15,95,100
+466,Shadow Force,Fantasma,5,120,100
+478,Smack Down,Roca,15,50,100
+479,Storm Throw,Lucha,10,60,100
+487,Flame Charge,Fuego,20,50,100
+489,Low Sweep,Lucha,20,65,100
+491,Foul Play,Siniestro,15,95,100
 497,Chip Away,Normal,20,70,100
-506,Sky Drop,Flying,10,60,100
-508,Circle Throw,Fighting,10,60,90
-511,Acrobatics,Flying,15,55,100
+506,Sky Drop,Volador,10,60,100
+508,Circle Throw,Lucha,10,60,90
+511,Acrobatics,Volador,15,55,100
 513,Retaliate,Normal,5,70,100
-522,Bulldoze,Ground,20,60,100
+522,Bulldoze,Tierra,20,60,100
 524,Dragon Tail,Dragon,10,60,90
-527,Wild Charge,Electric,15,90,100
-528,Drill Run,Ground,10,80,95
+527,Wild Charge,Electrico,15,90,100
+528,Drill Run,Tierra,10,80,95
 529,Dual Chop,Dragon,15,40,90
-530,Heart Stamp,Psychic,25,60,100
-531,Horn Leech,Grass,10,75,100
-532,Sacred Sword,Fighting,15,90,100
-533,Razor Shell,Water,10,75,95
-536,Steamroller,Bug,20,65,100
+530,Heart Stamp,Psiquico,25,60,100
+531,Horn Leech,Planta,10,75,100
+532,Sacred Sword,Lucha,15,90,100
+533,Razor Shell,Agua,10,75,95
+536,Steamroller,Bicho,20,65,100
 540,Tail Slap,Normal,10,25,85
 542,Head Charge,Normal,15,120,100
-543,Gear Grind,Steel,15,50,85
-549,Bolt Strike,Electric,5,130,85
-552,Freeze Shock,Ice,5,140,90
-555,Icicle Crash,Ice,10,85,90
-556,V-create,Fire,5,180,95
-558,Fusion Bolt,Electric,5,100,100
-559,Flying Press,Fighting,10,100,95
-564,Fell Stinger,Bug,25,50,100
-565,Phantom Force,Ghost,10,90,100
-571,Petal Blizzard,Grass,15,90,100
-582,Play Rough,Fairy,10,90,90
-590,Diamond Storm,Rock,5,100,95
-608,Nuzzle,Electric,20,20,100
+543,Gear Grind,Acero,15,50,85
+549,Bolt Strike,Electrico,5,130,85
+552,Freeze Shock,Hielo,5,140,90
+555,Icicle Crash,Hielo,10,85,90
+556,V-create,Fuego,5,180,95
+558,Fusion Bolt,Electrico,5,100,100
+559,Volador Press,Lucha,10,100,95
+564,Fell Stinger,Bicho,25,50,100
+565,Phantom Force,Fantasma,10,90,100
+571,Petal Blizzard,Planta,15,90,100
+582,Play Rough,Hada,10,90,90
+590,Diamond Storm,Roca,5,100,95
+608,Nuzzle,Electrico,20,20,100
 609,Hold Back,Normal,40,40,100
-611,Power-Up Punch,Fighting,20,40,100
-613,Thousand Arrows,Ground,10,90,100
-614,Thousand Waves,Ground,10,90,100
-615,Land's Wrath,Ground,10,90,100
-618,Precipice Blades,Ground,10,120,85
-619,Dragon Ascent,Flying,5,120,100
-659,First Impression,Bug,10,90,100
-661,Spirit Shackle,Ghost,10,80,100
-662,Darkest Lariat,Dark,10,85,100
-664,Ice Hammer,Ice,10,100,90
-666,High Horsepower,Ground,10,95,95
-668,Solar Blade,Grass,10,125,100
-669,Leafage,Grass,40,40,100
-674,Throat Chop,Dark,15,80,100
-676,Anchor Shot,Steel,20,80,100
-678,Lunge,Bug,15,80,100
-679,Fire Lash,Fire,15,80,100
-680,Power Trip,Dark,10,20,100
-687,Trop Kick,Grass,15,70,100
-689,Beak Blast,Flying,15,100,100
+611,Power-Up Punch,Lucha,20,40,100
+613,Thousand Arrows,Tierra,10,90,100
+614,Thousand Waves,Tierra,10,90,100
+615,Land's Wrath,Tierra,10,90,100
+618,PrecipHielo Blades,Tierra,10,120,85
+619,Dragon Ascent,Volador,5,120,100
+659,First Impression,Bicho,10,90,100
+661,Spirit Shackle,Fantasma,10,80,100
+662,Siniestroest Lariat,Siniestro,10,85,100
+664,Hielo Hammer,Hielo,10,100,90
+666,High Horsepower,Tierra,10,95,95
+668,Solar Blade,Planta,10,125,100
+669,Leafage,Planta,40,40,100
+674,Throat Chop,Siniestro,15,80,100
+676,Anchor Shot,Acero,20,80,100
+678,Lunge,Bicho,15,80,100
+679,Fuego Lash,Fuego,15,80,100
+680,Power Trip,Siniestro,10,20,100
+687,Trop Kick,Planta,15,70,100
+689,Beak Blast,Volador,15,100,100
 691,Dragon Hammer,Dragon,15,90,100
-692,Brutal Swing,Dark,20,60,100
-705,Psychic Fangs,Psychic,10,85,100
-706,Stomping Tantrum,Ground,10,75,100
-707,Shadow Bone,Ghost,10,85,100
-708,Accelerock,Rock,20,40,100
-709,Liquidation,Water,10,85,100
-711,Spectral Thief,Ghost,10,90,100
-712,Sunsteel Strike,Steel,5,100,100
-715,Zing Zap,Electric,10,80,100
+692,Brutal Swing,Siniestro,20,60,100
+705,Psiquico Fangs,Psiquico,10,85,100
+706,Stomping Tantrum,Tierra,10,75,100
+707,Shadow Bone,Fantasma,10,85,100
+708,Accelerock,Roca,20,40,100
+709,Liquidation,Agua,10,85,100
+711,Spectral Thief,Fantasma,10,90,100
+712,SunAcero Strike,Acero,5,100,100
+715,Zing Zap,Electrico,10,80,100
 717,Multi-Attack,Normal,10,90,100
-720,Plasma Fists,Electric,15,100,100
+720,Plasma Fists,Electrico,15,100,100
