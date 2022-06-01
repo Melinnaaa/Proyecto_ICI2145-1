@@ -65,7 +65,7 @@ reask:
         {
             playerPokemon.ptr = pair->value;
             player.pokemons[0] = playerPokemon;
-            //showPokemon(playerPokemon->ptr);
+            showPokemon(playerPokemon.ptr);
         } else {
             printf("El pokemon no existe. Por favor "
                     "intentalo nuevamente.\n");
