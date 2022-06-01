@@ -87,3 +87,15 @@ int is_equal(void* key1, void* key2)
     if(strcmp((char*)key1,(char*)key2) == 0) return 1;
     return 0;
 }
+
+//Muestra el contenido de una lista.
+void showList (List* list)
+{
+    char* id = listFirst(list);
+
+    while (id != NULL)
+    {
+        printf("%s\n", id);
+        id = listNext(list);
+    }     
+}

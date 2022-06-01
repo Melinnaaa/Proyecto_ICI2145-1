@@ -52,4 +52,6 @@ int is_equal(void* key1, void *key2);
 
 /** @} */
 
+void showList (List* list);
+
 #endif
