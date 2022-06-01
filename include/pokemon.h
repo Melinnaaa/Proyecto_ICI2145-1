@@ -30,7 +30,7 @@ typedef struct PlayerPokemon {
 } PlayerPokemon;
 
 
-void randomizeMovements(PlayerPokemon *ppk);
+void randomizeMovements(PlayerPokemon *ppk, HashMap* map);
 
 
 
