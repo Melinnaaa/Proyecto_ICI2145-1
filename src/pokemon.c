@@ -132,6 +132,6 @@ void showPokemon(Pokemon* pokemon)
 {
     printf("Nombre del pokemon: %s\n", pokemon->name);
     printf("Vida del pokemon: %d\n", pokemon->HP);
-    printf("Tipo/s del pokemon");
+    printf("Tipo/s del pokemon: ");
     showList(pokemon->type);
 }
