@@ -6,6 +6,7 @@
 #include "menu.h"
 #include "player.h"
 #include "pokemon.h"
+#include "util.h"
 
 void showMenu()
 {
@@ -28,43 +29,53 @@ void createProfile(Player *player, HashMap *pokeMap)
 
 
 
-    for (int i = 0; i < 4; i++)
+    for (int j = 0; j < 2; j++)
     {
-reask:
-        printf("Ingresa el nombre de tu ");
-        switch (i) 
-        {
-            case 0:
-              printf("primer ");
-              break;
-            case 1:
-              printf("segundo ");
-              break;
-            case 2:
-              printf("tercer ");
-              break;
-            case 3:
-              printf("cuarto ");
-              break;
-                
-        }
-        printf("pokemon: ");
 
-        scanf("%[^\n]*s", tmp);
-        tmp[0] = toupper(tmp[0]);
+        printf("Ingrese el nombre del jugador %d: ", j + 1);
+        scanf("%[^\n]*s", player[j].name);
         getchar();
 
-        pair = searchMap(pokeMap, tmp);
-
-        if (pair != NULL)
+        for (int i = 0; i < 4; i++)
         {
-            playerPokemon.ptr = pair->value;
-            player.pokemons[0] = playerPokemon;
-            showPokemon(playerPokemon.ptr);
-        } else {
-            printf("El pokemon no existe. Por favor "
-                    "intentalo nuevamente.\n");
-            goto reask;  // Volver a preguntar por el pokemon 1
+    reask:
+            printf("Ingresa el nombre de tu ");
+            switch (i) 
+            {
+                case 0:
+                  printf("primer ");
+                  break;
+                case 1:
+                  printf("segundo ");
+                  break;
+                case 2:
+                  printf("tercer ");
+                  break;
+                case 3:
+                  printf("cuarto ");
+                  break;
+                    
+            }
+            printf("pokemon: ");
+
+            scanf("%[^\n]*s", tmp);
+            stringToLower(tmp);
+            tmp[0] = toupper(tmp[0]);
+            getchar();
+
+            pair = searchMap(pokeMap, tmp);
+
+            if (pair != NULL)
+            {
+                playerPokemon.ptr = pair->value;
+                player[j].pokemons[i] = playerPokemon;
+                showPokemon(playerPokemon.ptr);
+            } else {
+                printf("El pokemon no existe. Por favor "
+                        "intentalo nuevamente.\n");
+                goto reask;  // Volver a preguntar por el pokemon 1
+            }
+
         }
 
     }
