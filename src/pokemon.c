@@ -10,7 +10,6 @@ void loadPokemons(HashMap *map)
 {
     FILE* pokemon = fopen ("out.csv", "r");
     char linea[1024];
-
     //Se lee el archivo csv linea por linea.
     while (fgets (linea, 1023, pokemon) != NULL) 
     {
@@ -109,6 +108,7 @@ void randomizeMovements(PlayerPokemon *ppk, HashMap* map)
     /* Recorremos la lista de los tipos */
     int j = 0;
     HashMap* tmp;
+    int num;
     /* i: string que recorre los tipos
      * j: int que cuenta las iteraciones */
     for(char *i = listFirst(ppk->ptr->type); 
@@ -122,8 +122,8 @@ void randomizeMovements(PlayerPokemon *ppk, HashMap* map)
             for (int k = 0 ; k < 4 ; k++)
             {
                 tmp = searchMap(map, i)->value;
-                rand()
-                searchMap(tmp, );
+                num = ((rand()  % ((map->capacity) - 1) + 1));
+                searchMap(tmp, num);
             }
             
         } else { // si no
