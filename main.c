@@ -16,10 +16,10 @@ void showPlayers();
 int main() {
     srand(time(NULL));
     printf("Bienvenido a pokemon.exe\n");
-    HashMap *movements = createMap(218);
-    HashMap* pokemons = createMap(917);
-    loadPokemons(pokemons);
-    loadMovements(movements);
+    HashMap *movementsStr = createMap(218);
+    HashMap* pokemonsStr = createMap(917);
+    loadPokemons(pokemonsStr);
+    loadMovements(movementsStr);
     // Jugadores
     Player players[2];
     for (int i = 0; i < 2; i++) {
@@ -34,7 +34,7 @@ int main() {
         {
             case 1: // Crear perfil
             {
-                createProfile(players, pokemons, movements);
+                createProfile(players, pokemonsStr, movementsStr);
 
                 break;
             }
