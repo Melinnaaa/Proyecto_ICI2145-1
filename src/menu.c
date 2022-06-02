@@ -33,6 +33,7 @@ void createProfile(Player *player, HashMap *pokeMap, HashMap *movements)
     {
 
         printf("Ingrese el nombre del jugador %d: ", j + 1);
+        fflush(stdout);
         scanf("%[^\n]*s", player[j].name);
         getchar();
 
@@ -57,6 +58,7 @@ void createProfile(Player *player, HashMap *pokeMap, HashMap *movements)
                     
             }
             printf("pokemon: ");
+            fflush(stdout);
 
             scanf("%[^\n]*s", tmp);
             stringToLower(tmp);
