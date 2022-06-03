@@ -15,73 +15,88 @@ void showMenu()
     printf("3. Mostrar Perfiles: \n");
 }
 
-void createProfile(Player *player, HashMap *pokeMap, HashMap *movements)
+
+typedef struct PokemonExport {
+    int id;
+    int moves[4];
+} PokemonExport;
+
+typedef struct PlayerExport {
+    char name[30];
+    PokemonExport pokemons[4];
+    int inventory[10];
+    int wins;
+    int losses;
+} PlayerExport;
+
+void createProfile(HashMap *pokeMap, HashMap *movements)
 {
     /* Par y pokémon utilizados para la búsqueda */
     HashMapPair *pair;
     PlayerPokemon playerPokemon;
 
-    char tmp[20];
+    char tmp[30];
 
     fflush(stdin);
 
-    createPlayer(player);
+    PlayerExport player;
 
 
+    printf("Ingrese el nombre del jugador :");
+    fflush(stdout);
+    scanf("%[^\n]*s", player.name);
+    getchar();
 
-    for (int j = 0; j < 2; j++)
+    for (int i = 0; i < 4; i++)
     {
-
-        printf("Ingrese el nombre del jugador %d: ", j + 1);
+reask:
+        printf("Ingresa el nombre de tu ");
+        switch (i) 
+        {
+            case 0:
+              printf("primer ");
+              break;
+            case 1:
+              printf("segundo ");
+              break;
+            case 2:
+              printf("tercer ");
+              break;
+            case 3:
+              printf("cuarto ");
+              break;
+                
+        }
+        printf("pokemon: ");
         fflush(stdout);
-        scanf("%[^\n]*s", player[j].name);
+
+        scanf("%[^\n]*s", tmp);
+        stringToLower(tmp);
+        tmp[0] = toupper(tmp[0]);
         getchar();
 
-        for (int i = 0; i < 4; i++)
+        pair = searchMap(pokeMap, tmp);
+
+        if (pair != NULL)
         {
-    reask:
-            printf("Ingresa el nombre de tu ");
-            switch (i) 
+            playerPokemon.ptr = pair->value;
+            randomizeMovements(&playerPokemon, movements);
+            for (int i = 0; i < 4; i++)
             {
-                case 0:
-                  printf("primer ");
-                  break;
-                case 1:
-                  printf("segundo ");
-                  break;
-                case 2:
-                  printf("tercer ");
-                  break;
-                case 3:
-                  printf("cuarto ");
-                  break;
-                    
+                player.pokemons[i].id = playerPokemon.ptr->ID;
+                for (int j = 0; j < 4; j++)
+                {
+                    player.pokemons[i].moves[j] = playerPokemon.movements[j].ID;
+
+                }
+
             }
-            printf("pokemon: ");
-            fflush(stdout);
-
-            scanf("%[^\n]*s", tmp);
-            stringToLower(tmp);
-            tmp[0] = toupper(tmp[0]);
-            getchar();
-
-            pair = searchMap(pokeMap, tmp);
-
-            if (pair != NULL)
-            {
-                playerPokemon.ptr = pair->value;
-                randomizeMovements(&playerPokemon, movements);
-                player[j].pokemons[i] = playerPokemon;
-                showPokemon(playerPokemon.ptr);
-            } else {
-                printf("El pokemon no existe. Por favor "
-                        "intentalo nuevamente.\n");
-                goto reask;  // Volver a preguntar por el pokemon 1
-            }
-
+            showPokemon(playerPokemon.ptr);
+        } else {
+            printf("El pokemon no existe. Por favor "
+                    "intentalo nuevamente.\n");
+            goto reask;  // Volver a preguntar por el pokemon 1
         }
-
     }
-
 }
 
