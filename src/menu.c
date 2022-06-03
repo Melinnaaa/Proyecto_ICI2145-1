@@ -1,5 +1,7 @@
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+
 
 #include "hashmap.h"
 
@@ -73,6 +75,8 @@ reask:
         scanf("%[^\n]*s", tmp);
         stringToLower(tmp);
         tmp[0] = toupper(tmp[0]);
+        char * guion = strchr(tmp, '-');
+        if (guion) guion[1] = toupper(guion[1]);
         getchar();
 
         pair = searchMap(pokeMap, tmp);
