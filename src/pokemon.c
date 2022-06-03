@@ -103,16 +103,22 @@ void loadMovements(HashMap* movementMap)
     fclose(moves);
 }
 
+// pain
 void randomizeMovements(PlayerPokemon *ppk, HashMap* map)
 {
-    printf("!!%s\n", 
-            (
-             (Movement*)(searchMap(searchMap(map, "Lucha")->value,"Jump Kick")->value))->name);
     /* Recorremos la lista de los tipos */
+    /* j solo se usa para comprobar si estamos en la primera iteracion */
     int j = 0;
+    /* l se utiliza cuando el pokemon tiene dos tipos distintos,
+     * en este caso se utiliza para saber en que casilla 
+     * guardamos el movimiento */
     int l = 0;
+
+    /* mapa que almacena el mapa dentro del mapa de tipos. */
     HashMap* tmp;
-    int num;
+    /* numero en el que se guardara el random. Varia entre 
+     * 1 y tmp->capacity/2. */
+    int num; 
     /* i: string que recorre los tipos
      * j: int que cuenta las iteraciones */
     for(char *i = listFirst(ppk->ptr->type); 
@@ -126,11 +132,10 @@ void randomizeMovements(PlayerPokemon *ppk, HashMap* map)
         {
             for (int k = 0 ; k < 4 ; k++)
             {
-                num = ((rand()  % ((tmp->capacity/2) - 1) + 1));
-                printf("num %d\n, ", num);
+                num = ((rand()  % ((tmp->capacity/2) + 1)));
                 while (tmp->buckets[num] == NULL) {
 
-                    if (num > tmp->capacity)
+                    if (num > tmp->capacity - 1)
                         num = 0;
                     num++;
                 }
@@ -138,22 +143,38 @@ void randomizeMovements(PlayerPokemon *ppk, HashMap* map)
             }
             
         } else { // si no
+repeat:
+            printf("J: %d\n", j);
+            printf("L: %d\n", l);
             /* añadimos dos movimientos */
             for (int k = 0 ; k < 2 ; k++)
             {
-                num = ((rand()  % ((tmp->capacity) - 1) + 1));
-                while (tmp->buckets[num] == NULL || tmp->buckets[num]->value == NULL) {
-                    if (num > tmp->capacity) 
+                num = ((rand()  % ((tmp->capacity/2) + 1)));
+                while (tmp->buckets[num] == NULL ) {
+                    if (num > tmp->capacity - 1) 
                         num = 0;
                     num++;
                 }
-                ppk->movements[l] = tmp->buckets[num]->value;
-            }
-            l++;
+                int repetido = 0;
+                for (int m  = 0; m < 4; m ++)
+                {
+                    if (tmp->buckets[num]->value == ppk->movements[m] && ppk->movements[m] != NULL)
+                        repetido = 1;
+                }
+
+                if (repetido != 0)
+                {
+                    tmp = searchMap(map, "Normal")->value;
+                    goto repeat;
+                }
+                    ppk->movements[l] = tmp->buckets[num]->value;
+                    l++;
+                }
         }
         
         j++;
     }
+    showPlayerPokemon(ppk);
 }
 
 void showPokemon(Pokemon* pokemon)
