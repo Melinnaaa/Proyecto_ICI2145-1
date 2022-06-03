@@ -3,6 +3,7 @@
 #include "list.h"
 #include "hashmap.h"
 typedef struct Movement {
+    int id;
     char name[30];
     char type[30];
     int pp;
