@@ -90,7 +90,7 @@ reask:
                 player.pokemons[i].id = playerPokemon.ptr->ID;
                 for (int j = 0; j < 4; j++)
                 {
-                    player.pokemons[i].moves[j] = playerPokemon.movements[j].ID;
+                    player.pokemons[i].moves[j] = playerPokemon.movements[j]->id;
 
                 }
 
