@@ -60,6 +60,10 @@ void loadMovements(HashMap* movementMap)
             char* aux = get_csv_field(linea, i); // Se guardan los datos en la variable auxiliar
             switch (i)
             {
+                case 0: //Se guarda el ID
+                {
+                    tmpMove->id = atoi(aux);
+                }
                 case 1://Se guarda el nombre
                 {
                     strcpy(tmpMove->name, aux);
