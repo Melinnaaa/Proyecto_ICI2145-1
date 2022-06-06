@@ -34,18 +34,22 @@ int main() {
         {
             case 1: // Crear perfil
             {
-                createProfile(pokemonsStr, movementsStr);
-
+                createProfile(players, pokemonsStr, movementsStr);
                 break;
             }
             case 2: // Cargar perfiles
             {
-                loadProfiles();
+                login(players);
                 break;
             }
             case 3: // Mostrar jugadores
             {
                 showPlayers(players);
+                break;
+            }
+            case 4:
+            {
+                sign_in(players);
                 break;
             }
         }
