@@ -11,7 +11,7 @@ typedef struct Movement {
     float accuracy;
 } Movement;
 
-void loadMovements(HashMap* movementMap);
+void loadMovements(HashMap* movementMap, HashMap* movements);
 
 typedef struct Pokemon{
 int ID;
