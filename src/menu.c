@@ -40,15 +40,20 @@ void createProfile(Player *player, HashMap *pokeMap, HashMap *movements)
     //Utilizado para guardar el nombre del pokemon.
     char tmp[30];
     fflush(stdin);
+
+    //Se verifica que no existan datos anteriores, de existir se finaliza la funcion.
     if (player->pokemons->ptr != NULL)
     {
         printf("El jugador ya existe!\n");
         return;
     }
+
+    //Se solicita el nombre del usuario.
     printf("Ingresa tu nickName: ");
     scanf("%[^\n]*s", player->name);
     getchar();
 
+    //Ciclo que se encarga de guardar 4 pokemons.
     for (int i = 0; i < 4; i++)
     {
 reask:
@@ -71,20 +76,26 @@ reask:
         }
         printf("pokemon: ");
 
+        //Se lee el nombre del pokemon solicitado.
         scanf("%[^\n]*s", tmp);
         stringToLower(tmp);
         tmp[0] = toupper(tmp[0]);
         getchar();
 
+        //Y se busca en el mapa de pokemones.
         pair = searchMap(pokeMap, tmp);
 
+        //Si existe se le generan movimientos randoms.
         if (pair != NULL)
         {
             playerPokemon.ptr = pair->value;
             randomizeMovements(&playerPokemon, movements);
             player->pokemons[i] = playerPokemon;
             //showPokemon(playerPokemon.ptr);
-        } else {
+        } 
+        //De no encontrarse se solicita que ingrese el nombre nuevamente.
+        else 
+        {
             printf("El pokemon no existe. Por favor "
                     "intentalo nuevamente.\n");
             goto reask;  // Volver a preguntar por el pokemon 1
