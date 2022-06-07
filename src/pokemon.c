@@ -46,7 +46,7 @@ void loadPokemons(HashMap *map)
     fclose(pokemon);
 }
 
-void loadMovements(HashMap* movementMap)
+void loadMovements(HashMap* movementMap, HashMap* movements)
 {
     FILE* moves = fopen ("move-data-clean.csv", "r");
     char linea[1024];
@@ -92,6 +92,7 @@ void loadMovements(HashMap* movementMap)
             }  
         }
         /* Se busca si existe un mapa del tipo X */
+        insertMap(movements, tmpMove->name, tmpMove);
         HashMapPair *pair = searchMap(movementMap, tmpMove->type);
         if(pair == NULL)
         {
