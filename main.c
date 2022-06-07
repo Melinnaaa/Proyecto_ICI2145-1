@@ -12,14 +12,14 @@
 void loadProfiles();
 void showPlayers();
 
-
 int main() {
     srand(time(NULL));
     printf("Bienvenido a pokemon.exe\n");
     HashMap *movementsStr = createMap(218);
     HashMap* pokemonsStr = createMap(917);
+    HashMap *movements = createMap(218);
     loadPokemons(pokemonsStr);
-    loadMovements(movementsStr);
+    loadMovements(movementsStr, movements);
     // Jugadores
     Player players[2];
     for (int i = 0; i < 2; i++) {
@@ -39,7 +39,7 @@ int main() {
             }
             case 2: // Cargar perfiles
             {
-                login(players);
+                login(players, pokemonsStr, movements);
                 break;
             }
             case 3: // Mostrar jugadores
@@ -70,6 +70,7 @@ void createPlayer(Player *p)
     }
     p->wins = 0;
     p->losses = 0;
+    p->pokemons->ptr = NULL;
  
 }
 
