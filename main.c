@@ -34,7 +34,15 @@ int main() {
         {
             case 1: // Crear perfil
             {
-                createProfile(players, pokemonsStr, movementsStr);
+                int j;//Almacena el numero del jugador.
+                //Se recibe el numero en donde se almacenaran los datos del jugador
+                printf("Igrese numero del jugador en donde se guardaran los datos (1/2).\n");
+                do
+                {
+                    scanf("%d", &j);
+                    getchar();
+                } while (j < 1 || j > 2);
+                createProfile(&players[j-1], pokemonsStr, movementsStr);
                 break;
             }
             case 2: // Cargar perfiles
