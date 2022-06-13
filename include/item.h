@@ -2,9 +2,9 @@
 #define ITEM_H 
 
 typedef struct {
-    int ID;
     char name[30];
     int price;
+    int effect;
 } Item;
 
 typedef struct {
