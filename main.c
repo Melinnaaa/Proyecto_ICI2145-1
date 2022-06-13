@@ -15,11 +15,13 @@ void showPlayers();
 int main() {
     srand(time(NULL));
     printf("Bienvenido a pokemon.exe\n");
-    HashMap *movementsStr = createMap(218);
+    HashMap* movementsStr = createMap(218);
     HashMap* pokemonsStr = createMap(917);
-    HashMap *movements = createMap(218);
+    HashMap* movements = createMap(218);
+    Item* items = calloc(5, sizeof(Item*));
     loadPokemons(pokemonsStr);
     loadMovements(movementsStr, movements);
+    loadItems(items);
     // Jugadores
     Player players[2];
     for (int i = 0; i < 2; i++) {
@@ -60,6 +62,11 @@ int main() {
                 sign_in(players);
                 break;
             }
+            case 5:
+            {
+                showShop(items);
+                break;
+            }
         }
     }
     printf("lo vimoh\n");
@@ -87,7 +94,10 @@ void showPlayers(Player *players)
 {   
     for (int i = 0; i < 2; i++)
     {
-        showPlayer(&players[i]);
+        if(players[i].pokemons->ptr != NULL)
+            showPlayer(&players[i]);
+        else
+            printf("El jugador %d no se ha registrado.\n\n", i + 1);
     }
 }
 
