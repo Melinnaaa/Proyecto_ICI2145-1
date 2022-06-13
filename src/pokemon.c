@@ -5,6 +5,7 @@
 #include "hashmap.h"
 #include "csvread.h"
 #include "util.h"
+#include "item.h"
 
 void loadPokemons(HashMap *map)
 {
@@ -106,6 +107,22 @@ void loadMovements(HashMap* movementMap, HashMap* movements)
         }
     }
     fclose(moves);
+}
+
+void loadItems(Item* items)
+{
+    FILE* moves = fopen ("items.csv", "r");
+    char linea[1024];
+    int i = 0;
+    //Se lee el archivo csv linea por linea.
+    while (fgets (linea, 1023, moves) != NULL) 
+    {
+    
+        strcpy(items[i].name, get_csv_field(linea, 0));
+        items[i].price = atoi(get_csv_field(linea, 1));
+        items[i].effect = atoi(get_csv_field(linea, 2));
+        i++;
+    }
 }
 
 // pain
