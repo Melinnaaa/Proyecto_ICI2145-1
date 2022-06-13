@@ -14,6 +14,7 @@ void showMenu()
     printf("2. Cargar Perfil: \n");
     printf("3. Mostrar Perfiles: \n");
     printf("4. Guardar Perfil: \n");
+    printf("5. Comprar objetos: \n");
     printf("0. Salir: \n");
 }
 
@@ -131,7 +132,7 @@ void sign_in (Player* players)
     //Primero se abre en "r" para no borrar los datos.
     userData =(fopen(directory,"r"));
 
-    //Si existe el jugador se pregunta si quiere sobreescribir los datos.
+    //Si existe el jugador se pregunta si quiere sobrescribir los datos.
     if (userData != NULL)
     {
         char answer[3];
@@ -248,6 +249,20 @@ void login (Player* players, HashMap* pkm, HashMap* moveMap)
                 if (k < 3) strcpy(moveName, (char*)listNext(moves));
             }
         }
+    }
+}
+
+void showShop(Item* items)
+{
+    for (int i = 0 ; i < 5 ; i++)
+    {
+        printf("Nombre: %s\n", items[i].name);
+        printf("Precio: %d\n", items[i].price);
+        printf("Restaura %d ", items[i].effect);
+        if(i < 3)
+            printf("ps\n\n");
+        else
+            printf("pp\n\n");
     }
 }
 
