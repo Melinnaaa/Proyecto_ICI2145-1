@@ -4,12 +4,12 @@
 #include "pokemon.h"
 
 typedef struct {
-    char name[30];
-    int wins;
-    int losses;
+    char name[30];//Nombre.
+    int wins;//Victorias.
+    int losses;//Derrotas.
     // Inventario
     PlayerItem inventory[10];
-    PlayerPokemon pokemons[4];
+    PlayerPokemon pokemons[4];//Pokemons del jugador.
 } Player;
 
 void createPlayer(Player *player);
