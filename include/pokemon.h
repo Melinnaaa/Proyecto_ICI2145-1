@@ -22,6 +22,7 @@ int HP;
 } Pokemon;
 
 void loadPokemons(HashMap *map);
+void loadItems(Item* items);
 void showPokemon(Pokemon *pokemon);
 
 typedef struct PlayerPokemon {
