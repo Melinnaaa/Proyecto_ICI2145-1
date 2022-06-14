@@ -7,8 +7,9 @@ typedef struct {
     char name[30];//Nombre.
     int wins;//Victorias.
     int losses;//Derrotas.
+    int money;//Dinero disponible.
     // Inventario
-    PlayerItem inventory[10];
+    PlayerItem inventory[5];
     PlayerPokemon pokemons[4];//Pokemons del jugador.
 } Player;
 
