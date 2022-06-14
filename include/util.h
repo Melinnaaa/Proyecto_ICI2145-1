@@ -54,4 +54,8 @@ int is_equal(void* key1, void *key2);
 
 void showList (List* list);
 
+int getPlayerPos();
+
+int checkNum(int min, int max);
+
 #endif
