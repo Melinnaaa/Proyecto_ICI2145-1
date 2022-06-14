@@ -305,3 +305,31 @@ repeat:
     
 }
 
+void getEffectiveNodes(HashMap* effective)
+{
+    FILE* affinities = fopen ("Affinities.csv", "r");
+    char linea[1024];
+    List* tmpNode;
+    //Se lee el archivo csv linea por linea.
+    while (fgets (linea, 1023, affinities) != NULL)
+    {
+        tmpNode = strToList(get_csv_field(linea, 1), ", ");
+        insertMap(effective, get_csv_field(linea, 0), tmpNode);
+    }
+    fclose(affinities);
+}
+
+void getUneffectiveNodes(HashMap* uneffectiveMap)
+{
+    FILE* ola = fopen ("rip.csv", "r");
+    char linea[1024];
+    List* tmpNode;
+    //Se lee el archivo csv linea por linea.
+    while (fgets (linea, 1023, ola) != NULL)
+    {
+        tmpNode = strToList(get_csv_field(linea, 1), ", ");
+        insertMap(uneffectiveMap, get_csv_field(linea, 0), tmpNode);
+    }
+    fclose(ola);
+}
+
