@@ -5,7 +5,7 @@
 void showMenu();
 void createProfile(Player *player, HashMap *pokeMap, HashMap *movements);
 void sign_in (Player* players);
-void login (Player* players, HashMap* pkm, HashMap* moveMap);
+void login (Player* players, HashMap* pkm, HashMap* moveMap, Item* items);
 void showShop(Item* items);
 void buyItems(Item* items, Player* players);
 #endif

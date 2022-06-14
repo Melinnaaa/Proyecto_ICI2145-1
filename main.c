@@ -43,7 +43,7 @@ int main() {
             }
             case 2: // Cargar perfiles
             {
-                login(players, pokemonsStr, movements);
+                login(players, pokemonsStr, movements, items);
                 break;
             }
             case 3: // Mostrar jugadores
@@ -105,8 +105,9 @@ void showPlayer(Player *p)
     printf("Ratio victorias / derrotas %f\n", (p->losses && p->wins)  ?
             ((float)p->wins / p->losses) : 0 );
     // Inventario
-    for(int i = 0; i < 10; i++) {
+    for(int i = 0; i < 5; i++) {
         if(p->inventory[i].item != NULL) {
+            printf("a\n");
             showItem(p->inventory[i].item);
         }
     }
