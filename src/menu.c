@@ -53,7 +53,7 @@ void createProfile(Player *player, HashMap *pokeMap, HashMap *movements)
     printf("Ingresa tu nickName: ");
     scanf("%[^\n]*s", player->name);
     getchar();
-
+    player->money = 2000;
     //Ciclo que se encarga de guardar 4 pokemons.
     for (int i = 0; i < 4; i++)
     {
@@ -113,11 +113,7 @@ void sign_in (Player* players)
     
     //Se lee el numero del jugador del que se desea guardar los datos.
     printf("Inserte numero del jugador a registrar (1/2).\n");
-    do
-    {
-        scanf("%d", &j);
-        getchar();
-    } while (j < 1 || j > 2);
+    j = checkNum(1, 2);
 
     //Se obtienen la ubicacion.
     snprintf(directory, sizeof(directory), "Player/%s%s", players[j-1].name,".csv");
@@ -156,7 +152,7 @@ void sign_in (Player* players)
     userData =(fopen(directory,"w"));
 
     //Se escribe el nombre/victorias/derrotas en la primera linea.
-    fprintf(userData, "%s,%d,%d\n", players[j - 1].name, players[j - 1].wins, players[j - 1].losses);
+    fprintf(userData, "%s,%d,%d,%d\n", players[j - 1].name, players[j - 1].wins, players[j - 1].losses, players[j - 1].money);
     
     for (int k = 0 ; k < 4 ; k++)
     {
@@ -170,14 +166,13 @@ void sign_in (Player* players)
             else fprintf(userData, "%s,", players[j - 1].pokemons[k].movements[i]->name);
         }
     }
-    /*
+    
     //Se guardan los objetos.
-    fprintf(userData, "\"");
-    for (int i = 0 ; i < 10 ; i++)
+    for (int i = 0 ; i < 5 ; i++)
     {
-        fprintf(userData, "%s, ", players[j - 1].inventory[i].item->name);
-        if (i == 9) fprintf(userData, "%s\"\n", players[j - 1].inventory[i].item->name);
-    }*/
+        if(players[j - 1].inventory[i].item != NULL)
+            fprintf(userData, "%d, %s", i, players[j - 1].inventory[i].item->name);
+    }
 
     fclose(userData);
 } 
@@ -192,11 +187,7 @@ void login (Player* players, HashMap* pkm, HashMap* moveMap)
     
     //Se lee el numero del jugador en donde se desea cargar los datos.
     printf("Igrese numero del jugador en donde se guardaran los datos (1/2).\n");
-    do
-    {
-        scanf("%d", &j);
-        getchar();
-    } while (j < 1 || j > 2);
+    j = checkNum(1, 2);
 
     //Se lee el nombre del perfil a cargar.
     printf("Ingrese el nombre del perfil.\n");
@@ -256,13 +247,43 @@ void showShop(Item* items)
 {
     for (int i = 0 ; i < 5 ; i++)
     {
-        printf("Nombre: %s\n", items[i].name);
-        printf("Precio: %d\n", items[i].price);
-        printf("Restaura %d ", items[i].effect);
-        if(i < 3)
-            printf("ps\n\n");
+        printf("%d. %s     $%d\n", i+1, items[i].name, items[i].price);
+        if (i < 3)
+            printf("Medicina en spray que restaura %d ps de tu pokemon\n", items[i].effect);
         else
-            printf("pp\n\n");
+            printf("Restaura un total de %d pp de tu pokemon\n", items[i].effect);
+        printf("\n");
     }
 }
+
+/*
+void buyItems(Item* items, Player* players)
+{
+repeat:
+    showShop(items);
+    int i;
+    int qty;
+    printf("Seleccione una opcion\n");
+    i = checkNum(1, 5);
+
+    printf("¿%s? Buena eleccion\n", items[i-1].name);
+    printf("¿Cuantas quieres?, maximo 10 unidades.\n");
+    qty = checkNum(0, 10);
+    printf("%d\n", players->money);
+    if (players->money >= (qty*items[i-1].price))
+    {
+        players->money -= (qty*items[i-1].price);
+        players->inventory[i-1]->item = items[i-1];
+        players->inventory[i-1].qty = qty;
+    }
+    else
+    {
+        printf("Lo sentimos, no tienes suficiente dinero.\n");
+    }
+    printf("Desea continuar? (1/2)\n");
+    i = checkNum(1, 2);
+    if (i == 1)
+        goto repeat;
+    
+}*/
 
