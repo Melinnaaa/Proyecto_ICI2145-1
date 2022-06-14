@@ -2,6 +2,7 @@
 #define POKEMON_H
 #include "list.h"
 #include "hashmap.h"
+#include "item.h"
 typedef struct Movement {
     int id;
     char name[30];
