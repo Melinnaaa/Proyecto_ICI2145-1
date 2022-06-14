@@ -7,9 +7,8 @@
 #include "pokemon.h"
 #include "item.h"
 #include "player.h"
+#include "util.h"
 
-
-void loadProfiles();
 void showPlayers();
 
 int main() {
@@ -22,6 +21,7 @@ int main() {
     loadPokemons(pokemonsStr);
     loadMovements(movementsStr, movements);
     loadItems(items);
+    int j;//Almacena el numero del jugador.
     // Jugadores
     Player players[2];
     for (int i = 0; i < 2; i++) {
@@ -30,20 +30,14 @@ int main() {
     int in = -1;
     while (in != 0) {
         showMenu();
-        scanf("%d", &in);
-        getchar();
+        in = checkNum(0, 5);
+        
         switch(in)  
         {
             case 1: // Crear perfil
             {
-                int j;//Almacena el numero del jugador.
                 //Se recibe el numero en donde se almacenaran los datos del jugador
-                printf("Igrese numero del jugador en donde se guardaran los datos (1/2).\n");
-                do
-                {
-                    scanf("%d", &j);
-                    getchar();
-                } while (j < 1 || j > 2);
+                j = getPlayerPos();
                 createProfile(&players[j-1], pokemonsStr, movementsStr);
                 break;
             }
@@ -64,7 +58,8 @@ int main() {
             }
             case 5:
             {
-                showShop(items);
+                j = getPlayerPos();
+                buyItems(items, &players[j-1]);
                 break;
             }
         }
@@ -78,13 +73,14 @@ int main() {
  * se carga si es que existe (TODO) */
 void createPlayer(Player *p)
 {
-    for( int i = 0; i < 10; i++)
+    for( int i = 0; i < 5; i++)
     {
         p->inventory[i].qty = 0;
         p->inventory[i].item = NULL;
     }
     p->wins = 0;
     p->losses = 0;
+    p->money = 0;
     p->pokemons->ptr = NULL;
  
 }
