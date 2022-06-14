@@ -170,20 +170,22 @@ void sign_in (Player* players)
     //Se guardan los objetos.
     for (int i = 0 ; i < 5 ; i++)
     {
-        if(players[j - 1].inventory[i].item != NULL)
-            fprintf(userData, "%d, %s\n", i, players[j - 1].inventory[i].item->name);
+        //Si la casilla i contiene objetos se guarda la posición, cantidad y nombre del objeto.
+        if(players[j - 1].inventory[i].item != NULL && players[j-1].inventory[i].qty > 0)
+            fprintf(userData, "%d,%d\n", i, players[j-1].inventory[i].qty);
     }
 
     fclose(userData);
 } 
 
 //Carga los datos de un perfil creado anteriormente.
-void login (Player* players, HashMap* pkm, HashMap* moveMap)
+void login (Player* players, HashMap* pkm, HashMap* moveMap, Item* items)
 {
-    FILE* userData = NULL;//archivo
+    FILE* userData = NULL;//archivo del usuario.
     char directory[51];//Ubicación del archivo.
     char name[30];
     int j;//Numero del jugador.
+    int k;//Posición del objeto.
     
     //Se lee el numero del jugador en donde se desea cargar los datos.
     printf("Igrese numero del jugador en donde se guardaran los datos (1/2).\n");
@@ -221,6 +223,7 @@ void login (Player* players, HashMap* pkm, HashMap* moveMap)
            strcpy(players[j-1].name, (char*)get_csv_field(linea, 0));
            players[j-1].wins = atoi((char*)get_csv_field(linea, 1));
            players[j-1].losses = atoi((char*)get_csv_field(linea, 2));
+           players[j-1].money = atoi((char*)get_csv_field(linea, 3));
         }
         //Luego se guardan los pokemosn y sus ataques.
         else
@@ -241,8 +244,17 @@ void login (Player* players, HashMap* pkm, HashMap* moveMap)
             }
         }
     }
+    while (fgets (linea, 1023, userData) != NULL)
+    {
+        k = atoi((char*)get_csv_field(linea, 0));
+        players[j-1].inventory[k].item = &items[k];
+        players[j-1].inventory[k].qty = atoi((char*)get_csv_field(linea, 1));
+    }
+    
+    fclose(userData);
 }
 
+//Muestra los items disponibles de la tienda.
 void showShop(Item* items)
 {
     for (int i = 0 ; i < 5 ; i++)
@@ -256,20 +268,22 @@ void showShop(Item* items)
     }
 }
 
-
+//Comprar items de la tienda
 void buyItems(Item* items, Player* players)
 {
 repeat:
+    //Se muestran los items de la tienda
     showShop(items);
-    int i;
-    int qty;
+    int i;//Opcion
+    int qty;//Cantidad de items a comprar
     printf("Seleccione una opcion\n");
     i = checkNum(1, 5);
 
     printf("¿%s? Buena eleccion\n", items[i-1].name);
     printf("¿Cuantas quieres?, maximo 10 unidades.\n");
     qty = checkNum(0, 10);
-    printf("%d\n", players->money);
+    
+    //Se comprueba que el usuario disponga de dinero.
     if (players->money >= (qty*items[i-1].price))
     {
         players->money -= (qty*items[i-1].price);
@@ -280,9 +294,13 @@ repeat:
     {
         printf("Lo sentimos, no tienes suficiente dinero.\n");
     }
-    printf("Desea continuar? (1/2)\n");
+    printf("Desea continuar?\n");
+    printf("1. Si\n");
+    printf("2. No\n");
     i = checkNum(1, 2);
+
     if (i == 1)
+        //Se repite todo nuevamente si desea continuar.
         goto repeat;
     
 }
