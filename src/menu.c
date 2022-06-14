@@ -171,7 +171,7 @@ void sign_in (Player* players)
     for (int i = 0 ; i < 5 ; i++)
     {
         if(players[j - 1].inventory[i].item != NULL)
-            fprintf(userData, "%d, %s", i, players[j - 1].inventory[i].item->name);
+            fprintf(userData, "%d, %s\n", i, players[j - 1].inventory[i].item->name);
     }
 
     fclose(userData);
@@ -247,7 +247,7 @@ void showShop(Item* items)
 {
     for (int i = 0 ; i < 5 ; i++)
     {
-        printf("%d. %s     $%d\n", i+1, items[i].name, items[i].price);
+        printf("%d. %s  $%d\n", i+1, items[i].name, items[i].price);
         if (i < 3)
             printf("Medicina en spray que restaura %d ps de tu pokemon\n", items[i].effect);
         else
@@ -256,7 +256,7 @@ void showShop(Item* items)
     }
 }
 
-/*
+
 void buyItems(Item* items, Player* players)
 {
 repeat:
@@ -273,7 +273,7 @@ repeat:
     if (players->money >= (qty*items[i-1].price))
     {
         players->money -= (qty*items[i-1].price);
-        players->inventory[i-1]->item = items[i-1];
+        players->inventory[i-1].item = &items[i-1];
         players->inventory[i-1].qty = qty;
     }
     else
@@ -285,5 +285,5 @@ repeat:
     if (i == 1)
         goto repeat;
     
-}*/
+}
 
