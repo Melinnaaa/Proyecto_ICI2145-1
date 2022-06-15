@@ -154,12 +154,25 @@ void randomizeMovements(PlayerPokemon *ppk, HashMap* map)
         {
             for (int k = 0 ; k < 4 ; k++)
             {
+            again:
                 num = ((rand()  % ((tmp->capacity/2) + 1)));
                 while (tmp->buckets[num] == NULL) {
 
                     if (num > tmp->capacity - 1)
                         num = 0;
                     num++;
+                }
+                int repetido = 0;
+                for (int m  = 0; m < 4; m ++)
+                {
+                    if (tmp->buckets[num]->value == ppk->movements[m] && ppk->movements[m] != NULL)
+                        repetido = 1;
+                }
+
+                if (repetido != 0)
+                {
+                    tmp = searchMap(map, "Normal")->value;
+                    goto again;
                 }
                 ppk->movements[k] = tmp->buckets[num]->value;
             }

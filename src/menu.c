@@ -79,9 +79,19 @@ reask:
 
         //Se lee el nombre del pokemon solicitado.
         scanf("%[^\n]*s", tmp);
+        getchar();
         stringToLower(tmp);
         tmp[0] = toupper(tmp[0]);
-        getchar();
+        //Caso en que el nombre tenga guion.
+        char * guion = strchr(tmp, '-');
+        if (guion) 
+        {
+            printf("%s\n", guion);
+            guion[1] = toupper(guion[1]);
+        }
+        //Caso en que el nombre tenga espacio.
+        char * espacio = strchr(tmp, ' ');
+        if (espacio) espacio[1] = toupper(espacio[1]);
 
         //Y se busca en el mapa de pokemones.
         pair = searchMap(pokeMap, tmp);
@@ -309,27 +319,29 @@ void getEffectiveNodes(HashMap* effective)
 {
     FILE* affinities = fopen ("Affinities.csv", "r");
     char linea[1024];
-    List* tmpNode;
     //Se lee el archivo csv linea por linea.
     while (fgets (linea, 1023, affinities) != NULL)
     {
-        tmpNode = strToList(get_csv_field(linea, 1), ", ");
-        insertMap(effective, get_csv_field(linea, 0), tmpNode);
+        insertMap(effective, get_csv_field(linea, 0), strToList(get_csv_field(linea, 1), ", "));
     }
     fclose(affinities);
 }
 
 void getUneffectiveNodes(HashMap* uneffectiveMap)
 {
-    FILE* ola = fopen ("rip.csv", "r");
-    char linea[1024];
-    List* tmpNode;
-    //Se lee el archivo csv linea por linea.
-    while (fgets (linea, 1023, ola) != NULL)
+    printf("ola");
+    FILE* uneffective = fopen("rip.csv", "r");
+    if (uneffective == NULL)
     {
-        tmpNode = strToList(get_csv_field(linea, 1), ", ");
-        insertMap(uneffectiveMap, get_csv_field(linea, 0), tmpNode);
+        printf("cagué");
     }
-    fclose(ola);
+    char linea[1024];
+    //Se lee el archivo csv linea por linea.
+    while (fgets (linea, 1023, uneffective) != NULL)
+    {
+        insertMap(uneffectiveMap, get_csv_field(linea, 0), strToList(get_csv_field(linea, 1), ", "));
+    }
+    printf("salí");
+    fclose(uneffective);
 }
 
