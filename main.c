@@ -31,14 +31,14 @@ int main() {
     HashMap* effective = createMap(35);
 
     //Grafo de debilidades.
-    HashMap* uneffective = createMap(35);
+    //HashMap* uneffective = createMap(40);
 
     //Se cargan los pokemons, movimientos y items de archivos csv.
     loadPokemons(pokemonsStr);
     loadMovements(movementsStr, movements);
     loadItems(items);
     getEffectiveNodes(effective);
-    getUneffectiveNodes(uneffective);
+    //getUneffectiveNodes(uneffective);
 
     int j;//Almacena el numero del jugador.
     int in = -1;//Opcion ingresada por el usuario.
