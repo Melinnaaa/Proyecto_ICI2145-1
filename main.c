@@ -14,6 +14,8 @@ void showPlayers();
 int main() {
     srand(time(NULL));
     printf("Bienvenido a pokemon.exe\n");
+
+    printf("Para empezar crea o carga tu perfil.\n\n");
     
     //Mapa de movimientos con clave a partir del tipo.
     HashMap* movementsStr = createMap(218);
@@ -61,7 +63,14 @@ int main() {
             {
                 //Se recibe el numero en donde se almacenaran los datos del jugador
                 j = getPlayerPos();
-                createProfile(&players[j-1], pokemonsStr, movementsStr);
+                if (j != 0){
+                    createProfile(&players[j-1], pokemonsStr, movementsStr);
+                }
+                if (j == 0) {
+                    printf("Regresando al menú.");
+                    putchar('\n');
+                    continue;
+                }
                 break;
             }
             case 2: // Cargar perfiles.
@@ -84,6 +93,10 @@ int main() {
                 j = getPlayerPos();
                 buyItems(items, &players[j-1]);
                 break;
+            }
+            case 0:
+            {
+                return 0;
             }
         }
     }
