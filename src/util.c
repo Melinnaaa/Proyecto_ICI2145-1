@@ -100,18 +100,6 @@ void showList (List* list)
     }     
 }
 
-//Obtiene la posición del jugador
-int getPlayerPos()
-{
-    int j;
-    printf("Igrese numero del jugador(1/2).\n");
-    do
-    {
-        scanf("%d", &j);
-        getchar();
-    } while (j < 1 || j > 2);
-    return j;
-}
 
 //Comprueba que el numero este en un determinado rango
 int checkNum(int min, int max)
