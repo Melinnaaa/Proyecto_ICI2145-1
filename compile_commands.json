@@ -9,19 +9,109 @@
       "-Werror",
       "-std=c99",
       "-o",
-      "out/menu.o",
-      "src/menu.c"
+      "out/pokemon.o",
+      "src/pokemon.c"
     ],
-    "directory": "/home/krr/Proyecto_ICI2145-1",
-    "file": "/home/krr/Proyecto_ICI2145-1/src/menu.c",
-    "output": "/home/krr/Proyecto_ICI2145-1/out/menu.o"
+    "directory": "/home/krr/proyecto_ici2145-1",
+    "file": "/home/krr/proyecto_ici2145-1/src/pokemon.c",
+    "output": "/home/krr/proyecto_ici2145-1/out/pokemon.o"
   },
   {
     "arguments": [
       "/usr/bin/gcc",
       "-c",
       "-Iinclude",
+      "-g",
+      "-Wall",
+      "-Werror",
+      "-std=c99",
+      "-o",
+      "out/hashmap.o",
+      "src/hashmap.c"
+    ],
+    "directory": "/home/krr/proyecto_ici2145-1",
+    "file": "/home/krr/proyecto_ici2145-1/src/hashmap.c",
+    "output": "/home/krr/proyecto_ici2145-1/out/hashmap.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Iinclude",
+      "-g",
+      "-Wall",
+      "-Werror",
+      "-std=c99",
+      "-o",
       "out/menu.o",
+      "src/menu.c"
+    ],
+    "directory": "/home/krr/proyecto_ici2145-1",
+    "file": "/home/krr/proyecto_ici2145-1/src/menu.c",
+    "output": "/home/krr/proyecto_ici2145-1/out/menu.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Iinclude",
+      "-g",
+      "-Wall",
+      "-Werror",
+      "-std=c99",
+      "-o",
+      "out/csvread.o",
+      "src/csvread.c"
+    ],
+    "directory": "/home/krr/proyecto_ici2145-1",
+    "file": "/home/krr/proyecto_ici2145-1/src/csvread.c",
+    "output": "/home/krr/proyecto_ici2145-1/out/csvread.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Iinclude",
+      "-g",
+      "-Wall",
+      "-Werror",
+      "-std=c99",
+      "-o",
+      "out/list.o",
+      "src/list.c"
+    ],
+    "directory": "/home/krr/proyecto_ici2145-1",
+    "file": "/home/krr/proyecto_ici2145-1/src/list.c",
+    "output": "/home/krr/proyecto_ici2145-1/out/list.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Iinclude",
+      "-g",
+      "-Wall",
+      "-Werror",
+      "-std=c99",
+      "-o",
+      "out/util.o",
+      "src/util.c"
+    ],
+    "directory": "/home/krr/proyecto_ici2145-1",
+    "file": "/home/krr/proyecto_ici2145-1/src/util.c",
+    "output": "/home/krr/proyecto_ici2145-1/out/util.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Iinclude",
+      "out/csvread.o",
+      "out/hashmap.o",
+      "out/list.o",
+      "out/menu.o",
+      "out/pokemon.o",
+      "out/util.o",
       "-g",
       "-Wall",
       "-Werror",
@@ -30,8 +120,8 @@
       "pokemon",
       "main.c"
     ],
-    "directory": "/home/krr/Proyecto_ICI2145-1",
-    "file": "/home/krr/Proyecto_ICI2145-1/main.c",
-    "output": "/home/krr/Proyecto_ICI2145-1/pokemon"
+    "directory": "/home/krr/proyecto_ici2145-1",
+    "file": "/home/krr/proyecto_ici2145-1/main.c",
+    "output": "/home/krr/proyecto_ici2145-1/pokemon"
   }
 ]
