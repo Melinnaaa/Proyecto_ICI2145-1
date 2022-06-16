@@ -9,12 +9,12 @@
       "-Werror",
       "-std=c99",
       "-o",
-      "out/pokemon.o",
-      "src/pokemon.c"
+      "out/csvread.o",
+      "src/csvread.c"
     ],
     "directory": "/home/krr/proyecto_ici2145-1",
-    "file": "/home/krr/proyecto_ici2145-1/src/pokemon.c",
-    "output": "/home/krr/proyecto_ici2145-1/out/pokemon.o"
+    "file": "/home/krr/proyecto_ici2145-1/src/csvread.c",
+    "output": "/home/krr/proyecto_ici2145-1/out/csvread.o"
   },
   {
     "arguments": [
@@ -43,6 +43,23 @@
       "-Werror",
       "-std=c99",
       "-o",
+      "out/list.o",
+      "src/list.c"
+    ],
+    "directory": "/home/krr/proyecto_ici2145-1",
+    "file": "/home/krr/proyecto_ici2145-1/src/list.c",
+    "output": "/home/krr/proyecto_ici2145-1/out/list.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Iinclude",
+      "-g",
+      "-Wall",
+      "-Werror",
+      "-std=c99",
+      "-o",
       "out/menu.o",
       "src/menu.c"
     ],
@@ -60,12 +77,12 @@
       "-Werror",
       "-std=c99",
       "-o",
-      "out/csvread.o",
-      "src/csvread.c"
+      "out/player.o",
+      "src/player.c"
     ],
     "directory": "/home/krr/proyecto_ici2145-1",
-    "file": "/home/krr/proyecto_ici2145-1/src/csvread.c",
-    "output": "/home/krr/proyecto_ici2145-1/out/csvread.o"
+    "file": "/home/krr/proyecto_ici2145-1/src/player.c",
+    "output": "/home/krr/proyecto_ici2145-1/out/player.o"
   },
   {
     "arguments": [
@@ -77,12 +94,12 @@
       "-Werror",
       "-std=c99",
       "-o",
-      "out/list.o",
-      "src/list.c"
+      "out/pokemon.o",
+      "src/pokemon.c"
     ],
     "directory": "/home/krr/proyecto_ici2145-1",
-    "file": "/home/krr/proyecto_ici2145-1/src/list.c",
-    "output": "/home/krr/proyecto_ici2145-1/out/list.o"
+    "file": "/home/krr/proyecto_ici2145-1/src/pokemon.c",
+    "output": "/home/krr/proyecto_ici2145-1/out/pokemon.o"
   },
   {
     "arguments": [
@@ -110,6 +127,7 @@
       "out/hashmap.o",
       "out/list.o",
       "out/menu.o",
+      "out/player.o",
       "out/pokemon.o",
       "out/util.o",
       "-g",
