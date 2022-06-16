@@ -10,11 +10,16 @@
 
 void showMenu()
 {
-    printf("1. Crear Perfil: \n");
-    printf("2. Cargar Perfil: \n");
-    printf("3. Mostrar Perfiles: \n");
-    printf("4. Guardar Perfil: \n");
-    printf("5. Comprar objetos: \n");
+    printf("1. Nueva partida\t\t");
+    printf("3. Mostrar jugadores\n");
+
+    printf("2. Cargar partida: \t\t");
+    printf("4. Guardar perfiles \n\n");
+
+    printf("5. Tienda\n\n");
+//    printf("3. Mostrar Perfiles \n");
+//    printf("4. Guardar Perfil: \n");
+//    printf("5. Comprar objetos: \n");
     printf("0. Salir: \n");
 }
 
@@ -201,6 +206,12 @@ void login (Player* players, HashMap* pkm, HashMap* moveMap, Item* items)
     printf("Igrese numero del jugador en donde se guardaran los datos (1/2).\n");
     j = checkNum(1, 2);
 
+    if (j == 'q')
+    {
+        fflush(stdin);
+        return;
+    }
+
     //Se lee el nombre del perfil a cargar.
     printf("Ingrese el nombre del perfil.\n");
     scanf("%s[^\n]", name);
@@ -329,11 +340,11 @@ void getEffectiveNodes(HashMap* effective)
 
 void getUneffectiveNodes(HashMap* uneffectiveMap)
 {
-    printf("ola");
+    // printf("ola");
     FILE* uneffective = fopen("rip.csv", "r");
     if (uneffective == NULL)
     {
-        printf("cagué");
+//   printf("cagué");
     }
     char linea[1024];
     //Se lee el archivo csv linea por linea.
@@ -341,7 +352,7 @@ void getUneffectiveNodes(HashMap* uneffectiveMap)
     {
         insertMap(uneffectiveMap, get_csv_field(linea, 0), strToList(get_csv_field(linea, 1), ", "));
     }
-    printf("salí");
+  //   printf("salí");
     fclose(uneffective);
 }
 
