@@ -16,4 +16,6 @@ typedef struct {
 void createPlayer(Player *player);
 void showPlayer(Player *player);
 
+int getPlayerPos();
+
 #endif
