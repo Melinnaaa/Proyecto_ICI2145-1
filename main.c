@@ -25,20 +25,21 @@ int main() {
     HashMap* movements = createMap(218);
 
     //Arreglo de items disponibles.
-    Item* items = calloc(5, sizeof(Item*));
+    Item* items = calloc(5, sizeof(Item));
+//    Item items[6];
 
     //Grafo de afinidades.
     HashMap* effective = createMap(35);
 
     //Grafo de debilidades.
-    //HashMap* uneffective = createMap(40);
+    HashMap* uneffective = createMap(40);
 
     //Se cargan los pokemons, movimientos y items de archivos csv.
     loadPokemons(pokemonsStr);
     loadMovements(movementsStr, movements);
     loadItems(items);
-    getEffectiveNodes(effective);
-    //getUneffectiveNodes(uneffective);
+     getEffectiveNodes(effective);
+     getUneffectiveNodes(uneffective);
 
     int j;//Almacena el numero del jugador.
     int in = -1;//Opcion ingresada por el usuario.
