@@ -32,12 +32,13 @@ void showPlayer(Player *p)
 int getPlayerPos()
 {
     int j;
-    printf("Igrese numero del jugador(1/2).\n");
+    printf("Qué jugador eres? (1/2)\n");
+    printf("0 para volver al menú\n");
     do
     {
         scanf("%d", &j);
         getchar();
-    } while (j < 1 || j > 2);
+    } while ( ((j < 1 ) && ( j != 0 )) || (j > 2 ) );
     return j;
 }
 

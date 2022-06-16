@@ -104,11 +104,12 @@ void showList (List* list)
 //Comprueba que el numero este en un determinado rango
 int checkNum(int min, int max)
 {
+    fflush(stdin);
     int tmp;
     do
     {
         scanf("%d", &tmp);
         getchar();
-    } while (tmp < min || tmp > max);
+    } while ( ((tmp < min ) && ( tmp != 0 )) || (tmp > max ) );
     return tmp;
 }
