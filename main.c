@@ -38,8 +38,8 @@ int main() {
     loadPokemons(pokemonsStr);
     loadMovements(movementsStr, movements);
     loadItems(items);
-     getEffectiveNodes(effective);
-     getUneffectiveNodes(uneffective);
+    getEffectiveNodes(effective);
+    getUneffectiveNodes(uneffective);
 
     int j;//Almacena el numero del jugador.
     int in = -1;//Opcion ingresada por el usuario.
