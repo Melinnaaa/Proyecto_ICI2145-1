@@ -99,7 +99,18 @@ void insertMap(HashMap * map, char * key, void * value)
     map->buckets[clave] = createHashMapPair(key, value);
   }
 }
+/*
+void insertMap(HashMap * map, char * key, void * value) {
+    long pos = hash(key, map->capacity);
+    while(map->buckets[pos] && map->buckets[pos]->key) {
+        pos++;
+        if(pos == map->capacity) pos = 0;
+    }
+    map->buckets[pos] = createPair(key, value);
+    map->size++;
+}
 
+*/
 void enlarge(HashMap * map) 
 {
   enlarge_called = 1; //no borrar (testing purposes)
