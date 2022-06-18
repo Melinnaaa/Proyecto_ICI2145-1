@@ -56,8 +56,10 @@ int main() {
 
     //Bucle principal del programa.
     while (in != 0) {
+#ifdef DEBUG
         printf("DEBUG: players[0].canFight = %d\n", players[0].canFight);
         printf("DEBUG: players[1].canFight = %d\n", players[1].canFight);
+#endif
         showMenu();
         in = checkNum(0, 6);
         
