@@ -11,6 +11,7 @@ typedef struct {
     // Inventario
     PlayerItem inventory[5];
     PlayerPokemon pokemons[4];//Pokemons del jugador.
+    int canFight;                              
 } Player;
 
 void createPlayer(Player *player);

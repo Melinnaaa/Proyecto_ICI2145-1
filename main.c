@@ -51,9 +51,8 @@ int main() {
 
     // Se inicializan las variables de los jugadores.
     Player players[2];
-    for (int i = 0; i < 2; i++) {
-        createPlayer(&players[i]);
-    }
+        createPlayer(&players[0]);
+        createPlayer(&players[1]);
 
     //Bucle principal del programa.
     while (in != 0) {
@@ -103,7 +102,7 @@ int main() {
             case 6: // Iniciar combate
             {
                 // la instancia de combat iniciada se elimina al terminar el combate
-                startCombat(initCombat());
+                startCombat(players, initCombat());
                 break;
             }
             case 0:
@@ -125,11 +124,14 @@ void createPlayer(Player *p)
     {
         p->inventory[i].qty = 0;
         p->inventory[i].item = NULL;
+        if (i != 5)
+            p->pokemons[i].ptr = NULL;
     }
     p->wins = 0;
     p->losses = 0;
     p->money = 0;
-    p->pokemons->ptr = NULL;
+    p->canFight = 0;
+    strcpy(p->name, "");
  
 }
 

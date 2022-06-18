@@ -1,5 +1,6 @@
 #ifndef combat_h
 #define combat_h
+#include "player.h"
 
 typedef struct Combat {
     int turn; // a quien le toca?
@@ -7,7 +8,7 @@ typedef struct Combat {
 } Combat;
 
 Combat *initCombat();
-void startCombat();
+void startCombat(Player *players, Combat *combat);
 void attackMenu();
 void mainMenuCombat();
 #endif
