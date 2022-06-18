@@ -116,31 +116,7 @@ int main() {
     return 0;
 }
 
-/* Se crea el inventario vacio.
- * se carga si es que existe (TODO) */
-void createPlayer(Player *p)
-{
-    for( int i = 0; i < 5; i++)
-    {
-        p->inventory[i].qty = 0;
-        p->inventory[i].item = NULL;
-        if (i != 5)
-            p->pokemons[i].ptr = NULL;
-    }
-    p->wins = 0;
-    p->losses = 0;
-    p->money = 0;
-    p->canFight = 0;
-    strcpy(p->name, "");
- 
-}
 
 
 
-//Muestra el item del jugador.
-void showItem(Item *item)
-{
-    printf("%s\n", item->name);
-    return;
-}
 
