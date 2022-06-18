@@ -56,14 +56,42 @@ void openInventory()
 
 void attackMenu(Combat *combat)
 {
-    printf("A quién quieres atacar?\n");
-
-    for (int i = 0; i < 4; i++)
+    int in = -1, in2 = -1;
+    while (in != 0)
     {
-        printf("%d. %s. HP: %d\n", i+1, combat->players[!(combat->turn)].pokemons[i].ptr->name, 
-                combat->players[!(combat->turn)].pokemons[i].hp);
-    }
+        printf("Tu pokémon seleccionado es %s\n", combat->players[combat->turn].selection->ptr->name);
 
+        while (in2 == -1 || in2 < 0 || in2 > 4)
+        {
+            printf("Elige tu ataque\n");
+            for(int i = 0; i < 4; i ++)
+            {
+                printf("%d. %s\n", i + 1, combat->players[combat->turn].selection->movements[i]->name);
+            }
+
+            fflush(stdin);
+            in2 = getchar() - '1' + 1;
+            getchar(); // \n
+
+        }
+
+        printf("A quién quieres atacar?\n");
+
+
+
+        for (int i = 0; i < 4; i++)
+        {
+            printf("%d. %s. HP: %d\n", i+1, combat->players[!(combat->turn)].pokemons[i].ptr->name, 
+                    combat->players[!(combat->turn)].pokemons[i].hp);
+        }
+        printf("0. Volver\n");
+
+        fflush(stdin);
+        in = getchar() - '1' + 1;
+        getchar(); // \n
+
+    } 
+    // doAttack(combat, combat->players[!(combat->turn)].pokemons[in -1]);
 }
 
 void showMainMenuCombat()
