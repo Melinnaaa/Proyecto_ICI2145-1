@@ -57,4 +57,9 @@ void showList (List* list);
 
 int checkNum(int min, int max);
 
+// devuelve un entero dado un intervalo
+//
+int randomNumber(int lowerbound, int upperbound);
+
+
 #endif

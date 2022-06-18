@@ -16,7 +16,8 @@ void showMenu()
     printf("2. Cargar partida: \t\t");
     printf("4. Guardar perfiles \n\n");
 
-    printf("5. Tienda\n\n");
+    printf("5. Tienda\n");
+    printf("6. Jugador vs Jugador\n\n");
 //    printf("3. Mostrar Perfiles \n");
 //    printf("4. Guardar Perfil: \n");
 //    printf("5. Comprar objetos: \n");
