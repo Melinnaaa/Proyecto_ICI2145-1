@@ -10,7 +10,7 @@ TESTOBJS=$(patsubst tests/%.c, out/tests/%.o, $(TESTS))
 INCLUDE=$(wildcard include/*)
 INCLUDES=-Iinclude
 
-all: prepare $(OBJS) $(NAME) 
+all: prepare $(OBJS) $(NAME)  test
 
 
 
@@ -33,7 +33,7 @@ out/%.o: src/%.c
 out/tests/%.o: tests/%.c
 	$(CC) -o $@ -c $^ $(INCLUDES)  -g -Wall -Werror -std=c99
 
-test: $(INCLUDE) $(TESTOBJS)
+test: prepare $(INCLUDE) $(TESTOBJS) $(OBJS)
 	$(CC) -o pokemon_test $(OBJS) $(TESTOBJS) -g -Wall -Werror -std=c99
 
 # borra todo

@@ -2,23 +2,48 @@
 #include "player.h"
 
 int main() {
-    Player player[2];
-    createPlayer(&player[0]);
-    createPlayer(&player[1]);
-    assert(player[0].canFight = 0);
+    // Crear player solo.
+    Player player;
+    createPlayer(&player);
+    player.canFight = 0;
+    assert(player.canFight == 0);
     for (int i = 0; i < 5; i++)
     {
-        assert (player[0].inventory[i].item == NULL);
-        assert (player[0].inventory[i].qty == 0);
+        assert (player.inventory[i].item == NULL);
+        assert (player.inventory[i].qty == 0);
     }
 
-    assert (player[0].losses == 0);
-    assert (player[0].wins == 0);
-    assert (player[0].money == 2000);
+    assert (player.losses == 0);
+    assert (player.wins == 0);
+    assert (player.money == 0);
 
     for (int i = 0; i < 4; i++) 
     {
-        assert (player[0].pokemons[i].ptr == NULL);
+        assert (player.pokemons[i].ptr == NULL);
     }
+
+    // Crear player solo.
+    Player players[2];
+    for (int i = 0; i < 2; i++)
+    {
+        createPlayer(&players[i]);
+        players[i].canFight = 0;
+        assert(players[i].canFight == 0);
+        for (int j = 0; j < 5; j++)
+        {
+            assert (players[i].inventory[j].item == NULL);
+            assert (players[i].inventory[j].qty == 0);
+        }
+
+        assert (players[i].losses == 0);
+        assert (players[i].wins == 0);
+        assert (players[i].money == 0);
+
+        for (int j = 0; j < 4; j++) 
+        {
+            assert (players[i].pokemons[j].ptr == NULL);
+        }
+
+        }
     
 }

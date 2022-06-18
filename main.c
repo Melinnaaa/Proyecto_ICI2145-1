@@ -56,6 +56,8 @@ int main() {
 
     //Bucle principal del programa.
     while (in != 0) {
+        printf("DEBUG: players[0].canFight = %d\n", players[0].canFight);
+        printf("DEBUG: players[1].canFight = %d\n", players[1].canFight);
         showMenu();
         in = checkNum(0, 6);
         
@@ -102,7 +104,7 @@ int main() {
             case 6: // Iniciar combate
             {
                 // la instancia de combat iniciada se elimina al terminar el combate
-                startCombat(players, initCombat());
+                startCombat(&players[0], initCombat(players));
                 break;
             }
             case 0:

@@ -72,13 +72,20 @@ void createPlayer(Player *p)
     {
         p->inventory[i].qty = 0;
         p->inventory[i].item = NULL;
-        if (i != 5)
-            p->pokemons[i].ptr = NULL;
+    }
+
+    for( int i = 0; i < 4; i++)
+    {
+        p->pokemons[i].ptr = NULL;
+        for (int j = 0; j < 4; j++)
+        {
+            p->pokemons[i].movements[j] = NULL;
+            p->pokemons[i].pps[j] = 0;
+        }
     }
     p->wins = 0;
     p->losses = 0;
     p->money = 0;
-    p->canFight = 0;
     strcpy(p->name, "");
- 
+    p->canFight = 0;
 }

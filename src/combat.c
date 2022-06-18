@@ -75,6 +75,6 @@ void mainMenuCombat(Player *players)
 
 void startCombat(Player * players, Combat *combat)
 {
-    mainMenuCombat(players);
+    mainMenuCombat(&players[0]);
     
 }
