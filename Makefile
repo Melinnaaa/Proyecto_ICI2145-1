@@ -36,6 +36,10 @@ out/tests/%.o: tests/%.c
 test: prepare $(INCLUDE) $(TESTOBJS) $(OBJS)
 	$(CC) -o pokemon_test $(OBJS) $(TESTOBJS) -g -Wall -Werror -std=c99
 
+debug: clean $(OBJS) $(INCLUDE) main.c
+	$(CC) $(INCLUDES) main.c $(OBJS) -o $(NAME) -g -Wall -Werror -std=c99 -lm -DDEBUG
+
+
 # borra todo
 clean:
 	rm $(NAME) $(OBJS)
