@@ -208,8 +208,11 @@ void login (Player* players, HashMap* pkm, HashMap* moveMap, Item* items)
     //Se lee el numero del jugador en donde se desea cargar los datos.
     printf("Igrese numero del jugador en donde se guardaran los datos (1/2).\n");
     j = checkNum(1, 2);
+#ifdef DEBUG
+    printf("DEBUG: login() j value = %d\n", j)
+#endif
 
-    if (j == 'q')
+    if (j == '0')
     {
         fflush(stdin);
         return;
