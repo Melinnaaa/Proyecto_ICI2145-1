@@ -57,16 +57,23 @@ void openInventory()
 void attackMenu(Combat *combat)
 {
     int in = -1, in2 = -1;
+    Player *current = combat->players + combat->turn;
+    Player *enemy = combat->players + !(combat->turn);
+
     while (in != 0)
     {
-        printf("Tu pokémon seleccionado es %s\n", combat->players[combat->turn].selection->ptr->name);
+
+
+        printf("Tu pokémon seleccionado es %s:", current->selection->ptr->name);
+        printf(" %d HP\n\n", current->selection->hp);
+        
 
         while (in2 == -1 || in2 < 0 || in2 > 4)
         {
             printf("Elige tu ataque\n");
             for(int i = 0; i < 4; i ++)
             {
-                printf("%d. %s\n", i + 1, combat->players[combat->turn].selection->movements[i]->name);
+                printf("%d. %s\n", i + 1, current->selection->movements[i]->name);
             }
 
             fflush(stdin);
@@ -81,8 +88,8 @@ void attackMenu(Combat *combat)
 
         for (int i = 0; i < 4; i++)
         {
-            printf("%d. %s. HP: %d\n", i+1, combat->players[!(combat->turn)].pokemons[i].ptr->name, 
-                    combat->players[!(combat->turn)].pokemons[i].hp);
+            printf("%d. %s. HP: %d\n", i+1, enemy->pokemons[i].ptr->name, 
+                    enemy->pokemons[i].hp);
         }
         printf("0. Volver\n");
 
@@ -106,9 +113,20 @@ void showMainMenuCombat()
 void mainMenuCombat(Combat *combat)
 {
     char in = -1;
+    Player *current = &combat->players[combat->turn];
+
 
     while (in != '0') {
-        printf("Turno de %s:\n\n", combat->players[combat->turn].name);
+        printf("Turno de %s:\n\n", current->name);
+
+        for(int i = 0; i < 4; i++)
+        {
+            printf(
+                    current->selection == (current->pokemons + i) ? 
+                    "\u00b7 %s: %d HP\n":"  %s: %d HP\n",
+                    current->pokemons[i].ptr->name,
+                    current->pokemons[i].hp);
+        }
 
         showMainMenuCombat();
 
