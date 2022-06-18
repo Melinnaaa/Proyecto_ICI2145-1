@@ -10,4 +10,5 @@ void showShop(Item* items);
 void buyItems(Item* items, Player* players);
 void getEffectiveNodes(HashMap* effective);
 void getUneffectiveNodes(HashMap* uneffectiveMap);
+int searchAbilities (HashMap* map, char* attackType, char* typeEnemy);
 #endif

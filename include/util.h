@@ -57,4 +57,6 @@ void showList (List* list);
 
 int checkNum(int min, int max);
 
+int randomNumber(int lowerbound, int upperbound);
+
 #endif

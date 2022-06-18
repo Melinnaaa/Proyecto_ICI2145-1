@@ -357,3 +357,21 @@ void getUneffectiveNodes(HashMap* uneffectiveMap)
     fclose(uneffective);
 }
 
+//Retorna la posición de la habilidad que es efectiva.
+int searchAbilities (HashMap* map, char* attackType, char* typeEnemy)
+{
+    List* tmp;
+    char tmpType[30];
+    if (searchMap(map, attackType) != NULL)
+    {
+        tmp = searchMap(map, attackType)->value;
+        strcpy(tmpType, listFirst(tmp));
+        while (tmp != NULL)
+        {
+            if (strcmp(tmpType, typeEnemy)) return 1;//Es efectivo.
+            if (listNext(tmp) != NULL) strcpy(tmpType, listPrev(tmp));
+        }
+    }
+    return 0; //No es efectivo.
+}
+
