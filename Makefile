@@ -7,6 +7,7 @@ OBJS=$(patsubst src/%.c, out/%.o, $(SRC))
 TESTS=$(wildcard tests/*.c)
 TESTOBJS=$(patsubst tests/%.c, out/tests/%.o, $(TESTS))
 
+
 INCLUDE=$(wildcard include/*)
 INCLUDES=-Iinclude
 
@@ -29,9 +30,15 @@ prepare:
 out/%.o: src/%.c 
 	$(CC) -o $@ -c $^ $(INCLUDES) -g -Wall -Werror -std=c99
 
+
+
 # compila todos los tests
 out/tests/%.o: tests/%.c
-	$(CC) -o $@ -c $^ $(INCLUDES)  -g -Wall -Werror -std=c99 -DDEBUG
+	$(CC) -o $@ -c $^ $(INCLUDES) -g -Wall -Werror -std=c99 
+
+out/debug/%.o: src/%.c
+	$(CC) -o $@ -c $^ $(INCLUDES) -g -Wall -Werror -std=c99 -DDEBUG
+
 
 test: prepare $(INCLUDE) $(TESTOBJS) $(OBJS)
 	$(CC) -o pokemon_test $(OBJS) $(TESTOBJS) -g -Wall -Werror -std=c99

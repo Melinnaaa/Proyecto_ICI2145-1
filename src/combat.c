@@ -54,51 +54,60 @@ void openInventory()
 
 }
 
+void doAttack(Combat *combat, int attackMov, int pokemon)
+{
+    Player *current = combat->players + combat->turn;
+    Player *enemy = combat->players + !(combat->turn);
+    attackMov --; pokemon --;
+
+    printf("%s usó %s\n", current->selection->ptr->name, current->selection->movements[attackMov]->name);
+
+    enemy->pokemons[pokemon].hp -= current->selection->movements[attackMov]->damage * 0.25;
+
+    printf("La vida del %s enemigo bajó %f HP\n", 
+            enemy->pokemons[pokemon].ptr->name,
+            current->selection->movements[attackMov]->damage * 0.25);
+
+    current->selection->enabled = 0;
+}
+
+
+
 void attackMenu(Combat *combat)
 {
     int in = -1, in2 = -1;
     Player *current = combat->players + combat->turn;
     Player *enemy = combat->players + !(combat->turn);
 
-    while (in != 0)
-    {
-
-
-        printf("Tu pokémon seleccionado es %s:", current->selection->ptr->name);
-        printf(" %d HP\n\n", current->selection->hp);
+    printf("Tu pokémon seleccionado es %s:", current->selection->ptr->name);
+    printf(" %d HP\n\n", current->selection->hp);
         
 
-        while (in2 == -1 || in2 < 0 || in2 > 4)
-        {
-            printf("Elige tu ataque\n");
-            for(int i = 0; i < 4; i ++)
-            {
-                printf("%d. %s\n", i + 1, current->selection->movements[i]->name);
-            }
+    printf("Elige tu ataque: \n");
 
-            fflush(stdin);
-            in2 = getchar() - '1' + 1;
-            getchar(); // \n
+    for(int i = 0; i < 4; i ++)
+    {
+        printf("%d. %s\n", i + 1, current->selection->movements[i]->name);
+    }
+reask:
+    in = checkNum(0, 4);
 
-        }
+    if (in == 0) return;
 
-        printf("A quién quieres atacar?\n");
+    printf("A quién quieres atacar?\n");
 
+    for (int i = 0; i < 4; i++)
+    {
+        printf("%d. %s. HP: %d\n", i+1, enemy->pokemons[i].ptr->name, 
+                enemy->pokemons[i].hp);
+    }
 
+    
 
-        for (int i = 0; i < 4; i++)
-        {
-            printf("%d. %s. HP: %d\n", i+1, enemy->pokemons[i].ptr->name, 
-                    enemy->pokemons[i].hp);
-        }
-        printf("0. Volver\n");
-
-        fflush(stdin);
-        in = getchar() - '1' + 1;
-        getchar(); // \n
-
-    } 
-    // doAttack(combat, combat->players[!(combat->turn)].pokemons[in -1]);
+    in2 = checkNum(0, 4);
+    if (in2 == 0) goto reask;
+    // para atacar necesitamos: numero ataque.
+ doAttack(combat, in, in2);
 }
 
 void showMainMenuCombat()

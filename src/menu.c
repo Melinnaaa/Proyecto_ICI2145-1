@@ -112,9 +112,14 @@ reask:
             playerPokemon.ptr = pair->value;
             // Guardar HP del pokemon al crear un perfil
             playerPokemon.hp = playerPokemon.ptr->HP;
+            playerPokemon.enabled = 1;
             randomizeMovements(&playerPokemon, movements);
             player->pokemons[i] = playerPokemon;
-            //showPokemon(playerPokemon.ptr);
+#ifdef DEBUG
+            showPokemon(playerPokemon.ptr);
+#endif
+
+            playerPokemon.enabled = 1;
         } 
         //De no encontrarse se solicita que ingrese el nombre nuevamente.
         else 

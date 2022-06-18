@@ -31,6 +31,7 @@ typedef struct PlayerPokemon {
     Movement *movements[4];
     int pps[4];
     int hp;
+    int enabled;
 } PlayerPokemon;
 
 void showPlayerPokemon(PlayerPokemon *pokemon);
