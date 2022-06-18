@@ -15,7 +15,7 @@ all: prepare $(OBJS) $(NAME)  test
 
 
 $(NAME): $(OBJS) $(INCLUDE) main.c
-	$(CC) $(INCLUDES) main.c $(OBJS) -o $(NAME) -g -Wall -Werror -std=c99 -lm
+	$(CC) $(INCLUDES) main.c $(OBJS) -o $(NAME) -g -Wall -Werror -std=c99 -lm -DDEBUG
 
 # out: almacena objetos compilados
 # out/tests: almacena tests compilados
@@ -31,7 +31,7 @@ out/%.o: src/%.c
 
 # compila todos los tests
 out/tests/%.o: tests/%.c
-	$(CC) -o $@ -c $^ $(INCLUDES)  -g -Wall -Werror -std=c99
+	$(CC) -o $@ -c $^ $(INCLUDES)  -g -Wall -Werror -std=c99 -DDEBUG
 
 test: prepare $(INCLUDE) $(TESTOBJS) $(OBJS)
 	$(CC) -o pokemon_test $(OBJS) $(TESTOBJS) -g -Wall -Werror -std=c99
