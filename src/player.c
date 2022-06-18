@@ -85,6 +85,7 @@ void createPlayer(Player *p)
         {
             p->pokemons[i].movements[j] = NULL;
             p->pokemons[i].pps[j] = 0;
+            p->pokemons[i].hp = 0;
         }
     }
     p->wins = 0;

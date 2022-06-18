@@ -110,6 +110,8 @@ reask:
         if (pair != NULL)
         {
             playerPokemon.ptr = pair->value;
+            // Guardar HP del pokemon al crear un perfil
+            playerPokemon.hp = playerPokemon.ptr->HP;
             randomizeMovements(&playerPokemon, movements);
             player->pokemons[i] = playerPokemon;
             //showPokemon(playerPokemon.ptr);
@@ -261,6 +263,8 @@ void login (Player* players, HashMap* pkm, HashMap* moveMap, Item* items)
             //Se cargan los pokemons.
             tmpPkm = searchMap(pkm, (char*)get_csv_field(linea, 0))->value;
             players[j-1].pokemons[i-1].ptr = tmpPkm;
+            // Guardar HP al cargar el poke
+            players[j-1].pokemons[i-1].hp = tmpPkm->HP;
 
             //Se cargan los ataques del archivo a una lista.
             moves = strToList((char*)get_csv_field(linea, 1), ",");
