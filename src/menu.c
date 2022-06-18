@@ -276,6 +276,8 @@ void login (Player* players, HashMap* pkm, HashMap* moveMap, Item* items)
     }
     
     fclose(userData);
+    // El jugador ahora si puede pelear.
+    players[j-1].canFight = 1;
 }
 
 //Muestra los items disponibles de la tienda.
