@@ -11,10 +11,12 @@
 Combat *initCombat(Player *players)
 {
     Combat *this = NULL;
-    printf("p1p: %d\n p2p: %d\n", players[0].canFight, players[1].canFight);
+#ifdef DEBUG
+    printf("DEBUG: p1p: %d\n p2p: %d\n", players[0].canFight, players[1].canFight);
+#endif
 
-    if (players[0].canFight && 
-            players[1].canFight )
+    if (!(players[0].canFight && 
+            players[1].canFight ))
     {
         return this;
     }
@@ -75,6 +77,14 @@ void mainMenuCombat(Player *players)
 
 void startCombat(Player * players, Combat *combat)
 {
+    if (!combat)
+    {
+        printf("DEBUG: p1p: %d\n p2p: %d\n", players[0].canFight, players[1].canFight);
+        printf("Para iniciar un combate es necesario cargar los perfiles.\n");
+        printf("Pulsa una tecla para continuar..");
+        getchar();
+        return;
+    }
     mainMenuCombat(&players[0]);
     
 }
