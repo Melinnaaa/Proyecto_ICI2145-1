@@ -124,6 +124,9 @@ reask:
             goto reask;  // Volver a preguntar por el pokemon 1
         }
     }
+
+    // Hacer que el primer pokémon sea el seleccionado
+    player->selection = &playerPokemon;
     player->canFight = 1;
 }
 
@@ -288,6 +291,9 @@ void login (Player* players, HashMap* pkm, HashMap* moveMap, Item* items)
     fclose(userData);
     // El jugador ahora si puede pelear.
     players[j-1].canFight = 1;
+
+    // seleccionar el primer pokemon
+    players[j-1].selection = players[j-1].pokemons;
 }
 
 //Muestra los items disponibles de la tienda.
