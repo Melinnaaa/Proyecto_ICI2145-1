@@ -21,9 +21,12 @@ Combat *initCombat(Player *players)
         return this;
     }
 
+
     this = malloc(sizeof(Combat));
     this->turn = randomNumber(0, 1);
+    this->players = players;
     printf("Empieza el jugador %d. (%s)\n", this->turn + 1, players[this->turn].name);
+    // hp1 hp2
     while (((players[0].pokemons[0].hp + 
             players[0].pokemons[1].hp + 
             players[0].pokemons[2].hp + 
@@ -33,8 +36,7 @@ Combat *initCombat(Player *players)
             players[0].pokemons[2].hp + 
             players[0].pokemons[3].hp) != 0 )
         ){
-        mainMenuCombat(&players[this->turn]);
-        printf("Qué quieres hacer?\n");
+        mainMenuCombat(this);
         
 
     }
@@ -52,25 +54,44 @@ void openInventory()
 
 }
 
-void attackMenu()
+void attackMenu(Combat *combat)
 {
+    printf("A quién quieres atacar?\n");
+
+    for (int i = 0; i < 4; i++)
+    {
+        printf("%d. %s. HP: %d\n", i+1, combat->players[!(combat->turn)].pokemons[i].ptr->name, 
+                combat->players[!(combat->turn)].pokemons[i].hp);
+    }
 
 }
 
-void mainMenuCombat(Player *player) 
+void showMainMenuCombat()
+{
+    printf("Qué quieres hacer?\n\n");
+    printf(
+        "1. Atacar\n"
+        "2. Inventario\n"
+        "3. Huir\n"
+            );
+}
+void mainMenuCombat(Combat *combat)
 {
     char in = -1;
 
     while (in != '0') {
-        printf("Turno de %s:\n\n", player->name);
+        printf("Turno de %s:\n\n", combat->players[combat->turn].name);
 
-        in = getchar();
+        showMainMenuCombat();
+
+        fflush(stdin);
+        in = getchar() - '1' + 1;
         getchar(); // \n
                    
         switch (in)
         {
             case 1: // Atacar
-                attackMenu();
+                attackMenu(combat);
                 break;
             case 2: // Inventario
                 openInventory();
@@ -92,12 +113,14 @@ void startCombat(Player * players, Combat *combat)
 {
     if (!combat)
     {
+#ifdef DEBUG
         printf("DEBUG: p1p: %d\n p2p: %d\n", players[0].canFight, players[1].canFight);
+#endif
         printf("Para iniciar un combate es necesario cargar los perfiles.\n");
         printf("Pulsa una tecla para continuar..");
         getchar();
         return;
     }
-    mainMenuCombat(&players[0]);
+    mainMenuCombat(combat);
     
 }
