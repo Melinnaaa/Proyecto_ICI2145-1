@@ -222,10 +222,14 @@ void showPokemon(Pokemon* pokemon)
 
 void showPlayerPokemon(PlayerPokemon *pokemon)
 {
+#ifdef DEBUG
+    printf("DEBUG:: showPlayerPokemon name: %s\n", pokemon->ptr->name);
+#endif
     showPokemon(pokemon->ptr);
     printf("Movimientos: \n");
     for(int i = 0; i < 4; i++)
     {
-        printf("  %s\n", pokemon->movements[i]->name);
+        printf((i % 2) ? "%s \n" : "%s \t", pokemon->movements[i]->name);
     }
+    putchar('\n');
 }

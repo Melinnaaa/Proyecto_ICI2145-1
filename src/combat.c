@@ -24,6 +24,20 @@ Combat *initCombat(Player *players)
     this = malloc(sizeof(Combat));
     this->turn = randomNumber(0, 1);
     printf("Empieza el jugador %d. (%s)\n", this->turn + 1, players[this->turn].name);
+    while (((players[0].pokemons[0].hp + 
+            players[0].pokemons[1].hp + 
+            players[0].pokemons[2].hp + 
+            players[0].pokemons[3].hp) != 0 ) && 
+            ((players[0].pokemons[0].hp + 
+            players[0].pokemons[1].hp + 
+            players[0].pokemons[2].hp + 
+            players[0].pokemons[3].hp) != 0 )
+        ){
+        mainMenuCombat(&players[this->turn]);
+        printf("Qué quieres hacer?\n");
+        
+
+    }
 
     return this;
 }
@@ -43,13 +57,12 @@ void attackMenu()
 
 }
 
-void mainMenuCombat(Player *players) 
+void mainMenuCombat(Player *player) 
 {
     char in = -1;
 
     while (in != '0') {
-
-        printf("%s vs %s\n", players[0].name, players[1].name);
+        printf("Turno de %s:\n\n", player->name);
 
         in = getchar();
         getchar(); // \n

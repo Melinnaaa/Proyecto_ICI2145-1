@@ -10,5 +10,5 @@ typedef struct Combat {
 Combat *initCombat();
 void startCombat(Player *players, Combat *combat);
 void attackMenu();
-void mainMenuCombat();
+void mainMenuCombat(Player *player);
 #endif

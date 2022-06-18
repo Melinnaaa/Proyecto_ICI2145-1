@@ -1,4 +1,5 @@
 #include <string.h>
+int putchar(int __c);
 
 int printf (const char * , ...);
 int scanf (const char *restrict , ...);
@@ -10,23 +11,26 @@ int getchar();
 //Mostrar datos del jugador.
 void showPlayer(Player *p)
 {
-    printf("Jugador: %s\n", p->name);
+    printf("Jugador: %s\n\n", p->name);
     printf("Victorias: %d\n", p->wins);
     printf("Derrotas: %d\n", p->losses);
     printf("Ratio victorias / derrotas: %f\n", (p->losses && p->wins)  ?
             ((float)p->wins / p->losses) : 0 );
-    printf("Dinero: %d", p->money);
+    printf("Dinero: %d\n\n", p->money);
+    printf("Items: \n");
     //Se muestra el inventario si tiene objetos.
     for(int i = 0; i < 5; i++) {
         if(p->inventory[i].item != NULL) {
             showItem(p->inventory[i].item);
         }
     }
+    putchar('\n');
 
     //Se muestran los pokemons del jugador.
     for(int i = 0; i < 4; i++) 
     {
         showPlayerPokemon(&p->pokemons[i]);
+        putchar('\n');
     }
 }
 
