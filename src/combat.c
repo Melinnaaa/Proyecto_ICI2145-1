@@ -23,7 +23,7 @@ Combat *initCombat(Player *players)
 
     this = malloc(sizeof(Combat));
     this->turn = randomNumber(0, 1);
-    printf("Empieza el jugador %d.\n", this->turn + 1);
+    printf("Empieza el jugador %d. (%s)\n", this->turn + 1, players[this->turn].name);
 
     return this;
 }
