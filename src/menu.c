@@ -55,11 +55,12 @@ void createProfile(Player *player, HashMap *pokeMap, HashMap *movements)
     }
 
     //Se solicita el nombre del usuario.
-    printf("Ingresa tu nickName: ");
+    printf("Cuál es tu nombre?:  ");
     scanf("%[^\n]*s", player->name);
     getchar();
     player->money = 2000;
     //Ciclo que se encarga de guardar 4 pokemons.
+    printf("\nPara que empieces tu aventura te otorgaré 4 pokémons, así que eligelos sabiamente.\n\n ");
     for (int i = 0; i < 4; i++)
     {
 reask:

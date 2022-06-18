@@ -61,9 +61,12 @@ int main() {
         {
             case 1: // Crear perfil.
             {
+
                 //Se recibe el numero en donde se almacenaran los datos del jugador
                 j = getPlayerPos();
+
                 if (j != 0){
+                    printf("¡Hola a todos! ¡Bienvenidos al mundo de POKÉMON! ¡Me llamo Ignacio! ¡Este mundo está habitado por unas criaturas llamadas POKÉMON! Para algunos, los POKÉMON son mascotas. Pero otros los usan para pelear. En cuanto a mí... Estudio a los POKÉMON como profesión. \n");
                     createProfile(&players[j-1], pokemonsStr, movementsStr);
                 }
                 if (j == 0) {
