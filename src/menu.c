@@ -89,6 +89,9 @@ reask:
         getchar();
         stringToLower(tmp);
         tmp[0] = toupper(tmp[0]);
+        // TODO: hay algunos pokemons con dos guiones: Charizard-Mega-X.
+        // Estos no se pueden cargar
+        
         //Caso en que el nombre tenga guion.
         char * guion = strchr(tmp, '-');
         if (guion) 
