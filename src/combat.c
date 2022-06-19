@@ -7,8 +7,40 @@
 #include "player.h"
 #include "util.h"
 
+int searchAbilities (HashMap* map, char* attackType, char* typeEnemy)
+{
+    List* tmp;
+    char *tmpType;
+    if (searchMap(map, attackType) != NULL)
+    {
+#ifdef DEBUG
+        printf("tipo ataque: %s\n", attackType);
+        printf("tipo Enemigo: %s\n", typeEnemy);
+#endif
+        tmp = searchMap(map, attackType)->value;
+        tmpType = listFirst(tmp);
+        while (1)
+        {
+#ifdef DEBUG
+            printf("TIPO: %s\n", tmpType);
+#endif
+            if (strcmp(tmpType, typeEnemy) == 0) return 1;//Es efectivo.
+                                                
+            tmpType = listNext(tmp);
+
+            if (tmpType == NULL) { 
+                break;
+            } 
+        }
+    }
+#ifdef DEBUG
+    printf("no encontró nada\n");
+#endif
+    return 0; //No es efectivo.
+}
+
 // Crea una instancia de Combat
-Combat *initCombat(Player *players)
+Combat *initCombat(Player *players, HashMap *effective, HashMap *uneffective)
 {
     Combat *this = NULL;
 #ifdef DEBUG
@@ -23,6 +55,8 @@ Combat *initCombat(Player *players)
 
 
     this = malloc(sizeof(Combat));
+    this->turnAttack = 0;
+    this->effective = effective, this->uneffective = uneffective;
     this->turn = randomNumber(0, 1);
     this->players = players;
     printf("Empieza el jugador %d. (%s)\n", this->turn + 1, players[this->turn].name);
@@ -62,13 +96,57 @@ void doAttack(Combat *combat, int attackMov, int pokemon)
 
     printf("%s usó %s\n", current->selection->ptr->name, current->selection->movements[attackMov]->name);
 
-    enemy->pokemons[pokemon].hp -= current->selection->movements[attackMov]->damage * 0.25;
 
-    printf("La vida del %s enemigo bajó %f HP\n", 
+    float effective = searchAbilities(
+                combat->effective, 
+                current->selection->movements[attackMov]->type,
+                enemy->pokemons[pokemon].ptr->type->head->data
+                ) * 1.5;
+    float diff = current->selection->movements[attackMov]->damage * 0.25 ;
+
+
+    printf( effective ?
+            "Es super efectivo\n" : "\n"  );
+
+
+    if (effective) diff *= effective;
+
+    else {
+        effective = searchAbilities(
+                    combat->uneffective, 
+                    current->selection->movements[attackMov]->type,
+                    enemy->pokemons[pokemon].ptr->type->head->data
+                    );
+        diff *= !effective;
+        if (effective){
+            printf("No hizo nada!\n");
+        } 
+
+    }
+
+
+    enemy->pokemons[pokemon].hp -= diff;
+
+    printf("La vida del %s enemigo bajó %.1f HP\n", 
             enemy->pokemons[pokemon].ptr->name,
-            current->selection->movements[attackMov]->damage * 0.25);
+            diff);
+
 
     current->selection->enabled = 0;
+
+    if (combat->turnAttack >= 3)
+    {
+        combat->turn = 1 - combat->turn;
+        return;
+    } else {
+        current->selection += 1;
+        (combat->turnAttack) ++;
+    }
+#ifdef DEBUG               
+    printf("turnAttack: %d\n", combat->turnAttack);
+    printf("turn: %d\n", combat->turn);
+#endif
+
 }
 
 
@@ -107,7 +185,7 @@ reask:
     in2 = checkNum(0, 4);
     if (in2 == 0) goto reask;
     // para atacar necesitamos: numero ataque.
- doAttack(combat, in, in2);
+    doAttack(combat, in, in2);
 }
 
 void showMainMenuCombat()
@@ -122,10 +200,15 @@ void showMainMenuCombat()
 void mainMenuCombat(Combat *combat)
 {
     char in = -1;
-    Player *current = &combat->players[combat->turn];
+    printf("Turn: %d\n", combat->turn);
+
+    Player *current = combat->players + combat->turn;
 
 
     while (in != '0') {
+        printf("Turn: %d\n", combat->turn);
+        current = combat->players + combat->turn;
+
         printf("Turno de %s:\n\n", current->name);
 
         for(int i = 0; i < 4; i++)
@@ -154,10 +237,8 @@ void mainMenuCombat(Combat *combat)
             case 3: // Huir
                 escapeCombat();
                 break;
-
-
         }
-                   
+
 
     }
 

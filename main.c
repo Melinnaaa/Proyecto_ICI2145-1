@@ -106,7 +106,7 @@ int main() {
             case 6: // Iniciar combate
             {
                 // la instancia de combat iniciada se elimina al terminar el combate
-                startCombat(&players[0], initCombat(players));
+                startCombat(&players[0], initCombat(players, effective, uneffective));
                 break;
             }
             case 0:
