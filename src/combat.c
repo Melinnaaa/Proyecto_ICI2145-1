@@ -62,14 +62,14 @@ Combat *initCombat(Player *players, HashMap *effective, HashMap *uneffective)
     this->players = players;//Puntero a los jugadores.
     printf("Empieza el jugador %d. (%s)\n", this->turn + 1, players[this->turn].name);
     //Ciclo que controla el combate, si la suma de todos los pokemons es 0 se finaliza.
-    while (((players[0].pokemons[0].hp + 
+    if (((players[0].pokemons[0].hp + 
             players[0].pokemons[1].hp + 
             players[0].pokemons[2].hp + 
-            players[0].pokemons[3].hp) != 0 ) && 
-            ((players[0].pokemons[0].hp + 
-            players[0].pokemons[1].hp + 
-            players[0].pokemons[2].hp + 
-            players[0].pokemons[3].hp) != 0 )
+            players[0].pokemons[3].hp) == 0 ) || 
+            ((players[1].pokemons[0].hp + 
+            players[1].pokemons[1].hp + 
+            players[1].pokemons[2].hp + 
+            players[1].pokemons[3].hp) == 0 )
         ){
         mainMenuCombat(this);
     }
@@ -147,12 +147,22 @@ void doAttack(Combat *combat, int attackMov, int pokemon)
     //Si el turnAttack es mayor, hay qye cambiar el turno.
     if (combat->turnAttack >= 3)
     {
-        combat->turn = 1 - combat->turn;
+        //Si era el turno del jugador 1, le toca al 2do
+        if (combat->turn == 0) combat->turn = 1;
+        //Por otro lado le tocaria al jugador 1.
+        else combat->turn = 0;
+        //Se reinician los turnos.
+        combat->turnAttack = 0;
         return;
     }
     //Sino se aumenta. 
     else {
         current->selection += 1;
+        while (current->selection->hp == 0)
+        {
+            if (current)
+            current->selection += 1;
+        }
         (combat->turnAttack) ++;
     }
 #ifdef DEBUG               
@@ -172,7 +182,6 @@ void attackMenu(Combat *combat)
     printf("Tu pokémon seleccionado es %s:", current->selection->ptr->name);
     printf(" %d HP\n\n", current->selection->hp);
         
-
     printf("Elige tu ataque: \n");
     //Se muestran los ataques del pokemon actual.
     for(int i = 0; i < 4; i ++)
@@ -222,15 +231,31 @@ void showMainMenuCombat()
 void mainMenuCombat(Combat *combat)
 {
     char in = -1;
-    printf("Turn: %d\n", combat->turn);
+//    printf("Turn: %d\n", combat->turn);
 
-    Player *current = combat->players + combat->turn;
-
+    Player *current;
+    Player *enemy;
 
     while (in != '0') {
-        printf("Turn: %d\n", combat->turn);
+//      printf("Turn: %d\n", combat->turn);
         //Se obtiene el jugador al que le toca atacar y se muestra por pantalla.
         current = combat->players + combat->turn;
+        enemy = combat->players + !(combat->turn);
+
+        if((enemy->pokemons[0].hp + enemy->pokemons[1].hp + enemy->pokemons[2].hp+ enemy->pokemons[3].hp) == 0)
+        {
+            printf("Todos los pokemons de %s se han debilitado!\n", enemy->name);
+            printf("Ha ganado %s!\n\n", current->name);
+            free(combat);
+            return;
+        }
+        else if ((current->pokemons[0].hp + current->pokemons[1].hp + current->pokemons[2].hp + current->pokemons[3].hp) == 0)
+        {
+            printf("Todos los pokemons de %s se han debilitado!\n", current->name);
+            printf("Ha ganado %s!\n\n", enemy->name);
+            free(combat);
+            return;
+        }
         printf("Turno de %s:\n\n", current->name);
 
         //Se muestran los pokemons del jugador.
@@ -264,11 +289,7 @@ void mainMenuCombat(Combat *combat)
             case 0: // Salir
                 return;
         }
-
-
     }
-
-
 }
 
 void startCombat(Player * players, Combat *combat)
