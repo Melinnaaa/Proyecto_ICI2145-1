@@ -129,6 +129,7 @@ void createPlayer(Player *p)
     p->wins = 0;
     p->losses = 0;
     p->money = 0;
+    p->canPlay = 0;
     p->pokemons->ptr = NULL;
  
 }

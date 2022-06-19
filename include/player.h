@@ -8,6 +8,7 @@ typedef struct {
     int wins;//Victorias.
     int losses;//Derrotas.
     int money;//Dinero disponible.
+    int canPlay; // Puedo pelear?              
     // Inventario
     PlayerItem inventory[5];
     PlayerPokemon pokemons[4];//Pokemons del jugador.

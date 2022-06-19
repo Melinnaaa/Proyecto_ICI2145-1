@@ -120,6 +120,7 @@ reask:
             goto reask;  // Volver a preguntar por el pokemon 1
         }
     }
+    player->canPlay = 1;
 }
 
 //Guardar los datos del jugador o sobreescribirlos.
