@@ -197,6 +197,7 @@ void sign_in (Player* players)
     fclose(userData);
 } 
 
+
 //Carga los datos de un perfil creado anteriormente.
 void login (Player* players, HashMap* pkm, HashMap* moveMap, Item* items)
 {
@@ -276,6 +277,7 @@ void login (Player* players, HashMap* pkm, HashMap* moveMap, Item* items)
         players[j-1].inventory[k].qty = atoi((char*)get_csv_field(linea, 1));
     }
     
+    players[j-1].canPlay = 1;
     fclose(userData);
 }
 
