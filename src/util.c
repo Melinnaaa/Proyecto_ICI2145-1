@@ -113,3 +113,8 @@ int checkNum(int min, int max)
     } while ( ((tmp < min ) && ( tmp != 0 )) || (tmp > max ) );
     return tmp;
 }
+
+int randomNumber(int lowerbound, int upperbound)
+{
+    return (rand() % (upperbound - lowerbound + 1) + lowerbound);
+}
