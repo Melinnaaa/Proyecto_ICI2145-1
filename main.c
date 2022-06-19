@@ -2,11 +2,14 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+
 #include "hashmap.h"
-#include "menu.h"
-#include "pokemon.h"
+
+#include "combat.h"
 #include "item.h"
+#include "menu.h"
 #include "player.h"
+#include "pokemon.h"
 #include "util.h"
 
 void showPlayers();
@@ -55,7 +58,7 @@ int main() {
     //Bucle principal del programa.
     while (in != 0) {
         showMenu();
-        in = checkNum(0, 5);
+        in = checkNum(0, 6);
         
         switch(in)  
         {
@@ -95,6 +98,12 @@ int main() {
             {
                 j = getPlayerPos();
                 buyItems(items, &players[j-1]);
+                break;
+            }
+
+            case 6:
+            {
+                initCombat(players, effective, uneffective);
                 break;
             }
             case 0:
