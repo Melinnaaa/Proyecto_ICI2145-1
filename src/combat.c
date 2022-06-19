@@ -3,6 +3,7 @@
 #include "util.h"
 
 int printf (const char * , ...);
+int getchar();
 
 struct Combat {
     struct {
