@@ -8,3 +8,6 @@ pokemon
 .vscode/dryrun.log
 .vscode/targets.log
 .vscode/settings.json
+
+compile_commands.json
+pokemon_test
