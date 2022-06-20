@@ -13,7 +13,7 @@ void showPlayer(Player *p)
     printf("Derrotas: %d\n", p->losses);
     printf("Ratio victorias / derrotas: %f\n", (p->losses && p->wins)  ?
             ((float)p->wins / p->losses) : 0 );
-    printf("Dinero: %d", p->money);
+    printf("Dinero: %d\n", p->money);
     //Se muestra el inventario si tiene objetos.
     for(int i = 0; i < 5; i++) {
         if(p->inventory[i].item != NULL) {
