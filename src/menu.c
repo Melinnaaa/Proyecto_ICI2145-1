@@ -268,6 +268,10 @@ void login (Player* players, HashMap* pkm, HashMap* moveMap, Item* items)
                 moveName = calloc (30, sizeof(char));
                 if (k < 3) strcpy(moveName, (char*)listNext(moves));
             }
+
+            // Se establece la vida del pokemon
+            players[j-1].pokemons[i-1].hp = players[j-1].pokemons[i-1].ptr->HP;
+            players[j-1].pokemons[i-1].consumed = 0;
         }
     }
     while (fgets (linea, 1023, userData) != NULL)
