@@ -174,6 +174,15 @@ reask:
 // en un ataque inefectivo.
 void updateTurn(struct Combat *combat)
 {
+
+    int flag = 0;
+    for(int i = 0; i < 4; i++)
+        if (combat->turn.enemy.ptr->pokemons[i].hp)
+            flag++;
+    if (flag == 0) {
+        combat->winner = combat->turn.current.ptr;
+        combat->shouldClose = 1;
+    }
 #ifdef DEBUG
     printf("DEBUG: updateTurn()\n");
 #endif
