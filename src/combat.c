@@ -146,6 +146,26 @@ int isUneffective(struct Combat *combat, char *moveType, char *pkmType)
     return searchAbilities(combat->maps.uneffective, moveType, pkmType);
 }
 
+// Se ejecuta en caso de un ataque normal o 
+// en un ataque inefectivo.
+void updateTurn(struct Combat *combat)
+{
+    //Auxiliar para hacer el cambio de turnos.
+    Player *auxPlayer = combat->turn.current.ptr;
+    //El que ataca ahora es el otro jugador.
+    combat->turn.current.ptr = combat->turn.enemy.ptr;
+    //El que atacaba ahora es el enemigo.
+    combat->turn.enemy.ptr = auxPlayer;
+    //Se comienza en el primer pokemon.
+    combat->turn.current.selectionIndex = 0;
+
+    //Se comienza con un pokemon que este vivo.
+    while (combat->turn.current.ptr->pokemons[combat->turn.current.selectionIndex].hp == 0) combat->turn.current.selectionIndex++;
+
+    //Se reinician las variables a 0.
+    for (int i = 0; i < 4; i++) combat->turn.current.consumed[i] = 0;
+}
+
 PlayerPokemon *nextSelection(struct Combat *combat)
 {
     int i = combat->turn.current.selectionIndex;
@@ -160,25 +180,13 @@ reask:
         if (!(combat->turn.current.consumed[i]) || i >= 4) break;
     }
     if (i >= 4){
-        //Auxiliar para hacer el cambio de turnos.
-        Player *auxPlayer = combat->turn.current.ptr;
-        //El que ataca ahora es el otro jugador.
-        combat->turn.current.ptr = combat->turn.enemy.ptr;
-        //El que atacaba ahora es el enemigo.
-        combat->turn.enemy.ptr = auxPlayer;
-        //Se comienza en el primer pokemon.
-        combat->turn.current.selectionIndex = 0;
-
-        //Se comienza con un pokemon que este vivo.
-        while (combat->turn.current.ptr->pokemons[combat->turn.current.selectionIndex].hp == 0) combat->turn.current.selectionIndex++;
-
-        //Se reinician las variables a 0.
-        for (int i = 0; i < 4; i++) combat->turn.current.consumed[i] = 0;
+        updateTurn(combat);
         return combat->turn.current.ptr->pokemons + combat->turn.current.selectionIndex;
     }
     combat->turn.current.selectionIndex = i;
     return combat->turn.current.ptr->pokemons + i;
 }
+
 
 void initCombat(Player *players, HashMap *effective, HashMap *uneffective)
 {
@@ -262,28 +270,47 @@ reask:
                 for (char *type = listFirst(types);
                         type;
                         type = listNext(types)) {
+                    // Si es efectivo pasamos al siguiente pokémon,
                     if (isEffective(&combat, movement->type, type) && flag)
                     {
                         printf("Es super efectivo!");
                         damage *= 1.5;
                         flag = 0;
+                        combat.turn.enemy.knocked[k-1] = 1;
+
+                        // deshabilitamos el pokemon actual para atacar.
+                        combat.turn.current.selection->consumed = 1;
+                        combat.turn.current.consumed[combat.turn.current.selectionIndex] = 1;
+                        combat.turn.current.selection = nextSelection(&combat);
+
                         getchar();
                         putchar('\n');
+                        printf("%s está noqueado!", pkm->ptr->name);
+                        getchar();
+                        putchar('\n');
+                    // si no es efectivo, terminamos el turno.
                     } else if (isUneffective(&combat, movement->type, type) && flag){
                         printf("No hizo nada..");
                         damage = 0;
                         flag = 0;
+                        updateTurn(&combat);
                         getchar();
                         putchar('\n');
                     }
                 }
+
+                // ataque normal. Terminamos el turno
+                if (flag) {
+                    
 #ifdef DEBUG
-                if (flag)
                     printf("DEBUG: Ataque normal\n");
 #endif
-                printf("%s le quitó %d HP a %s!", combat.turn.current.selection->ptr->name, 
-                        (int)damage,
-                        pkm->ptr->name);
+                }
+                if (damage)
+                    printf("%s le quitó %d HP a %s!", combat.turn.current.selection->ptr->name, 
+                            (int)damage,
+                            pkm->ptr->name);
+
                 getchar();
                 putchar('\n');
 
@@ -301,9 +328,7 @@ reask:
 
                 }
 
-                combat.turn.current.selection->consumed = 1;
-                combat.turn.current.consumed[combat.turn.current.selectionIndex] = 1;
-                combat.turn.current.selection = nextSelection(&combat);
+                updateTurn(&combat);
                 break;
             }
         }
