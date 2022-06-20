@@ -108,6 +108,7 @@ reask:
         if (pair != NULL)
         {
             playerPokemon.ptr = pair->value;
+            playerPokemon.hp = playerPokemon.ptr->HP;
             randomizeMovements(&playerPokemon, movements);
             player->pokemons[i] = playerPokemon;
             //showPokemon(playerPokemon.ptr);
