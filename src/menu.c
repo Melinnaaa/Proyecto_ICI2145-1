@@ -10,14 +10,14 @@
 
 void showMenu()
 {
-    printf("1. Nueva partida\t\t");
-    printf("3. Mostrar jugadores\n");
+    printf("1. Nueva partida: \t\t");
+    printf("3. Mostrar jugadores: \n");
 
     printf("2. Cargar partida: \t\t");
-    printf("4. Guardar perfiles \n\n");
+    printf("4. Guardar perfiles: \n");
 
-    printf("5. Tienda\n");
-    printf("6. Combate\n");
+    printf("5. Tienda: \t\t\t");
+    printf("6. Combate: \n");
 
 //    printf("3. Mostrar Perfiles \n");
 //    printf("4. Guardar Perfil: \n");
