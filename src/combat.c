@@ -71,6 +71,8 @@ void tryToEscape(struct Combat *combat)
     printf("%s huyó!\n", combat->turn.current.ptr->name);
     combat->shouldClose = 1;
     combat->winner = combat->turn.enemy.ptr;
+    combat->turn.enemy.ptr->wins += 1;
+    combat->turn.current.ptr->losses += 1;
 }
 
 void showAttackable(struct Combat *combat)
@@ -146,18 +148,33 @@ int isUneffective(struct Combat *combat, char *moveType, char *pkmType)
 
 PlayerPokemon *nextSelection(struct Combat *combat)
 {
-    int i = 0;
-    while (1){
+    int i = combat->turn.current.selectionIndex;
+reask:
+    while (1){ 
         if (i <= 3) i++;
+        if (combat->turn.current.ptr->pokemons[i].hp == 0 && i < 4)
+        {
+            combat->turn.current.selectionIndex = i;
+            goto reask;
+        }
         if (!(combat->turn.current.consumed[i]) || i >= 4) break;
     }
     if (i >= 4){
+        //Auxiliar para hacer el cambio de turnos.
         Player *auxPlayer = combat->turn.current.ptr;
+        //El que ataca ahora es el otro jugador.
         combat->turn.current.ptr = combat->turn.enemy.ptr;
+        //El que atacaba ahora es el enemigo.
         combat->turn.enemy.ptr = auxPlayer;
+        //Se comienza en el primer pokemon.
         combat->turn.current.selectionIndex = 0;
+
+        //Se comienza con un pokemon que este vivo.
+        while (combat->turn.current.ptr->pokemons[combat->turn.current.selectionIndex].hp == 0) combat->turn.current.selectionIndex++;
+
+        //Se reinician las variables a 0.
         for (int i = 0; i < 4; i++) combat->turn.current.consumed[i] = 0;
-        return combat->turn.current.ptr->pokemons;
+        return combat->turn.current.ptr->pokemons + combat->turn.current.selectionIndex;
     }
     combat->turn.current.selectionIndex = i;
     return combat->turn.current.ptr->pokemons + i;
@@ -213,6 +230,7 @@ void initCombat(Player *players, HashMap *effective, HashMap *uneffective)
                 tryToEscape(&combat);
                 break;
             case 1: // Atacar
+            {
                 printf("%s está al frente.\n", combat.turn.current.selection->ptr->name);
                 printf("Elige tu ataque\n");
                 showAttacks(&combat);
@@ -287,6 +305,7 @@ reask:
                 combat.turn.current.consumed[combat.turn.current.selectionIndex] = 1;
                 combat.turn.current.selection = nextSelection(&combat);
                 break;
+            }
         }
     }
 
