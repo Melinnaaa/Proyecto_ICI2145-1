@@ -151,22 +151,29 @@ void nextSelection(struct Combat *combat)
 #ifdef DEBUG
     printf("DEBUG: NextSelection()\n");
 #endif
-    int i = combat->turn.current.selectionIndex;
-reask:
-    while (1){ 
-        if (i <= 3) i++;
-        if (combat->turn.current.ptr->pokemons[i].hp == 0 && i < 4)
-        {
-            combat->turn.current.selectionIndex = i;
-            goto reask;
+    int i = 0;
+    int index = combat->turn.current.selectionIndex;
+    int found = 0;
+    // Iterar la selección cuatro veces.
+    for(int j = 0, i = index; j < 4; i++, j++) {
+        if ((i + j) > 3) i = 0;
+
+        // si está consumido o no está vivo
+        if (combat->turn.current.consumed[i] || 
+                combat->turn.current.ptr->pokemons[i].hp == 0 ) continue;
+        else {
+            found = 1;
+            break;
         }
-        if (!(combat->turn.current.consumed[i]) || i >= 4 || !(combat->turn.current.ptr->pokemons[i].hp)) break;
     }
-    if (i >= 4){
-        combat->turn.current.selection = combat->turn.current.ptr->pokemons + combat->turn.current.selectionIndex;
+    if (!found)
+    {
+        printf("Algo salió mal. No quedan pokémons.\n");
+        return;
+    } else {
+        combat->turn.current.selection = combat->turn.current.ptr->pokemons + i;
+        combat->turn.current.selectionIndex = i;
     }
-    combat->turn.current.selectionIndex = i;
-    combat->turn.current.selection = combat->turn.current.ptr->pokemons + i;
 }
 
 
@@ -206,10 +213,7 @@ void updateTurn(struct Combat *combat)
     combat->turn.current.selectionIndex = 0;
     combat->turn.current.selection = combat->turn.current.ptr->pokemons ;
 
-    while (combat->turn.current.ptr->pokemons[combat->turn.current.selectionIndex].hp == 0 ||
-            combat->turn.current.ptr->pokemons[combat->turn.current.selectionIndex].consumed) combat->turn.current.selectionIndex++;
-
-    combat->turn.current.selection = combat->turn.current.ptr->pokemons + combat->turn.current.selectionIndex;
+    nextSelection(combat);
 
 }
 
