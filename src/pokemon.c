@@ -214,10 +214,11 @@ repeat:
 
 void showPokemon(Pokemon* pokemon)
 {
-    printf("Nombre del pokemon: %s\n", pokemon->name);
-    printf("Vida del pokemon: %d\n", pokemon->HP);
-    printf("Tipo/s del pokemon: ");
+    printf("Nombre : %s\n", pokemon->name);
+    printf("Vida: %d\n", pokemon->HP);
+    printf("Tipo/s: \n");
     showList(pokemon->type);
+    putchar('\n');
 }
 
 void showPlayerPokemon(PlayerPokemon *pokemon)
@@ -226,6 +227,9 @@ void showPlayerPokemon(PlayerPokemon *pokemon)
     printf("Movimientos: \n");
     for(int i = 0; i < 4; i++)
     {
-        printf("  %s\n", pokemon->movements[i]->name);
+        if ( i % 2)
+            printf("  %s\n", pokemon->movements[i]->name);
+        else 
+            printf("  %s\t", pokemon->movements[i]->name);
     }
 }

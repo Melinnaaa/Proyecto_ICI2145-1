@@ -9,7 +9,7 @@ all: prepare $(OBJS) $(NAME)
 
 
 test:
-	gcc main.c src/*.c -Iinclude -DDEBUG 
+	gcc main.c src/*.c -Iinclude -DDEBUG  -g
 
 $(NAME): $(OBJS) $(INCLUDE) main.c
 	$(CC) $(INCLUDES) main.c $(OBJS) -o $(NAME) -g -Wall -Werror -std=c99 -lm
