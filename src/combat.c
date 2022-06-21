@@ -146,7 +146,7 @@ int isUneffective(struct Combat *combat, char *moveType, char *pkmType)
     return searchAbilities(combat->maps.uneffective, moveType, pkmType);
 }
 
-void checkEnemy(struct Combat* combat)
+int checkEnemy(struct Combat* combat)
 {
     int flag = 0;
     //Se verifica que queden pokemons vivos.
@@ -157,7 +157,9 @@ void checkEnemy(struct Combat* combat)
     if (flag == 0) {
         combat->winner = combat->turn.current.ptr;
         combat->shouldClose = 1;
+        return 1;
     }
+    return 0;
 }
 
 void nextSelection(struct Combat *combat)
@@ -165,7 +167,8 @@ void nextSelection(struct Combat *combat)
 #ifdef DEBUG
     printf("DEBUG: NextSelection()\n");
 #endif
-    checkEnemy(combat);
+    //Se verifica que el enemigo no haya muerto.
+    if (checkEnemy(combat) == 1) return;
     int i = 0;
     int index = combat->turn.current.selectionIndex;
     int found = 0;//comprueba si existen pokemons vivos.
@@ -197,7 +200,7 @@ void nextSelection(struct Combat *combat)
 void updateTurn(struct Combat *combat)
 {
 
-    checkEnemy(combat);
+    if (checkEnemy(combat) == 1) return;
 #ifdef DEBUG
     printf("DEBUG: updateTurn()\n");
 #endif
@@ -208,18 +211,15 @@ void updateTurn(struct Combat *combat)
     //El que atacaba ahora es el enemigo.
     combat->turn.enemy.ptr = auxPlayer;
 
-
-    //Se comienza con un pokemon que este vivo.
-
     //Se reinician las variables a 0.
     for (int i = 0; i < 4; i++){
         combat->turn.current.consumed[i] = 0;
         combat->turn.current.ptr->pokemons[i].consumed = 0;
     } 
 
-    //Se comienza en el primer pokemon.
+    //Se inicia en el primer pokemon.
     combat->turn.current.selectionIndex = 0;
-     //Se comienza con un pokemon que este vivo.
+    //Se comienza con un pokemon que este vivo.
     while (combat->turn.current.ptr->pokemons[combat->turn.current.selectionIndex].hp == 0) 
     {
         combat->turn.current.selectionIndex++;
@@ -228,6 +228,96 @@ void updateTurn(struct Combat *combat)
     combat->turn.current.selection = combat->turn.current.ptr->pokemons + combat->turn.current.selectionIndex;
 
     nextSelection(combat);
+
+}
+
+int showBag (struct Combat* combat)
+{
+    int j = 0;
+    for (int i = 0 ; i < 5 ; i++)
+    {
+        //Si el item no es nulo se muestra.
+        if (combat->turn.current.ptr->inventory[i].item != NULL && combat->turn.current.ptr->inventory[i].qty > 0)
+        {
+            if (j == 0) printf("\nQue item quieres utilizar?\n\n");
+            printf("%d. %s \t x %d\n", i+1, combat->turn.current.ptr->inventory[i].item->name, combat->turn.current.ptr->inventory[i].qty);
+            j++;
+        }
+    }
+    //No se encontraron items.
+    if (j == 0)
+    {
+        printf("\nNo tienes items disponibles!\n\n");
+        return j;
+    }
+    printf("0. Salir\n");
+    return j;
+}
+
+int getPkmPos(struct Combat* combat)
+{
+    int pkm;
+    //Se obtiene la posición del pokemon a atacar.
+    pkm = checkNum(0, 4) - 1;
+    if (pkm+1 == 0) return - 1;
+
+    //Si el pokemon esta muerto se muestra un mensaje por pantalla.
+    while (combat->turn.current.ptr->pokemons[pkm].hp == 0)
+    {
+        printf("%s esta muerto!, seleciona otro pokemon\n", combat->turn.current.ptr->pokemons[pkm].ptr->name);
+        pkm = checkNum(0, 4) - 1;
+        if (pkm+1 == 0) return - 1;
+    }
+    return (pkm);
+}
+
+void checkBag(struct Combat *combat)
+{
+    int in;
+    int pkm;
+    pkm = showBag(combat);
+    //Si no hay items se finaliza la función.
+    if (pkm == 0) return;
+
+    //Se verifica que el item ingresado exista.
+    do
+    {
+        in = checkNum (0, 5) - 1;
+        if (in+1 == 0) return;
+    }while(combat->turn.current.ptr->inventory[in].item == NULL);
+
+    //Se muestran los pokemons.
+    printf("En que pokemon utilizarás el item?\n");
+    for(int i = 0; i < 4; i++) printf("%d. %s\t", i+1, combat->turn.current.ptr->pokemons[i].ptr->name);
+    printf("\n0. Salir\n");
+
+    reask:
+
+    pkm = getPkmPos(combat);
+    if (pkm + 1 == 0) return;
+
+    //Caso en donde el item sea una pocion.
+    if (strstr(combat->turn.current.ptr->inventory[in].item->name, "Pocion") != NULL)
+    {
+        if(combat->turn.current.ptr->pokemons[pkm].hp == combat->turn.current.ptr->pokemons[pkm].ptr->HP)
+        {
+            printf("El pokemon no puede curarse, selecciona otro.\n");
+            goto reask;
+        }
+        //Se le aplica el item al pokemon
+        combat->turn.current.ptr->pokemons[pkm].hp += combat->turn.current.ptr->inventory[in].item->effect;
+        if (combat->turn.current.ptr->pokemons[pkm].hp > combat->turn.current.ptr->pokemons[pkm].ptr->HP)
+        {
+            printf("%s recuperó %d puntos de vida!\n", combat->turn.current.ptr->pokemons[pkm].ptr->name, combat->turn.current.ptr->pokemons[pkm].hp - combat->turn.current.ptr->pokemons[pkm].ptr->HP);
+            combat->turn.current.ptr->pokemons[pkm].hp = combat->turn.current.ptr->pokemons[pkm].ptr->HP;
+        }
+        else printf("%s recuperó %d puntos de vida!\n", combat->turn.current.ptr->pokemons[pkm].ptr->name, combat->turn.current.ptr->inventory[in].item->effect);
+        combat->turn.current.ptr->inventory[in].qty--;
+    }
+    else
+    {
+
+    }
 
 }
 
@@ -374,6 +464,10 @@ reask:
                 } else
                     nextSelection(&combat);
                 break;
+            }
+            case 2:
+            {
+                checkBag(&combat);
             }
         }
     }
