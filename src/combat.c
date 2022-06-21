@@ -191,6 +191,7 @@ void doAllOutAttack(struct Combat *combat)
             else
             {
                 combat->turn.enemy.ptr->pokemons[i].hp -= damage;
+                combat->turn.enemy.knocked[i] = 0;
             }
         }
     }
@@ -203,36 +204,28 @@ void nextSelection(struct Combat *combat)
 #endif
     //Se verifica que el enemigo no haya muerto.
     if (checkEnemy(combat) == 1) return;
-    if (canAllOutAttack(combat) == 1) 
-    {
-        printf("Todos los pokemons estan noqueados, es tu oportunidad para realizar un All-out Attack!\n");
-        getchar();
-        doAllOutAttack(combat);
-        if (checkEnemy(combat) == 1) return;
-    } else {
-        int i = 0;
-        int index = combat->turn.current.selectionIndex;
-        int found = 0;//comprueba si existen pokemons vivos.
-        // Iterar la selección cuatro veces.
-        for(i = index; i < 4; i++) {
-            if (i > 3) break;
+    int i = 0;
+    int index = combat->turn.current.selectionIndex;
+    int found = 0;//comprueba si existen pokemons vivos.
+    // Iterar la selección cuatro veces.
+    for(i = index; i < 4; i++) {
+        if (i > 3) break;
 
-            // si está consumido o no está vivo
-            if (combat->turn.current.consumed[i] || 
-                    combat->turn.current.ptr->pokemons[i].hp == 0 ) continue;
-            else {
-                found = 1;
-                break;
-            }
+        // si está consumido o no está vivo
+        if (combat->turn.current.consumed[i] || 
+                combat->turn.current.ptr->pokemons[i].hp == 0 ) continue;
+        else {
+            found = 1;
+            break;
         }
-        if (!found)
-        {
-            printf("Algo salió mal. No quedan pokémons.\n");
-            return;
-        } else {
-            combat->turn.current.selection = combat->turn.current.ptr->pokemons + i;
-            combat->turn.current.selectionIndex = i;
-        }
+    }
+    if (!found)
+    {
+        printf("Algo salió mal. No quedan pokémons.\n");
+        return;
+    } else {
+        combat->turn.current.selection = combat->turn.current.ptr->pokemons + i;
+        combat->turn.current.selectionIndex = i;
     }
 }
 
@@ -493,18 +486,27 @@ reask:
                     {
                         printf("Es super efectivo!");
                         damage *= 1.5;
-                        flag = 0;
-                        combat.turn.enemy.knocked[k-1] = 1;
+                        if (combat.turn.enemy.knocked[k-1] == 1)
+                        {
+                            combat.turn.current.selection->consumed = 1;
+                            combat.turn.current.consumed[combat.turn.current.selectionIndex] = 1;
+                        }
+                        else
+                        {
+                            flag = 0;
+                            combat.turn.enemy.knocked[k-1] = 1;
 
-                        // deshabilitamos el pokemon actual para atacar.
-                        combat.turn.current.selection->consumed = 1;
-                        combat.turn.current.consumed[combat.turn.current.selectionIndex] = 1;
+                            // deshabilitamos el pokemon actual para atacar.
+                            combat.turn.current.selection->consumed = 1;
+                            combat.turn.current.consumed[combat.turn.current.selectionIndex] = 1;
 
-                        getchar();
-                        putchar('\n');
-                        printf("%s está noqueado!", pkm->ptr->name);
-                        getchar();
-                        putchar('\n');
+                            getchar();
+                            putchar('\n');
+                            printf("%s está noqueado!", pkm->ptr->name);
+                            getchar();
+                            putchar('\n');
+                        }
+                        
                     // si no es efectivo, terminamos el turno.
                     } else if (isUneffective(&combat, movement->type, type) && flag){
                         printf("No hizo nada..");
@@ -536,6 +538,30 @@ reask:
                     printf("%s ahora tiene %d HP", pkm->ptr->name, pkm->hp);
                     getchar();
                     putchar('\n');
+
+                }
+
+                if (canAllOutAttack(&combat) == 1) 
+                {
+                    int allOut;
+                    printf("Todos los pokemons estan noqueados, es tu oportunidad para realizar un All-out Attack!\n");
+                    getchar();
+                    printf("1.Si \t 2.No\n\n");
+                    allOut = checkNum(1, 2);
+                    if (allOut == 1)
+                    {     
+                        printf("Beat 'em up!\n");
+                        getchar();
+                        doAllOutAttack(&combat);
+                        if (checkEnemy(&combat) == 1);
+                        else flag = 1;
+                    }
+                    else 
+                    {
+                        if (combat.turn.current.selectionIndex == 3) flag = 1;
+                        for (int i = 0 ; i < 4 ; i++)
+                            combat.turn.enemy.knocked[i] = 0;
+                    }
 
                 }
                 // ataque normal. Terminamos el turno
