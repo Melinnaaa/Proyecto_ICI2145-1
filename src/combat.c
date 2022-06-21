@@ -169,7 +169,7 @@ int canAllOutAttack(struct Combat *combat)
     int alive = 0;
     for (int i = 0 ; i < 4 ; i++)
     {
-        if (combat->turn.enemy.knocked[i] == 1) tmp++;
+        if (combat->turn.enemy.knocked[i] == 1 && combat->turn.enemy.ptr->pokemons[i].hp > 0) tmp++;
         if(combat->turn.enemy.ptr->pokemons[i].hp > 0) alive++;
     }    
     if (tmp == alive) return 1;
