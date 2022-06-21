@@ -300,13 +300,17 @@ void checkBag(struct Combat *combat)
     //Caso en donde el item sea una pocion.
     if (strstr(combat->turn.current.ptr->inventory[in].item->name, "Pocion") != NULL)
     {
+        //Caso en que el pokemon este full vida.
         if(combat->turn.current.ptr->pokemons[pkm].hp == combat->turn.current.ptr->pokemons[pkm].ptr->HP)
         {
             printf("El pokemon no puede curarse, selecciona otro.\n");
             goto reask;
         }
+
         //Se le aplica el item al pokemon
         combat->turn.current.ptr->pokemons[pkm].hp += combat->turn.current.ptr->inventory[in].item->effect;
+
+        //Si al aplicar el item la vida es mayor a la maxima, se deja al maximo solamente.
         if (combat->turn.current.ptr->pokemons[pkm].hp > combat->turn.current.ptr->pokemons[pkm].ptr->HP)
         {
             printf("%s recuperó %d puntos de vida!\n", combat->turn.current.ptr->pokemons[pkm].ptr->name, combat->turn.current.ptr->pokemons[pkm].hp - combat->turn.current.ptr->pokemons[pkm].ptr->HP);
@@ -314,20 +318,29 @@ void checkBag(struct Combat *combat)
         }
         else printf("%s recuperó %d puntos de vida!\n", combat->turn.current.ptr->pokemons[pkm].ptr->name, combat->turn.current.ptr->inventory[in].item->effect);
     }
+    //Caso en que utilice un eter.
     else
     {
+        //Se muestran las habilidades del pokemon seleccionado y sus pps.
         printf("En que habilidad quieres utilizar el Eter?\n");
         for(int i = 0; i < 4; i++) printf("%d. %s\t %dpp\n", i+1, combat->turn.current.ptr->pokemons[pkm].movements[i]->name, combat->turn.current.ptr->pokemons[pkm].pps[i]);
         printf("\n0. Salir\n");
         repeat:
+
+        //Se verifica que la habildad ingresada este en el rango.
         item = checkNum (0, 4) - 1;
         if (in+1 == 0) return;
+
+        //Caso en que la habilidad tenga los pps al maximo.
         if(combat->turn.current.ptr->pokemons[pkm].pps[item] == combat->turn.current.ptr->pokemons[pkm].movements[item]->pp) 
         {
             printf("El ataque tiene los pps al maximo, selecciona otro.\n");
             goto repeat;
         }
+        //Se aplica el item a la habilidad.
         combat->turn.current.ptr->pokemons[pkm].pps[item] += combat->turn.current.ptr->inventory[in].item->effect;
+
+        //Si al aplicar el item los pps son mayores que los maximos, se dejan al maximo solamente.
         if (combat->turn.current.ptr->pokemons[pkm].pps[item] > combat->turn.current.ptr->pokemons[pkm].movements[item]->pp)
         {
             printf("%s restauró %dpps\n", combat->turn.current.ptr->pokemons[pkm].movements[item]->name, (combat->turn.current.ptr->pokemons[pkm].pps[item] - combat->turn.current.ptr->pokemons[pkm].movements[item]->pp)-1);
@@ -335,9 +348,9 @@ void checkBag(struct Combat *combat)
         }
         else printf("%s restauró %dpps\n", combat->turn.current.ptr->pokemons[pkm].movements[item]->name, combat->turn.current.ptr->inventory[in].item->effect);
     }
+
     //Se quita una unidad del item utilizado del inventario.
     combat->turn.current.ptr->inventory[in].qty--;
-
 }
 
 
