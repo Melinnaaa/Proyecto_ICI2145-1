@@ -60,4 +60,6 @@ int checkNum(int min, int max);
 int randomNumber(int lowerbound, int upperbound);
 
 
+unsigned long hash(unsigned char *str);
+
 #endif
