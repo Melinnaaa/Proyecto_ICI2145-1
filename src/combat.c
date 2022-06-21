@@ -93,7 +93,7 @@ void showAttacks(struct Combat *combat)
     for (int i = 0; i < 4; i++)
     {
         printf("%d. %s: %d PP\n", i + 1, combat->turn.current.selection->movements[i]->name, 
-                combat->turn.current.selection->movements[i]->pp);
+                combat->turn.current.selection->pps[i]);
     }
     printf("0. Volver\n");
 }
@@ -275,6 +275,7 @@ void checkBag(struct Combat *combat)
 {
     int in;
     int pkm;
+    int item;
     pkm = showBag(combat);
     //Si no hay items se finaliza la función.
     if (pkm == 0) return;
@@ -312,12 +313,30 @@ void checkBag(struct Combat *combat)
             combat->turn.current.ptr->pokemons[pkm].hp = combat->turn.current.ptr->pokemons[pkm].ptr->HP;
         }
         else printf("%s recuperó %d puntos de vida!\n", combat->turn.current.ptr->pokemons[pkm].ptr->name, combat->turn.current.ptr->inventory[in].item->effect);
-        combat->turn.current.ptr->inventory[in].qty--;
     }
     else
     {
-
+        printf("En que habilidad quieres utilizar el Eter?\n");
+        for(int i = 0; i < 4; i++) printf("%d. %s\t %dpp\n", i+1, combat->turn.current.ptr->pokemons[pkm].movements[i]->name, combat->turn.current.ptr->pokemons[pkm].pps[i]);
+        printf("\n0. Salir\n");
+        repeat:
+        item = checkNum (0, 4) - 1;
+        if (in+1 == 0) return;
+        if(combat->turn.current.ptr->pokemons[pkm].pps[item] == combat->turn.current.ptr->pokemons[pkm].movements[item]->pp) 
+        {
+            printf("El ataque tiene los pps al maximo, selecciona otro.\n");
+            goto repeat;
+        }
+        combat->turn.current.ptr->pokemons[pkm].pps[item] += combat->turn.current.ptr->inventory[in].item->effect;
+        if (combat->turn.current.ptr->pokemons[pkm].pps[item] > combat->turn.current.ptr->pokemons[pkm].movements[item]->pp)
+        {
+            printf("%s restauró %dpps\n", combat->turn.current.ptr->pokemons[pkm].movements[item]->name, (combat->turn.current.ptr->pokemons[pkm].pps[item] - combat->turn.current.ptr->pokemons[pkm].movements[item]->pp)-1);
+            combat->turn.current.ptr->pokemons[pkm].pps[item] = combat->turn.current.ptr->pokemons[pkm].movements[item]->pp;
+        }
+        else printf("%s restauró %dpps\n", combat->turn.current.ptr->pokemons[pkm].movements[item]->name, combat->turn.current.ptr->inventory[in].item->effect);
     }
+    //Se quita una unidad del item utilizado del inventario.
+    combat->turn.current.ptr->inventory[in].qty--;
 
 }
 
@@ -349,10 +368,18 @@ void initCombat(Player *players, HashMap *effective, HashMap *uneffective)
     combat.turn.current.selection = players[who].pokemons;
     combat.turn.current.selectionIndex = 0;
 
+    //Guardar los pps
+    for (int i = 0 ; i < 4 ; i++)
+    {
+        for (int k = 0 ; k < 4 ; k++)
+        {
+            combat.turn.enemy.ptr->pokemons[i].pps[k] = combat.turn.enemy.ptr->pokemons[i].movements[k]->pp;
+            combat.turn.current.ptr->pokemons[i].pps[k] = combat.turn.current.ptr->pokemons[i].movements[k]->pp;
+        }
+    }
 
     for (int i = 0; i < 4; i++)
         combat.turn.current.consumed[i] = 0;
-
 
     // Nadie ha ganado aún.
     combat.winner = NULL;
@@ -397,7 +424,8 @@ reask:
 
                 getchar();
                 putchar('\n');
-
+                //Se restan los pps del ataque utilizado.
+                combat.turn.current.selection->pps[l-1] -=1;
                 int flag = 1;
                 List *types = pkm->ptr->type;
                 float damage = movement->damage*0.25;
