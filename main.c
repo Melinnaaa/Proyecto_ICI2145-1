@@ -27,7 +27,7 @@ struct PlayerExport {
             char name[15];
             int pp;
         } move[4];
-    } pokemonExport[4];
+    } poke[4];
 };
 
 void serializationExport(Player *player)
@@ -56,17 +56,18 @@ void serializationExport(Player *player)
     playerExport.wins = player->wins;
     playerExport.losses = player->losses;
     playerExport.money = player->money;
+
     // para cada pokemon
     for (int i = 0; i < 4; i++)
     {
-        strcpy(playerExport.pokemonExport[i].name, player->pokemons[i].ptr->name);
+        strcpy(playerExport.poke[i].name, player->pokemons[i].ptr->name);
         // para cada movimiento
         for (int j = 0; j < 4; j++)
         {
             // copiamos el nombre
-            strcpy(playerExport.pokemonExport[i].move[j].name, player->pokemons[i].movements[j]->name);
+            strcpy(playerExport.poke[i].move[j].name, player->pokemons[i].movements[j]->name);
             // copiamos los pp
-            playerExport.pokemonExport[i].move[j].pp = player->pokemons[i].movements[j]->pp;
+            playerExport.poke[i].move[j].pp = player->pokemons[i].movements[j]->pp;
         }
     }
 
@@ -82,54 +83,83 @@ void serializationImport(Player *dest, unsigned char *name, HashMap *pokemon, Ha
     char dir[50] = "cache/";
 
 
-    struct PlayerExport *playerImport = malloc(sizeof(struct PlayerExport));
+    struct PlayerExport playerImport; // = malloc(sizeof(struct PlayerExport));
 
     // Obtener hash del nombre del jugador.
     unsigned long namehash = djb2hash(name);
 
     sprintf(hash_str, "%lx", namehash & 0xFFFFFFUL);
+#ifdef DEBUG
     printf("hash: %lx\n", namehash & 0xFFFFFFUL);
+#endif
 
     strcat(dir, hash_str);
     strcat(dir, ".pkdb");
 
     FILE *file = fopen(dir, "rb");
+    size_t size;
+    if (file != NULL){
+        fseek(file, 0, SEEK_END);
+        size = ftell(file);
+#ifdef DEBUG
+        printf("Encontrado archivo %s\n", dir);
+#endif
+    }
 
-    if (file != NULL)
-        fread(&playerImport, sizeof(struct PlayerExport), 1, file);
-    if (playerImport->name[0] == 0) {
-        printf("El archivo no existe.\n");
+    if (!size)
+    {
+        printf("Error: El perfil está vacío\n");
         return;
     }
 
-    strcpy(dest->name , playerImport->name);
+    if (!file)
+    {
+        printf("Error: el archivo no existe\n");
+        return;
+    }
 
-    dest->wins = playerImport->wins;
-    dest->losses = playerImport->losses;
-    dest->money = playerImport->money;
+    rewind(file);
+    fread(&playerImport, sizeof(struct PlayerExport), 1, file);
+
+
+    printf("Nombre del perfil importado: %s\n", playerImport.name);
+    strcpy(dest->name , playerImport.name);
+
+    dest->wins = playerImport.wins;
+    dest->losses = playerImport.losses;
+    dest->money = playerImport.money;
 
     // para cada pokemon
     for (int i = 0; i < 4; i++)
     {
-        HashMapPair *pair = searchMap(pokemon, playerImport->pokemonExport[i].name);
+        HashMapPair *pair = searchMap(pokemon, playerImport.poke[i].name);
         if (pair)
         {
             Pokemon *tmp = pair->value;
             dest->pokemons[i].ptr = tmp;
             dest->pokemons[i].consumed = 0;
+#ifdef DEBUG
+            printf("DEBUG: Encontrado pokemon %s\n", tmp->name);
+#endif
             // para cada movimiento
             for (int j = 0; j < 4; j++)
-                dest->pokemons[i].pps[j] = playerImport->pokemonExport[i].move[j].pp;
+            {
+                printf("MOVIMIENTO: .%s.\n", playerImport.poke[i].move[j].name);
+                pair = searchMap(moves, playerImport.poke[i].move[j].name);
+                if (!pair) 
+                {
+                    printf("Error: movimiento %s no encontrado\n", playerImport.poke[i].move[j].name);
+                } else {
+                    dest->pokemons[i].movements[j] = pair->value;
+                }
+                dest->pokemons[i].pps[j] = playerImport.poke[i].move[j].pp;
+            }
 
         } else {
             printf("Error cargando perfil:\n");
-            printf("%s no fue encontrado en la base de datos\n", playerImport->pokemonExport[i].name);
+            printf("%s no fue encontrado en la base de datos\n", playerImport.poke[i].name);
         }
-
     }
-
-
-    
 }
 #endif
 
@@ -247,7 +277,7 @@ int main() {
                         printf("Ingresa el nombre del jugador: \n");
                         scanf("%[^\n]20s", playerName);
                         printf(".%s.\n", playerName);
-                        serializationImport(players + inplayer - 1, playerName, pokemonsStr, movementsStr);
+                        serializationImport(players + inplayer - 1, playerName, pokemonsStr, movements);
                         break;
                     case 2:
                         printf("Qué jugador eres? (1/2): \n");
