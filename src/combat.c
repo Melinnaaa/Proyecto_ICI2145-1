@@ -146,17 +146,32 @@ int isUneffective(struct Combat *combat, char *moveType, char *pkmType)
     return searchAbilities(combat->maps.uneffective, moveType, pkmType);
 }
 
+void checkEnemy(struct Combat* combat)
+{
+    int flag = 0;
+    //Se verifica que queden pokemons vivos.
+    for(int i = 0; i < 4; i++)
+        if (combat->turn.enemy.ptr->pokemons[i].hp)
+            flag++;
+    //Sino quedan se finaliza el programa.
+    if (flag == 0) {
+        combat->winner = combat->turn.current.ptr;
+        combat->shouldClose = 1;
+    }
+}
+
 void nextSelection(struct Combat *combat)
 {
 #ifdef DEBUG
     printf("DEBUG: NextSelection()\n");
 #endif
+    checkEnemy(combat);
     int i = 0;
     int index = combat->turn.current.selectionIndex;
-    int found = 0;
+    int found = 0;//comprueba si existen pokemons vivos.
     // Iterar la selección cuatro veces.
-    for(int j = 0, i = index; j < 4; i++, j++) {
-        if ((i + j) > 3) i = 0;
+    for(i = index; i < 4; i++) {
+        if (i > 3) break;
 
         // si está consumido o no está vivo
         if (combat->turn.current.consumed[i] || 
@@ -182,14 +197,7 @@ void nextSelection(struct Combat *combat)
 void updateTurn(struct Combat *combat)
 {
 
-    int flag = 0;
-    for(int i = 0; i < 4; i++)
-        if (combat->turn.enemy.ptr->pokemons[i].hp)
-            flag++;
-    if (flag == 0) {
-        combat->winner = combat->turn.current.ptr;
-        combat->shouldClose = 1;
-    }
+    checkEnemy(combat);
 #ifdef DEBUG
     printf("DEBUG: updateTurn()\n");
 #endif
@@ -211,7 +219,13 @@ void updateTurn(struct Combat *combat)
 
     //Se comienza en el primer pokemon.
     combat->turn.current.selectionIndex = 0;
-    combat->turn.current.selection = combat->turn.current.ptr->pokemons ;
+     //Se comienza con un pokemon que este vivo.
+    while (combat->turn.current.ptr->pokemons[combat->turn.current.selectionIndex].hp == 0) 
+    {
+        combat->turn.current.selectionIndex++;
+    }
+
+    combat->turn.current.selection = combat->turn.current.ptr->pokemons + combat->turn.current.selectionIndex;
 
     nextSelection(combat);
 
