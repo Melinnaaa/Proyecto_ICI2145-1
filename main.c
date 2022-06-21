@@ -58,7 +58,12 @@ int main() {
     //Bucle principal del programa.
     while (in != 0) {
         showMenu();
+
+#ifdef DEBUG
+        in = checkNum(0, 7);
+#else 
         in = checkNum(0, 6);
+#endif
         
         switch(in)  
         {
@@ -106,6 +111,12 @@ int main() {
                 initCombat(players, effective, uneffective);
                 break;
             }
+#ifdef DEBUG
+            case 7:
+            {
+                serializationMenu(players);
+            }
+#endif
             case 0:
             {
                 return 0;
