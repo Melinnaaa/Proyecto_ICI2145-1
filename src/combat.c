@@ -209,29 +209,30 @@ void nextSelection(struct Combat *combat)
         getchar();
         doAllOutAttack(combat);
         if (checkEnemy(combat) == 1) return;
-    }
-    int i = 0;
-    int index = combat->turn.current.selectionIndex;
-    int found = 0;//comprueba si existen pokemons vivos.
-    // Iterar la selección cuatro veces.
-    for(i = index; i < 4; i++) {
-        if (i > 3) break;
-
-        // si está consumido o no está vivo
-        if (combat->turn.current.consumed[i] || 
-                combat->turn.current.ptr->pokemons[i].hp == 0 ) continue;
-        else {
-            found = 1;
-            break;
-        }
-    }
-    if (!found)
-    {
-        printf("Algo salió mal. No quedan pokémons.\n");
-        return;
     } else {
-        combat->turn.current.selection = combat->turn.current.ptr->pokemons + i;
-        combat->turn.current.selectionIndex = i;
+        int i = 0;
+        int index = combat->turn.current.selectionIndex;
+        int found = 0;//comprueba si existen pokemons vivos.
+        // Iterar la selección cuatro veces.
+        for(i = index; i < 4; i++) {
+            if (i > 3) break;
+
+            // si está consumido o no está vivo
+            if (combat->turn.current.consumed[i] || 
+                    combat->turn.current.ptr->pokemons[i].hp == 0 ) continue;
+            else {
+                found = 1;
+                break;
+            }
+        }
+        if (!found)
+        {
+            printf("Algo salió mal. No quedan pokémons.\n");
+            return;
+        } else {
+            combat->turn.current.selection = combat->turn.current.ptr->pokemons + i;
+            combat->turn.current.selectionIndex = i;
+        }
     }
 }
 
