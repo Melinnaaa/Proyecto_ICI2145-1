@@ -18,6 +18,9 @@ void showMenu()
 
     printf("5. Tienda: \t\t\t");
     printf("6. Combate: \n");
+#ifdef DEBUG
+    printf("7. Serialización: \n");
+#endif
 
 //    printf("3. Mostrar Perfiles \n");
 //    printf("4. Guardar Perfil: \n");

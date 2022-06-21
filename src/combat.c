@@ -506,5 +506,12 @@ reask:
     } else {
         printf("El ganador es %s!\n", combat.winner->name);
     }
-
+    for (int j = 0; j < 2; j++)
+        for (int i = 0; i < 4; i++)
+        {
+            players[j].pokemons[i].hp = players[j].pokemons[i].ptr->HP;
+            players[j].pokemons[i].consumed = 0;
+            for (int k = 0; k < 4; k++)
+                players[j].pokemons[i].pps[k] = players[j].pokemons[i].movements[k]->pp;
+        }
 }
