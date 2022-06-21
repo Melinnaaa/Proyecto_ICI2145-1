@@ -119,7 +119,7 @@ int randomNumber(int lowerbound, int upperbound)
     return (rand() % (upperbound - lowerbound + 1) + lowerbound);
 }
 
-/*unsigned long hash(unsigned char *str)
+unsigned long djb2hash(unsigned char *str)
 {
     unsigned long hash = 5381;
     int c;
@@ -128,5 +128,5 @@ int randomNumber(int lowerbound, int upperbound)
         hash = (((hash << 5) & (hash << 3)) + hash) + c; /* hash * 33 + c */
 
     return hash;
-}*/
+}
 
