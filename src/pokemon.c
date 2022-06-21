@@ -179,8 +179,8 @@ void randomizeMovements(PlayerPokemon *ppk, HashMap* map)
             
         } else { // si no
 repeat:
-            printf("J: %d\n", j);
-            printf("L: %d\n", l);
+//            printf("J: %d\n", j);
+//            printf("L: %d\n", l);
             /* añadimos dos movimientos */
             for (int k = 0 ; k < 2 ; k++)
             {

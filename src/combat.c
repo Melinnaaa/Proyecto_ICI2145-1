@@ -162,6 +162,40 @@ int checkEnemy(struct Combat* combat)
     return 0;
 }
 
+//Verifica si el jugador es apto para realizar un all-out attack.
+int canAllOutAttack(struct Combat *combat)
+{
+    int tmp = 0;
+    int alive = 0;
+    for (int i = 0 ; i < 4 ; i++)
+    {
+        if (combat->turn.enemy.knocked[i] == 1) tmp++;
+        if(combat->turn.enemy.ptr->pokemons[i].hp > 0) alive++;
+    }    
+    if (tmp == alive) return 1;
+    return 0;
+}
+
+void doAllOutAttack(struct Combat *combat)
+{
+    int damage = randomNumber(10, 30);
+    printf("Todos los pokemons enemigos recibieron %d puntos de daño!.\n\n", damage);
+    for (int i = 0 ; i < 4 ; i++)
+    {
+        if(combat->turn.enemy.ptr->pokemons[i].hp > 0)
+        {
+            if (combat->turn.enemy.ptr->pokemons[i].hp - damage < 0) 
+            {
+                combat->turn.enemy.ptr->pokemons[i].hp = 0;
+            }
+            else
+            {
+                combat->turn.enemy.ptr->pokemons[i].hp -= damage;
+            }
+        }
+    }
+}
+
 void nextSelection(struct Combat *combat)
 {
 #ifdef DEBUG
@@ -169,6 +203,13 @@ void nextSelection(struct Combat *combat)
 #endif
     //Se verifica que el enemigo no haya muerto.
     if (checkEnemy(combat) == 1) return;
+    if (canAllOutAttack(combat) == 1) 
+    {
+        printf("Todos los pokemons estan noqueados, es tu oportunidad para realizar un All-out Attack!\n");
+        getchar();
+        doAllOutAttack(combat);
+        if (checkEnemy(combat) == 1) return;
+    }
     int i = 0;
     int index = combat->turn.current.selectionIndex;
     int found = 0;//comprueba si existen pokemons vivos.
@@ -215,6 +256,7 @@ void updateTurn(struct Combat *combat)
     for (int i = 0; i < 4; i++){
         combat->turn.current.consumed[i] = 0;
         combat->turn.current.ptr->pokemons[i].consumed = 0;
+        combat->turn.enemy.knocked[i] = 0;
     } 
 
     //Se inicia en el primer pokemon.
