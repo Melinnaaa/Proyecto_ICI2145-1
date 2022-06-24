@@ -452,9 +452,15 @@ void initCombat(Player *players, HashMap *effective, HashMap *uneffective)
                 printf("%s está al frente.\n", combat.turn.current.selection->ptr->name);
                 printf("Elige tu ataque\n");
                 showAttacks(&combat);
+repeat:
                 l = checkNum(1, 4);
                 if (l == 0) continue;
                 Movement *movement = (combat.turn.current.selection->movements)[l - 1];
+                if (combat.turn.current.selection->pps[l-1] == 0)
+                {
+                    printf("No le quedan pps al ataque. Selecciona otro ataque.\n");
+                    goto repeat;
+                }
                 printf("A quién quieres atacar?\n");
                 showAttackable(&combat);
 reask:
