@@ -138,6 +138,7 @@ void serializationImport(Player *dest, unsigned char *name, HashMap *pokemon, Ha
             Pokemon *tmp = pair->value;
             dest->pokemons[i].ptr = tmp;
             dest->pokemons[i].consumed = 0;
+            dest->pokemons[i].hp = tmp->HP;
 #ifdef DEBUG
             printf("DEBUG: Encontrado pokemon %s\n", tmp->name);
 #endif
@@ -160,6 +161,7 @@ void serializationImport(Player *dest, unsigned char *name, HashMap *pokemon, Ha
             printf("%s no fue encontrado en la base de datos\n", playerImport.poke[i].name);
         }
     }
+    dest->canPlay = 1;
 }
 #endif
 
