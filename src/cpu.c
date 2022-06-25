@@ -180,8 +180,8 @@ void initCpuCombat (Player* players, Player* cpu, HashMap* effective, HashMap* u
     {
         for (int k = 0 ; k < 4 ; k++)
         {
-            combat.turn.enemy.ptr->pokemons[i].pps[k] = combat.turn.enemy.ptr->pokemons[i].movements[k]->pp;
-            combat.turn.current.ptr->pokemons[i].pps[k] = combat.turn.current.ptr->pokemons[i].movements[k]->pp;
+            combat.turn.enemy.ptr   ->pokemons[i].pps[k] = combat.turn.enemy.ptr    ->pokemons[i].movements[k]->pp;
+            combat.turn.current.ptr ->pokemons[i].pps[k] = combat.turn.current.ptr  ->pokemons[i].movements[k]->pp;
         }
     }
 
@@ -194,11 +194,17 @@ void initCpuCombat (Player* players, Player* cpu, HashMap* effective, HashMap* u
     // mientras el combate no deba acabar.
     while (!(combat.shouldClose))
     {
-        int j;
+#ifdef DEBUG
+        printf("DEBUG: inicio loop combat cpu\n");
+        printf("%s\n", cpu->pokemons[0].movements[3]->name);
+#endif
+        int j; // opcion del menu
+        // si el jugador actual no es la cpu
         if(combat.turn.current.ptr != cpu) 
         {
             showCombatMenu(&combat);
         }
+        // si es la cpu j = 1 (atacar)
         if(combat.turn.current.ptr == cpu)
         {
             j = 1;
@@ -216,55 +222,65 @@ void initCpuCombat (Player* players, Player* cpu, HashMap* effective, HashMap* u
                 break;
             case 1: // Atacar
             {
-                Movement *movement;
-                PlayerPokemon *pkm;
-                if (combat.turn.current.ptr != cpu)
+                Movement *movement; // guarda el movimiento a realizar
+                PlayerPokemon *pkm; // guarda el pokemon atacando
+                if (combat.turn.current.ptr != cpu) // si el jugador no es la cpu
                 {
                     printf("%s está al frente.\n", combat.turn.current.selection->ptr->name);
                     printf("Elige tu ataque\n");
                     showAttacks(&combat);
 repeat:
-                    l = checkNum(1, 4);
-                    if (l == 0) continue;
-                    movement = (combat.turn.current.selection->movements)[l - 1];
-                    if (combat.turn.current.selection->pps[l-1] == 0)
+                    l = checkNum(1, 4); //  preguntar movimiento
+                    if (l == 0) continue; // si se elige el 0 volvemos
+                    movement = (combat.turn.current.selection->movements)[l - 1]; // se guarda el movimiento realizado
+                    if (combat.turn.current.selection->pps[l-1] == 0) // se verifica que el movimiento es realizable
                     {
                         printf("No le quedan pps al ataque. Selecciona otro ataque.\n");
-                        goto repeat;
+                        goto repeat; // volver a preguntar
                     }
                     printf("A quién quieres atacar?\n");
                     showAttackable(&combat);
 reask:
-                    k = checkNum(1,4);
-                    if (k == 0) continue;
+                    k = checkNum(1,4); // preguntar el pokemon a atacar
+                    if (k == 0) continue; // si es 0 volvemos
 
-                    pkm = getEnemyPokemon(&combat, k - 1);
+                    pkm = getEnemyPokemon(&combat, k - 1); // guardamos el pokemon enemigo a atacar
 
-                    if ( ! (pkm->hp) )
+                    if ( ! (pkm->hp) ) // vemos que este vivo
                     {
                         printf("%s está muerto. Elige otro objetivo.\n", pkm->ptr->name);
                         goto reask;
                     }
                 }
-                else
+                else // si somos la cpu
                 {
                     printf("Turno de %s:\n\n", combat.turn.current.ptr->name);
                     do
                     {
-                        l = randomNumber(0,3);
-                        printf("ataque: %d\n", l);
-                        movement = combat.turn.current.selection->movements[l];
-                    }while (combat.turn.current.selection->pps[l] == 0);
+                        l = randomNumber(1,4); // elegimos un movimiento aleatorio.
+                        movement = combat.turn.current.selection->movements[l-1];
+                    }while (combat.turn.current.selection->pps[l-1] == 0);
 
                     do
                     {
-                        k = randomNumber(0,3);
-                        printf("pokemon: %d\n", k);
-                        pkm = combat.turn.enemy.ptr->pokemons + k;
+                        k = randomNumber(1,4);
+                        pkm = getEnemyPokemon(&combat, k-1);
                     } while (pkm->hp == 0);
                 }
 
-                printf("Actual: %d", combat.turn.current.selectionIndex);
+                
+#ifdef DEBUG
+                if (combat.turn.current.selection->ptr == NULL) {
+                    printf("Error: no  hay selección\n");
+                } else {
+                    printf("Selección: %s\n", combat.turn.current.selection->ptr->name);
+                }
+
+                if (!movement) {
+                    printf("Error: no hay movimiento\n");
+                    printf("Aunque la cpu eligió el mov. %d\n", l - 1 );
+                }
+#endif
                 printf("%s usó %s!", combat.turn.current.selection->ptr->name,
                         combat.turn.current.selection->movements[l]->name);
 
@@ -359,6 +375,7 @@ reask:
                         }
                         else 
                         {
+                           
                             if (combat.turn.current.selectionIndex == 3) flag = 1;
                             for (int i = 0 ; i < 4 ; i++)
                                 combat.turn.enemy.knocked[i] = 0;
