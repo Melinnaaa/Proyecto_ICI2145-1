@@ -5,7 +5,7 @@
 #include "hashmap.h"
 
 struct CpuCombat {
-    struct Combat;
+    struct Combat combat;
     Player* player;
 };
 
