@@ -62,7 +62,7 @@ void serializationExport(Player *player)
 
     for (int i = 0; i < 5; i++)
     {
-        if (player->inventory[i].item != NULL && player->inventory[i].item->name != NULL)
+        if (player->inventory[i].item != NULL && player->inventory[i].item->name != NULL && player->inventory[i].qty > 0)
         {
             strcpy(playerExport.items[i].name, player->inventory[i].item->name);
             playerExport.items[i].qty = player->inventory[i].qty;
