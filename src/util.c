@@ -147,7 +147,7 @@ int countArchives()
 #endif
     }
     closedir(dirp);
-    printf("count: %d\n", file_count);
+    //printf("count: %d\n", file_count);
     
     return file_count;
 }
