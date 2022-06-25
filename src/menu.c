@@ -22,10 +22,6 @@ void showMenu()
 #ifdef DEBUG
     printf("8. Serialización: \n");
 #endif
-
-//    printf("3. Mostrar Perfiles \n");
-//    printf("4. Guardar Perfil: \n");
-//    printf("5. Comprar objetos: \n");
     printf("0. Salir: \n");
 }
 
