@@ -34,6 +34,7 @@ typedef struct PokemonExport {
     int moves[4];
 } PokemonExport;
 
+/*
 typedef struct PlayerExport {
     char name[30];
     PokemonExport pokemons[4];
@@ -41,6 +42,7 @@ typedef struct PlayerExport {
     int wins;
     int losses;
 } PlayerExport;
+*/
 
 void createProfile(Player *player, HashMap *pokeMap, HashMap *movements)
 {

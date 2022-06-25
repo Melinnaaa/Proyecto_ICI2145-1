@@ -1,9 +1,11 @@
-#include <dirent.h>
 #include <stdio.h>
+#include <dirent.h>
 #include <stdlib.h>
+#include <string.h>
 #include "cpu.h"
 #include "util.h"
 #include "player.h"
+#include "csvread.h"
 
 void fileToPlayer(Player* dest, char* name, HashMap* pokemon, HashMap* moves)
 {
@@ -12,14 +14,14 @@ void fileToPlayer(Player* dest, char* name, HashMap* pokemon, HashMap* moves)
     printf("%s\n", directory);
     struct PlayerExport playerImport;
     FILE *file = fopen(directory, "rb");
-        size_t size;
+        size_t size = 0;
         if (file != NULL){
             fseek(file, 0, SEEK_END);
             size = ftell(file);
-    #ifdef DEBUG
-            printf("Encontrado archivo %s\n", dir);
-    #endif
         }
+    #ifdef DEBUG
+            printf("Encontrado archivo %s\n", directory);
+    #endif
 
         if (!size)
         {
@@ -44,6 +46,48 @@ void fileToPlayer(Player* dest, char* name, HashMap* pokemon, HashMap* moves)
         dest->losses = playerImport.losses;
         dest->money = playerImport.money;
 
+        List *items = listCreate();
+
+        FILE *items_fd = fopen("items.csv", "rb");
+
+
+        char linea[1024];
+        while( (fgets(linea, 1023, items_fd)) != NULL) {
+            Item *item = malloc(sizeof(Item));
+            strcpy(item->name, get_csv_field(linea, 0));
+            printf("Añadiendo archivo %s\n", item->name );
+            item->price = atoi(get_csv_field(linea, 1));
+            item->effect = atoi(get_csv_field(linea, 2));
+            listPushBack(items, item);
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (playerImport.items[i].qty != 0)
+            {
+                printf("NOMBRE IMPORTAR %s\n", playerImport.items[i].name);
+                for (Item *item = listFirst(items); item; item = listNext(items))
+                {
+                    if (strcmp(playerImport.items[i].name, item->name) == 0)
+                    {
+                        printf("Encontrado item %s\n", item->name);
+                        dest->inventory[i].item = item;
+                        dest->inventory[i].qty = playerImport.items[i].qty;
+                    }
+
+                }
+            
+            }
+        }
+
+        /*
+         *
+        // para cada item
+        for (int i = 0; i < 4; i++)
+        {
+            
+        }
+        */
         // para cada pokemon
         for (int i = 0; i < 4; i++)
         {
@@ -85,13 +129,26 @@ Cpu createCPU (HashMap* pokemon, HashMap* moves)
     DIR* dirp;
     Cpu tmp;
     int numArchives = countArchives();
-    int random = randomNumber(0, numArchives);
+    int random = randomNumber(0, numArchives-1);
     struct dirent * entry;
+    int i = 0;
     dirp = opendir("cache"); 
-    for(int i = 0 ; i < random ; i++)
+    while ((entry = readdir(dirp)) != NULL) {
+#ifdef __linux__
+     if (strcmp(entry->d_name,".")==0 ||
+                strcmp(entry->d_name,"..")==0 ) continue;
+#endif
+    if (i == random)
     {
-        entry = readdir(dirp);
+        break;
     }
+
+#ifdef DEBUG
+        printf("%s\n", entry->d_name);
+#endif
+        i++;
+    }
+
     printf("%s\n", entry->d_name);
     fileToPlayer(&tmp.player,entry->d_name, pokemon, moves);
     closedir(dirp);

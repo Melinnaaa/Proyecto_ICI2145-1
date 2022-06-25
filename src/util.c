@@ -136,12 +136,19 @@ int countArchives()
     int file_count = 0;
     DIR * dirp;
     struct dirent * entry;
-
     dirp = opendir("cache");
     while ((entry = readdir(dirp)) != NULL) {
-        file_count++;
+#ifdef __linux__
+     if (strcmp(entry->d_name,".")==0 ||
+                strcmp(entry->d_name,"..")==0 ) continue;
+#endif
+    file_count++;
+#ifdef DEBUG
+        printf("%s\n", entry->d_name);
+#endif
     }
     closedir(dirp);
+    printf("count: %d\n", file_count);
     
     return file_count;
 }

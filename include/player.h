@@ -26,6 +26,10 @@ struct PlayerExport {
             int pp;
         } move[4];
     } poke[4];
+    struct items {
+        char name[30];
+        int qty;
+    } items[5];
 };
 
 void createPlayer(Player *player);

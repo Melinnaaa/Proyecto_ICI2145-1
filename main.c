@@ -17,6 +17,7 @@ void showPlayers();
 
 #ifdef DEBUG
 
+/*
 struct PlayerExport {
     char name[30];
     int wins;
@@ -30,6 +31,7 @@ struct PlayerExport {
         } move[4];
     } poke[4];
 };
+*/
 
 void serializationExport(Player *player)
 {
@@ -58,6 +60,15 @@ void serializationExport(Player *player)
     playerExport.losses = player->losses;
     playerExport.money = player->money;
 
+    for (int i = 0; i < 5; i++)
+    {
+        if (player->inventory[i].item != NULL && player->inventory[i].item->name != NULL)
+        {
+            strcpy(playerExport.items[i].name, player->inventory[i].item->name);
+            playerExport.items[i].qty = player->inventory[i].qty;
+        
+        }
+    }
     // para cada pokemon
     for (int i = 0; i < 4; i++)
     {
@@ -75,6 +86,8 @@ void serializationExport(Player *player)
     if (file != NULL)
     {
         fwrite(&playerExport, sizeof(struct PlayerExport), 1, file);
+    } else {
+        printf("Archivo no se puede abrir\n");
     }
 
 }
