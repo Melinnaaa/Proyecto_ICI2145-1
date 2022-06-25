@@ -60,4 +60,6 @@ int checkNum(int min, int max);
 int randomNumber(int lowerbound, int upperbound);
 
 unsigned long djb2hash(unsigned char *str);
+
+int countArchives();
 #endif
