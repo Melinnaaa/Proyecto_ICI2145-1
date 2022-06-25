@@ -145,7 +145,7 @@ int canAllOutAttack(struct Combat *combat)
         if (combat->turn.enemy.knocked[i] == 1 && combat->turn.enemy.ptr->pokemons[i].hp > 0) tmp++;
         if(combat->turn.enemy.ptr->pokemons[i].hp > 0) alive++;
     }    
-    if (tmp == alive) return 1;
+    if (tmp == alive && alive != 0) return 1;
     return 0;
 }
 
@@ -194,7 +194,7 @@ void nextSelection(struct Combat *combat)
     }
     if (!found)
     {
-        printf("Algo salió mal. No quedan pokémons.\n");
+        //printf("Algo salió mal. No quedan pokémons.\n");
         return;
     } else {
         combat->turn.current.selection = combat->turn.current.ptr->pokemons + i;
@@ -565,7 +565,13 @@ reask:
     {
         printf("Algo salió mal. (El combate terminó y no hay ganador)\n");
     } else {
+        int money = randomNumber(500,1000);
         printf("El ganador es %s!\n", combat.winner->name);
+        printf("Felicidades, ganaste $%d!\n", money);
+        combat.winner->money += money;
+        combat.winner->wins ++;
+        combat.turn.enemy.ptr->losses ++;
+        getchar();
     }
     for (int j = 0; j < 2; j++)
         for (int i = 0; i < 4; i++)
