@@ -11,7 +11,7 @@ void fileToPlayer(Player* dest, char* name, HashMap* pokemon, HashMap* moves)
 {
     char directory[60] = "cache/";
     strcat(directory, name);
-    printf("%s\n", directory);
+//  printf("%s\n", directory);
     struct PlayerExport playerImport;
     FILE *file = fopen(directory, "rb");
         size_t size = 0;
@@ -63,7 +63,7 @@ void fileToPlayer(Player* dest, char* name, HashMap* pokemon, HashMap* moves)
 
         for (int i = 0; i < 5; i++)
         {
-            if (playerImport.items[i].qty != 0)
+            if (playerImport.items[i].qty > 0)
             {
                 printf("NOMBRE IMPORTAR %s\n", playerImport.items[i].name);
                 for (Item *item = listFirst(items); item; item = listNext(items))
@@ -80,17 +80,10 @@ void fileToPlayer(Player* dest, char* name, HashMap* pokemon, HashMap* moves)
             else 
             {
                 dest->inventory[i].item = NULL;
+                playerImport.items[i].qty = 0;
             }
         }
 
-        /*
-         *
-        // para cada item
-        for (int i = 0; i < 4; i++)
-        {
-            
-        }
-        */
         // para cada pokemon
         for (int i = 0; i < 4; i++)
         {
@@ -101,26 +94,27 @@ void fileToPlayer(Player* dest, char* name, HashMap* pokemon, HashMap* moves)
                 dest->pokemons[i].ptr = tmp;
                 dest->pokemons[i].consumed = 0;
                 dest->pokemons[i].hp = tmp->HP;
+                printf("POKEMON: .%s.\n", dest->pokemons[i].ptr->name);
     #ifdef DEBUG
                 printf("DEBUG: Encontrado pokemon %s\n", tmp->name);
     #endif
                 // para cada movimiento
                 for (int j = 0; j < 4; j++)
                 {
-                    printf("MOVIMIENTO: .%s.\n", playerImport.poke[i].move[j].name);
                     pair = searchMap(moves, playerImport.poke[i].move[j].name);
                     if (!pair) 
                     {
                         printf("Error: movimiento %s no encontrado\n", playerImport.poke[i].move[j].name);
                     } else {
                         dest->pokemons[i].movements[j] = pair->value;
+                        printf("MOVIMIENTO: .%s.\n", dest->pokemons[i].movements[j]->name);
                     }
                     dest->pokemons[i].pps[j] = playerImport.poke[i].move[j].pp;
                 }
 
             } else {
-                printf("Error cargando perfil:\n");
-                printf("%s no fue encontrado en la base de datos\n", playerImport.poke[i].name);
+                //printf("Error cargando perfil:\n");
+                //printf("%s no fue encontrado en la base de datos\n", playerImport.poke[i].name);
             }
         }
         dest->canPlay = 1;
@@ -150,7 +144,7 @@ Player createCPU (HashMap* pokemon, HashMap* moves)
         i++;
     }
 
-    printf("%s\n", entry->d_name);
+    //printf("%s\n", entry->d_name);
     fileToPlayer(&cpu,entry->d_name, pokemon, moves);
     closedir(dirp);
     return cpu;
@@ -258,18 +252,21 @@ reask:
                     do
                     {
                         l = randomNumber(0,3);
+                        printf("ataque: %d\n", l);
                         movement = combat.turn.current.selection->movements[l];
                     }while (combat.turn.current.selection->pps[l] == 0);
 
                     do
                     {
                         k = randomNumber(0,3);
-                        pkm = getEnemyPokemon(&combat, k);
+                        printf("pokemon: %d\n", k);
+                        pkm = combat.turn.enemy.ptr->pokemons + k;
                     } while (pkm->hp == 0);
                 }
 
+                printf("Actual: %d", combat.turn.current.selectionIndex);
                 printf("%s usó %s!", combat.turn.current.selection->ptr->name,
-                        movement->name);
+                        combat.turn.current.selection->movements[l]->name);
 
                 getchar();
                 putchar('\n');
@@ -319,12 +316,14 @@ reask:
                 }
 
                 if (damage)
+                {
                     printf("%s le quitó %d HP a %s!", combat.turn.current.selection->ptr->name, 
                             (int)damage,
                             pkm->ptr->name);
+                    getchar();
+                    putchar('\n');
+                }
 
-                getchar();
-                putchar('\n');
 
 
                 if ((pkm->hp - damage) <= 0)
@@ -397,7 +396,13 @@ reask:
     {
         printf("Algo salió mal. (El combate terminó y no hay ganador)\n");
     } else {
+        int money = randomNumber(500,1000);
         printf("El ganador es %s!\n", combat.winner->name);
+        printf("Felicidades, ganaste $%d!\n", money);
+        combat.winner->money += money;
+        combat.winner->wins ++;
+        combat.turn.enemy.ptr->losses ++;
+        getchar();
     }
     for (int j = 0; j < 2; j++)
         for (int i = 0; i < 4; i++)
