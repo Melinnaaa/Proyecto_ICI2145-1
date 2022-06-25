@@ -282,7 +282,7 @@ reask:
                 }
 #endif
                 printf("%s usó %s!", combat.turn.current.selection->ptr->name,
-                        combat.turn.current.selection->movements[l]->name);
+                        movement->name);
 
                 getchar();
                 putchar('\n');
