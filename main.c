@@ -68,6 +68,10 @@ void serializationExport(Player *player)
             playerExport.items[i].qty = player->inventory[i].qty;
         
         }
+        else
+        {
+            playerExport.items[i].qty = 0;
+        }
     }
     // para cada pokemon
     for (int i = 0; i < 4; i++)
