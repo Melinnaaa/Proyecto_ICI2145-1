@@ -11,6 +11,7 @@
 #include "player.h"
 #include "pokemon.h"
 #include "util.h"
+#include "cpu.h"
 
 void showPlayers();
 
@@ -211,9 +212,9 @@ int main() {
         showMenu();
 
 #ifdef DEBUG
-        in = checkNum(0, 7);
+        in = checkNum(0, 8);
 #else 
-        in = checkNum(0, 6);
+        in = checkNum(0, 7);
 #endif
         
         switch(in)  
@@ -262,8 +263,15 @@ int main() {
                 initCombat(players, effective, uneffective);
                 break;
             }
-#ifdef DEBUG
             case 7:
+            {
+                Cpu tmp = createCPU(pokemonsStr, movements);
+                showPlayer(&tmp.player);
+                //initCpuCombat(players, effective, uneffective, tmp);
+                break;
+            }
+#ifdef DEBUG
+            case 8:
             {
                 printf("1. Importar\n2. Exportar\n0. Volver");
                 int in2 = checkNum(1,2);
