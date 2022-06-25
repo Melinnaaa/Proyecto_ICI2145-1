@@ -282,9 +282,8 @@ int main() {
             }
             case 7:
             {
-                Cpu tmp = createCPU(pokemonsStr, movements);
-                showPlayer(&tmp.player);
-                //initCpuCombat(players, effective, uneffective, tmp);
+                Player cpu = createCPU(pokemonsStr, movements);
+                initCpuCombat(&players[0], &cpu, effective, uneffective);
                 break;
             }
 #ifdef DEBUG
