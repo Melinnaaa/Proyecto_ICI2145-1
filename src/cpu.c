@@ -76,7 +76,10 @@ void fileToPlayer(Player* dest, char* name, HashMap* pokemon, HashMap* moves)
                     }
 
                 }
-            
+            }
+            else 
+            {
+                dest->inventory[i].item = NULL;
             }
         }
 
@@ -134,14 +137,12 @@ Cpu createCPU (HashMap* pokemon, HashMap* moves)
     int i = 0;
     dirp = opendir("cache"); 
     while ((entry = readdir(dirp)) != NULL) {
-#ifdef __linux__
-     if (strcmp(entry->d_name,".")==0 ||
+        if (strcmp(entry->d_name,".")==0 ||
                 strcmp(entry->d_name,"..")==0 ) continue;
-#endif
-    if (i == random)
-    {
-        break;
-    }
+        if (i == random)
+        {
+            break;
+        }
 
 #ifdef DEBUG
         printf("%s\n", entry->d_name);
