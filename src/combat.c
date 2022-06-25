@@ -1,34 +1,7 @@
 #include <string.h>
 #include <stdio.h>
-
 #include "combat.h"
-
 #include "util.h"
-
-struct Combat {
-    struct {
-        struct {
-            Player *ptr;
-            int consumed[4]; // Atacó el pokémon?
-            PlayerPokemon *selection;
-            int selectionIndex;
-        } current;
-
-        struct {
-            Player *ptr;
-            int knocked[4]; // Esta aturdido el enemigo?
-        } enemy;
-
-    } turn;
-
-    struct {
-        HashMap *effective,
-                *uneffective;
-    } maps;
-
-    Player *winner;
-    int shouldClose;
-};
 
 
 void showCombatMenu(struct Combat *combat)
