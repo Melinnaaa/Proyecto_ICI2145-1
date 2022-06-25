@@ -1,6 +1,7 @@
 #include "util.h"
 #include <string.h>
 #include <ctype.h>
+#include <dirent.h>
 
 #ifndef _WIN32
     char * _strdup(const char * str) {
@@ -128,5 +129,20 @@ unsigned long djb2hash(unsigned char *str)
         hash = (((hash << 5) & (hash << 3)) + hash) + c; /* hash * 33 + c */
 
     return hash;
+}
+
+int countArchives()
+{
+    int file_count = 0;
+    DIR * dirp;
+    struct dirent * entry;
+
+    dirp = opendir("cache");
+    while ((entry = readdir(dirp)) != NULL) {
+        file_count++;
+    }
+    closedir(dirp);
+    
+    return file_count;
 }
 
