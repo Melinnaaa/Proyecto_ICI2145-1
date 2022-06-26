@@ -3,6 +3,9 @@
 #include "serialization.h"
 #include "player.h"
 #include "pokemon.h"
+
+void newRandomizeMovements(PlayerPokemon *ppk, HashMap *map);
+
 int main() 
 {
     HashMap *movements = createMap(218);
@@ -10,11 +13,13 @@ int main()
     Pokemon pk1 = {0};
     PlayerPokemon ppk1 = {0};
         ppk1.ptr = &pk1;
-        randomizeMovements(&ppk1, movements);
+        initPokemon(&pk1, 1, "pikashu", "Electrico,Hada", 666);
+        ppk1.movements[0] = searchMap(movements, "Pound")->value;
+        ppk1.movements[1] = searchMap(movements, "Karate Chop")->value;
+        ppk1.movements[2] = searchMap(movements, "Comet Punch")->value;
+        ppk1.movements[3] = searchMap(movements, "Pay Day")->value;
     Movement movement = {0};
-    initPokemon(&pk1, 1, "pikashu", "Tipo1,Tipo2", 666);
     initMovement(&movement, 1, "peo", "Tipo1", 3, 125, 1);
-    /*
     Player player = {
         "Pedro", // name
         3, // wins
@@ -30,17 +35,8 @@ int main()
         },
         
         {
-            {
-                &pk1, // ptr
-                {
-                    &movement, // Move 1
-                    NULL, // Move 2
-                    NULL, // ...
-                    NULL
-                }
-            }
+            ppk1, ppk1, ppk1, ppk1
         }
     };
-    */
-    showPlayerPokemon(&ppk1);
+    showPlayer(&player);
 }
