@@ -93,17 +93,24 @@ void loadMovements(HashMap* movementMap, HashMap* movements)
             }  
         }
         /* Se busca si existe un mapa del tipo X */
-        insertMap(movements, tmpMove->name, tmpMove);
-        HashMapPair *pair = searchMap(movementMap, tmpMove->type);
-        if(pair == NULL)
+        if (movements)
         {
-            /* si no existe se crea y se añade el movimiento */
-            HashMap* tmp = createMap(20);
-            insertMap(tmp, tmpMove->name, tmpMove);
-            insertMap(movementMap, tmpMove->type, tmp);
-        } else {
-            /* si existe se añade el movimiento */
-            insertMap(pair->value, tmpMove->name, tmpMove);
+            insertMap(movements, tmpMove->name, tmpMove);
+        }
+        if (movementMap != NULL) 
+        {
+            HashMapPair *pair = searchMap(movementMap, tmpMove->type);
+            if(pair == NULL)
+            {
+                /* si no existe se crea y se añade el movimiento */
+                HashMap* tmp = createMap(20); // submapa con valores Movement y claves nombre
+                insertMap(tmp, tmpMove->name, tmpMove);
+                insertMap(movementMap, tmpMove->type, tmp);
+            } else {
+                /* si existe se añade el movimiento */
+                insertMap(pair->value, tmpMove->name, tmpMove);
+            }
+
         }
     }
     fclose(moves);
@@ -209,7 +216,7 @@ repeat:
         
         j++;
     }
-    showPlayerPokemon(ppk);
+//    showPlayerPokemon(ppk);
 }
 
 void showPokemon(Pokemon* pokemon)
@@ -232,4 +239,48 @@ void showPlayerPokemon(PlayerPokemon *pokemon)
         else 
             printf("  %s\t", pokemon->movements[i]->name);
     }
+}
+
+// Crea un pokemon
+void initPokemon(Pokemon *pokemon, int id, char *name, char *types, int hp)
+{
+    if (pokemon == NULL)
+    {
+        printf("Error:: intentando escribir en un puntero nulo. \n");
+        exit(1);
+    }
+
+    strcpy(pokemon->name, name);
+
+    pokemon->HP = hp;
+
+    // FIXME
+    // Establecer tipos {
+    List * typesList =  strToList(types, ",");
+
+    if (pokemon->type != NULL)
+        free(pokemon->type);
+
+    pokemon->type = typesList;
+    // }
+
+
+}
+
+void 
+initMovement(Movement *move, int id, char *name, char *type, int pp, int dmg, int accuracy)
+{
+    if (!move)
+    {
+        printf("Error:: inicializando un movimiento nulo.\n");
+        exit(1);
+    }
+
+    move->pp = pp;
+    move->id = id;
+    move->damage = dmg;
+    move->accuracy = accuracy;
+
+    strcpy(move->name, name);
+    strcpy(move->type, type);
 }

@@ -39,6 +39,8 @@ void showPlayerPokemon(PlayerPokemon *pokemon);
 
 void randomizeMovements(PlayerPokemon *ppk, HashMap* map);
 
+void initPokemon(Pokemon *pokemon, int id, char *name, char *types, int hp);
+void initMovement(Movement *move, int id, char *name, char *type, int pp, int dmg, int accuracy);
 
 
 
