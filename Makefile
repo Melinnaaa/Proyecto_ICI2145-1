@@ -8,7 +8,7 @@ INCLUDE=$(wildcard include/*)
 all: prepare $(OBJS) $(NAME) 
 
 
-test:
+debug:
 	gcc main.c src/*.c -Iinclude -DDEBUG  -g
 
 $(NAME): $(OBJS) $(INCLUDE) main.c
