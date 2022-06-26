@@ -6,7 +6,7 @@
 #include "util.h"
 void exportPlayer(Player *player)
 {
-    if (player->pokemons->ptr == NULL)
+    if (player->pokemons->ptr == NULL || player == NULL || strcmp(player->name, "") == 0)
     {
         printf("No tienes datos para guardar, por favor registrate.\n");
         return;
@@ -61,8 +61,10 @@ void exportPlayer(Player *player)
     if (file != NULL)
     {
         fwrite(&playerExport, sizeof(struct PlayerExport), 1, file);
+        printf("Archivo escrito exitosamente\n");
     } else {
         printf("Archivo no se puede abrir\n");
+        exit(1);
     }
 
 }
