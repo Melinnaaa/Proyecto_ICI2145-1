@@ -38,5 +38,8 @@ int main()
             ppk1, ppk1, ppk1, ppk1
         }
     };
+
+    exportPlayer(&player);
+
     showPlayer(&player);
 }

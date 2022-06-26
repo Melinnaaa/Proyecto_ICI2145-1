@@ -10,7 +10,7 @@ INCLUDE=$(wildcard include/*)
 TEST_SRC=$(wildcard src/tests/*.c)
 TEST_BIN=$(patsubst src/tests/%.c, tests/%, $(TEST_SRC))
 
-all: prepare $(OBJS) $(NAME) test
+all: prepare $(NAME) $(OBJS) test
 
 tests/%: src/tests/%.c $(OBJS)
 	$(CC) $(INCLUDES) -o $@ $^ -g -Wall -Werror -std=c99
