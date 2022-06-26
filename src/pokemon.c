@@ -93,17 +93,24 @@ void loadMovements(HashMap* movementMap, HashMap* movements)
             }  
         }
         /* Se busca si existe un mapa del tipo X */
-        insertMap(movements, tmpMove->name, tmpMove);
-        HashMapPair *pair = searchMap(movementMap, tmpMove->type);
-        if(pair == NULL)
+        if (movements)
         {
-            /* si no existe se crea y se añade el movimiento */
-            HashMap* tmp = createMap(20); // submapa con valores Movement y claves nombre
-            insertMap(tmp, tmpMove->name, tmpMove);
-            insertMap(movementMap, tmpMove->type, tmp);
-        } else {
-            /* si existe se añade el movimiento */
-            insertMap(pair->value, tmpMove->name, tmpMove);
+            insertMap(movements, tmpMove->name, tmpMove);
+        }
+        if (movementMap != NULL) 
+        {
+            HashMapPair *pair = searchMap(movementMap, tmpMove->type);
+            if(pair == NULL)
+            {
+                /* si no existe se crea y se añade el movimiento */
+                HashMap* tmp = createMap(20); // submapa con valores Movement y claves nombre
+                insertMap(tmp, tmpMove->name, tmpMove);
+                insertMap(movementMap, tmpMove->type, tmp);
+            } else {
+                /* si existe se añade el movimiento */
+                insertMap(pair->value, tmpMove->name, tmpMove);
+            }
+
         }
     }
     fclose(moves);
@@ -209,7 +216,7 @@ repeat:
         
         j++;
     }
-    showPlayerPokemon(ppk);
+//    showPlayerPokemon(ppk);
 }
 
 void showPokemon(Pokemon* pokemon)
