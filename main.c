@@ -253,7 +253,7 @@ int main() {
                         printf("Qué jugador eres? (1/2): \n");
                         inplayer = checkNum(1,2);
                         if (!inplayer) continue;
-                        playerExport(players + inplayer - 1);
+                        exportPlayer(players + inplayer - 1);
 
                 }
                 break;
