@@ -184,7 +184,9 @@ void serializationImport(Player *dest, unsigned char *name, HashMap *pokemon, Ha
 #endif
 
 int main() {
+    // inicializar random
     srand(time(NULL));
+
     printf("Bienvenido a pokemon.exe\n");
 
     printf("Para empezar crea o carga tu perfil.\n\n");
