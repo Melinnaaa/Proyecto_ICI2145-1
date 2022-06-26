@@ -233,3 +233,47 @@ void showPlayerPokemon(PlayerPokemon *pokemon)
             printf("  %s\t", pokemon->movements[i]->name);
     }
 }
+
+// Crea un pokemon
+void initPokemon(Pokemon *pokemon, int id, char *name, char *types, int hp)
+{
+    if (pokemon == NULL)
+    {
+        printf("Error:: intentando escribir en un puntero nulo. \n");
+        exit(1);
+    }
+
+    strcpy(pokemon->name, name);
+
+    pokemon->HP = hp;
+
+    // FIXME
+    // Establecer tipos {
+    List * typesList =  strToList(types, ",");
+
+    if (pokemon->type != NULL)
+        free(pokemon->type);
+
+    pokemon->type = typesList;
+    // }
+
+
+}
+
+void 
+initMovement(Movement *move, int id, char *name, char *type, int pp, int dmg, int accuracy)
+{
+    if (!move)
+    {
+        printf("Error:: inicializando un movimiento nulo.\n");
+        exit(1);
+    }
+
+    move->pp = pp;
+    move->id = id;
+    move->damage = dmg;
+    move->accuracy = accuracy;
+
+    strcpy(move->name, name);
+    strcpy(move->type, type);
+}
