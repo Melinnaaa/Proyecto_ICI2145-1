@@ -61,6 +61,7 @@ void exportPlayer(Player *player)
     if (file != NULL)
     {
         fwrite(&playerExport, sizeof(struct PlayerExport), 1, file);
+        fclose (file);
         printf("Archivo escrito exitosamente\n");
     } else {
         printf("Archivo no se puede abrir\n");
