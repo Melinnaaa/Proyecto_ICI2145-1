@@ -98,7 +98,7 @@ void loadMovements(HashMap* movementMap, HashMap* movements)
         if(pair == NULL)
         {
             /* si no existe se crea y se añade el movimiento */
-            HashMap* tmp = createMap(20);
+            HashMap* tmp = createMap(20); // submapa con valores Movement y claves nombre
             insertMap(tmp, tmpMove->name, tmpMove);
             insertMap(movementMap, tmpMove->type, tmp);
         } else {
