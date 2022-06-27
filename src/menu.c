@@ -14,13 +14,14 @@ void showMenu()
     printf("3. Mostrar jugadores: \n");
 
     printf("2. Cargar partida: \t\t");
-    printf("4. Guardar perfiles: \n");
+    printf("4. Guardar partida: \n");
 
     printf("5. Tienda: \t\t\t");
     printf("6. Combate: \n");
     printf("7. Combate vs CPU: \t\t");
+    printf("8. Liga informatica: \n");
 #ifdef DEBUG
-    printf("8. Serialización: \n");
+    printf("9. Serialización: \n");
 #endif
     printf("0. Salir: \n");
 }
