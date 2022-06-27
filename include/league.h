@@ -3,6 +3,6 @@
 #include "hashmap.h"
 #include "player.h"
 
-initComputerLeague(Player* players, HashMap* effective, HashMap* uneffective);
+void initComputerLeague(Player* players, HashMap* effective, HashMap* uneffective, HashMap* pkmMap, HashMap* moves);
 
 #endif
