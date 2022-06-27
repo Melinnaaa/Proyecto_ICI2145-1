@@ -230,8 +230,14 @@ int main() {
                 initCpuCombat(&players[0], &cpu, effective, uneffective);
                 break;
             }
-#ifdef DEBUG
             case 8:
+            {
+                printf("Bienvenido a la liga pokemon!\n");
+                printf("Selecciona un modo de juego\n");
+                initComputerLeague(&players[0], effective, uneffective);
+            }
+#ifdef DEBUG
+            case 9:
             {
                 printf("1. Importar\n2. Exportar\n0. Volver");
                 int in2 = checkNum(1,2);
