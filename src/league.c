@@ -6,18 +6,30 @@
 
 void initComputerLeague(Player* players, HashMap* effective, HashMap* uneffective, HashMap* pkmMap, HashMap* moves)
 {
-    int combats = 0;
     int win = 0;
 
-    do
+    while (1)
     {
-        switch (combats)
+        if (win == 5)
+        {
+            printf("Felicidades, eres el lider\n");
+            return;
+        }
+
+        if(win == -1) 
+        {
+            printf("Has perdido!\n");
+            return;
+        }
+        
+        switch (win)
         {
             case 0:
             {
                 Player leader1;
                 fileToPlayer(&leader1, "5968c0.pkdb", pkmMap, moves);
                 initCpuCombat(players, &leader1, effective, uneffective, &win);
+                if (win == 0) return;
                 break;
             }    
             case 1:
@@ -48,18 +60,7 @@ void initComputerLeague(Player* players, HashMap* effective, HashMap* uneffectiv
                 fileToPlayer(&leader5, "33cedb.pkdb", pkmMap, moves);
                 initCpuCombat(players, &leader5, effective, uneffective, &win);
                 break;
-            }    
+            } 
         }
-    } while (win != -1);
-
-    if (win == 5)
-    {
-        printf("Felicidades, eres el lider\n");
-    }
-
-    if(win == -1) 
-    {
-        printf("Has perdido!\n");
-    }
-        
+    }    
 }
