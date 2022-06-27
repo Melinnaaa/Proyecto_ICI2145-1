@@ -35,7 +35,6 @@ int shouldCloseCombat(struct Combat *combat)
         combat->turn.current.consumed[2]) 
 
         return 1;
-
     return 0;
 }
 
@@ -282,9 +281,9 @@ int getPkmPos(struct Combat* combat)
 
 void checkBag(struct Combat *combat)
 {
-    int in;
-    int pkm;
-    int item;
+    int in;//numero item.
+    int pkm;//numero pokemon.
+    int item;//habilidad a la que se le aplicará el item.
     pkm = showBag(combat);
     //Si no hay items se finaliza la función.
     if (pkm == 0) return;
