@@ -16,3 +16,4 @@ compile_commands.json
 a.exe
 
 tests/export
+tests/export.exe
