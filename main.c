@@ -13,6 +13,7 @@
 #include "util.h"
 #include "cpu.h"
 #include "serialization.h"
+#include "league.h"
 
 void showPlayers();
 
@@ -170,9 +171,9 @@ int main() {
         showMenu();
 
 #ifdef DEBUG
-        in = checkNum(0, 8);
+        in = checkNum(0, 9);
 #else 
-        in = checkNum(0, 7);
+        in = checkNum(0, 8);
 #endif
         
         switch(in)  
@@ -224,17 +225,19 @@ int main() {
             case 7:
             {
                 Player cpu = createCPU(pokemonsStr, movements);
+                int win = 0;
 #ifdef DEBUG
                 showPlayer(&cpu);
-#endif
-                initCpuCombat(&players[0], &cpu, effective, uneffective);
+#endif  
+                initCpuCombat(&players[0], &cpu, effective, uneffective, &win);
                 break;
             }
             case 8:
             {
                 printf("Bienvenido a la liga pokemon!\n");
                 printf("Selecciona un modo de juego\n");
-                initComputerLeague(&players[0], effective, uneffective);
+                initComputerLeague(&players[0], effective, uneffective, pokemonsStr, movements);
+                break;
             }
 #ifdef DEBUG
             case 9:
