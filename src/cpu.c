@@ -168,7 +168,7 @@ Player createCPU (HashMap* pokemon, HashMap* moves)
 }
 
 //Crea una instancia de combate para el modo Cpu v/s jugador.
-void initCpuCombat (Player* players, Player* cpu, HashMap* effective, HashMap* uneffective)
+void initCpuCombat (Player* players, Player* cpu, HashMap* effective, HashMap* uneffective, int* win)
 {
     //Si no hay perfiles cargados.
     if (!(players->canPlay) || !(cpu->canPlay))
@@ -460,7 +460,9 @@ reask:
             //Se aumenta el dinero, victorias del ganador
             combat.winner->money += money;
             combat.winner->wins ++;
+            *win = *win + 1;
         }
+        else *win = -1;
         //Se aumentan las derrotas del perdedor.
         combat.turn.enemy.ptr->losses ++;
         getchar();

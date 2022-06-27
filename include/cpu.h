@@ -11,7 +11,7 @@ struct CpuCombat {
 
 void fileToPlayer(Player* dest, char* name, HashMap* pokemon, HashMap* moves);
 Player createCPU (HashMap* pokemon, HashMap* moves);
-void initCpuCombat (Player* players, Player* cpu, HashMap* effective, HashMap* uneffective);
+void initCpuCombat (Player* players, Player* cpu, HashMap* effective, HashMap* uneffective, int* win);
 
 
 #endif
