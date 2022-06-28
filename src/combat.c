@@ -279,6 +279,13 @@ void changePokemon(struct Combat* combat)
     printf("Selecciona el pokemon a utilizar\n");
 again:
     pkm = checkNum (1, 4);
+    
+    //Se verifica que el pokemon no este muerto
+    if(combat->turn.current.ptr->pokemons[pkm-1].hp <= 0)
+    {
+        printf("Este pokemon esta muerto!, selecciona otro...\n");
+        goto again;
+    }
     //Se verifica que el pokemon no haya sido utilizado.
     if (combat->turn.current.consumed[pkm-1] == 1) 
     {
