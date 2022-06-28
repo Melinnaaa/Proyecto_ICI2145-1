@@ -4,8 +4,11 @@
 #include "player.h"
 #include "serialization.h"
 #include "util.h"
+
+//Exporta un perfil a un archivo binario, es utilizado para las cpus.
 void exportPlayer(Player *player)
 {
+    //Se verifica que el usuario tenga datos para guardar.
     if (player->pokemons->ptr == NULL || player == NULL || strcmp(player->name, "") == 0)
     {
         printf("No tienes datos para guardar, por favor registrate.\n");
@@ -26,11 +29,14 @@ void exportPlayer(Player *player)
     FILE *file = fopen(dir, "wb");
 
     struct PlayerExport playerExport;
+    //Se guarda el nombre.
     strcpy(playerExport.name, player->name);
+    //Se guardan las victorias, derrotas y el dinero.
     playerExport.wins = player->wins;
     playerExport.losses = player->losses;
     playerExport.money = player->money;
 
+    //Se recorre el inventario.
     for (int i = 0; i < 5; i++)
     {
         if (player->inventory[i].item != NULL && player->inventory[i].qty > 0)
@@ -58,12 +64,15 @@ void exportPlayer(Player *player)
         }
     }
 
+    //Si el archivo se creo bien.
     if (file != NULL)
     {
         fwrite(&playerExport, sizeof(struct PlayerExport), 1, file);
         fclose (file);
         printf("Archivo escrito exitosamente\n");
-    } else {
+    }
+    //El archivo no se pudo abrir o se creo mal. 
+    else {
         printf("Archivo no se puede abrir\n");
         exit(1);
     }
