@@ -4,7 +4,6 @@
 #include <time.h>
 
 #include "hashmap.h"
-
 #include "combat.h"
 #include "item.h"
 #include "menu.h"
@@ -234,8 +233,7 @@ int main() {
             }
             case 8:
             {
-                printf("Bienvenido a la liga pokemon!\n");
-                printf("Selecciona un modo de juego\n");
+                printf("Esta es la liga pokemon!\n");
                 initComputerLeague(&players[0], effective, uneffective, pokemonsStr, movements);
                 break;
             }
@@ -295,8 +293,6 @@ void createPlayer(Player *p)
     p->pokemons->ptr = NULL;
  
 }
-
-
 
 //Muestra el item del jugador.
 void showItem(Item *item)
