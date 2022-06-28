@@ -3,7 +3,7 @@
 #include "combat.h"
 #include "util.h"
 
-
+//Muestra las opciones principales del menu.
 void showCombatMenu(struct Combat *combat)
 {
     printf("Turno de %s\n", combat->turn.current.ptr->name);
@@ -17,7 +17,7 @@ void showCombatMenu(struct Combat *combat)
                 combat->turn.current.ptr->pokemons[i].ptr->name,
                 combat->turn.current.ptr->pokemons[i].hp);
     }
-
+    //Muestra las acciones que puede realizar el jugador.
     printf("Qué quieres hacer?\n\n");
     printf("1. Atacar\t");
     printf("3. Sacar al frente\n");
@@ -38,19 +38,20 @@ int shouldCloseCombat(struct Combat *combat)
     return 0;
 }
 
+//El jugador huye del combate.
 void tryToEscape(struct Combat *combat)
 {
     printf("%s huyó!\n", combat->turn.current.ptr->name);
     combat->shouldClose = 1;
     combat->winner = combat->turn.enemy.ptr;
-    combat->turn.enemy.ptr->wins += 1;
-    combat->turn.current.ptr->losses += 1;
 }
 
+//Se muestran los pokemons a los que se pueden atacar.
 void showAttackable(struct Combat *combat)
 {
     for (int i = 0; i < 4; i++)
     {
+        //Si esta vivo muestra la vida, sino dice que esta muerto.
         printf("%d. %s: ", i + 1, combat->turn.enemy.ptr->pokemons[i].ptr->name);
         printf(
                 combat->turn.enemy.ptr->pokemons[i].hp ? 
@@ -60,6 +61,7 @@ void showAttackable(struct Combat *combat)
     printf("0. Volver\n");
 }
 
+//Se muestran los ataques que puede realizar el pokemon, con sus respectivos pps.
 void showAttacks(struct Combat *combat)
 {
     for (int i = 0; i < 4; i++)
@@ -70,33 +72,44 @@ void showAttacks(struct Combat *combat)
     printf("0. Volver\n");
 }
 
+//Se obtiene el pokemon enemigo a atacar.
 PlayerPokemon *getEnemyPokemon(struct Combat *combat, int num)
 {
     return combat->turn.enemy.ptr->pokemons + num;
 }
 
-
+//Busca si la habilidad es efectiva o inefectiva.
 int searchAbilities (HashMap* map, char* attackType, char* typeEnemy)
 {
-    List* tmp;
-    char *tmpType;
+    List* tmp;//Lista que contendrá los tipos.
+    char *tmpType;//Contendra el valor de cada tipo de la lista.
+    
+    //Si se encuentra el tipo de ataque en el mapa.
     if (searchMap(map, attackType) != NULL)
     {
 #ifdef DEBUG
         printf("tipo ataque: %s\n", attackType);
         printf("tipo Enemigo: %s\n", typeEnemy);
 #endif
+        //El mapa contiene de value la lista.
         tmp = searchMap(map, attackType)->value;
+
+        //Se obtiene el primer dato de la lista.
         tmpType = listFirst(tmp);
+
+        //Ciclo que recorre la lista.
         while (1)
         {
 #ifdef DEBUG
             printf("TIPO: %s\n", tmpType);
 #endif
+            //Si el tipo del enemigo es igual al de la lista.
             if (strcmp(tmpType, typeEnemy) == 0) return 1;//Es efectivo.
-                                                
+
+            //Se recorre la lista.                                
             tmpType = listNext(tmp);
 
+            //Si no hay mas valores se finaliza el ciclo.
             if (tmpType == NULL) { 
                 break;
             } 
@@ -108,16 +121,19 @@ int searchAbilities (HashMap* map, char* attackType, char* typeEnemy)
     return 0; //No es efectivo.
 }
 
+//Verifica si un ataque es efectivo.
 int isEffective(struct Combat *combat, char *moveType, char *pkmType)
 {
     return searchAbilities(combat->maps.effective, moveType, pkmType);
 }
 
+//Verifica si un ataque es inefectivo.
 int isUneffective(struct Combat *combat, char *moveType, char *pkmType)
 {
     return searchAbilities(combat->maps.uneffective, moveType, pkmType);
 }
 
+//Verifica que el enemigo pueda seguir combatiendo.
 int checkEnemy(struct Combat* combat)
 {
     int flag = 0;
@@ -137,29 +153,39 @@ int checkEnemy(struct Combat* combat)
 //Verifica si el jugador es apto para realizar un all-out attack.
 int canAllOutAttack(struct Combat *combat)
 {
-    int tmp = 0;
-    int alive = 0;
+    int tmp = 0;//Pokemons noqueados.
+    int alive = 0;//Pokemons vivos.
+    //Se recorren los pokemons
     for (int i = 0 ; i < 4 ; i++)
     {
+        //Si esta noqueado y vivo, se aumenta el contador.
         if (combat->turn.enemy.knocked[i] == 1 && combat->turn.enemy.ptr->pokemons[i].hp > 0) tmp++;
+        //Si solamente esta vivo aumenta el contador.
         if(combat->turn.enemy.ptr->pokemons[i].hp > 0) alive++;
     }    
+    //Si hay pokemons vivos y estos son iguales a los noqueados, puede realizar el ataque.
     if (tmp == alive && alive != 0) return 1;
     return 0;
 }
 
+//Realiza el all-out Attack.
 void doAllOutAttack(struct Combat *combat)
 {
+    //Se calcula el daño de manera aleatoria.
     int damage = randomNumber(10, 30);
     printf("Todos los pokemons enemigos recibieron %d puntos de daño!.\n\n", damage);
+    //Se recorren los pokemons
     for (int i = 0 ; i < 4 ; i++)
     {
+        //Si esta vivo se le aplica el daño.
         if(combat->turn.enemy.ptr->pokemons[i].hp > 0)
         {
+            //Si el daño lo mata, se deja la vida en 0.
             if (combat->turn.enemy.ptr->pokemons[i].hp - damage < 0) 
             {
                 combat->turn.enemy.ptr->pokemons[i].hp = 0;
             }
+            //por otro lado se le aplica el daño.
             else
             {
                 combat->turn.enemy.ptr->pokemons[i].hp -= damage;
@@ -169,6 +195,7 @@ void doAllOutAttack(struct Combat *combat)
     }
 }
 
+//Se ejecuta en caso de un ataque efectivo.
 void nextSelection(struct Combat *combat)
 {
 #ifdef DEBUG
@@ -176,26 +203,30 @@ void nextSelection(struct Combat *combat)
 #endif
     //Se verifica que el enemigo no haya muerto.
     if (checkEnemy(combat) == 1) return;
-    int i = 0;
-    int index = combat->turn.current.selectionIndex;
+    int i = 0; // Indice que indica el pokemon utilizable por el usuario.
+    int count = 0; // Cuenta los pokemons muertos o utilizados.
     int found = 0;//comprueba si existen pokemons vivos.
-    // Iterar la selección cuatro veces.
-    for(i = index; i < 4; i++) {
+    
+    // Iterar la selección cuatro veces, ya que solo existen 4 pokemons.
+    for(i = 0; i < 4; i++) {
         if (i > 3) break;
 
         // si está consumido o no está vivo
-        if (combat->turn.current.consumed[i] || 
-                combat->turn.current.ptr->pokemons[i].hp == 0 ) continue;
+        if (combat->turn.current.consumed[i] == 1 || 
+                combat->turn.current.ptr->pokemons[i].hp == 0 ) count++;
         else {
             found = 1;
             break;
         }
     }
-    if (!found)
+    //Si no se encontro ningun pokemon o no hay ningun pokemon disponible.
+    if (!found || count == 4)
     {
         //printf("Algo salió mal. No quedan pokémons.\n");
         return;
-    } else {
+    }
+    //Si encontramos un pokemon disponible actualizamos los indices. 
+    else {
         combat->turn.current.selection = combat->turn.current.ptr->pokemons + i;
         combat->turn.current.selectionIndex = i;
     }
@@ -227,18 +258,41 @@ void updateTurn(struct Combat *combat)
 
     //Se inicia en el primer pokemon.
     combat->turn.current.selectionIndex = 0;
+
     //Se comienza con un pokemon que este vivo.
-    while (combat->turn.current.ptr->pokemons[combat->turn.current.selectionIndex].hp == 0) 
+    while (combat->turn.current.ptr->pokemons[combat->turn.current.selectionIndex].hp == 0 || combat->turn.current.consumed[combat->turn.current.selectionIndex] == 1) 
     {
         combat->turn.current.selectionIndex++;
     }
 
+    //Se actualiza el pokemon seleccionado.
     combat->turn.current.selection = combat->turn.current.ptr->pokemons + combat->turn.current.selectionIndex;
 
     nextSelection(combat);
 
 }
 
+//Cambia el pokemon seleccionado por el usuario.
+void changePokemon(struct Combat* combat)
+{
+    int pkm;
+    printf("Selecciona el pokemon a utilizar\n");
+again:
+    pkm = checkNum (1, 4);
+    //Se verifica que el pokemon no haya sido utilizado.
+    if (combat->turn.current.consumed[pkm-1] == 1) 
+    {
+        printf("Ya utilizaste ese pokemon!, selecciona otro...\n");
+        goto again;
+    }
+
+    //Se actualiza el pokemon seleccionado por el jugador.
+    combat->turn.current.selection = combat->turn.current.ptr->pokemons + (pkm - 1);
+    //Se actualiza el indice del seleccionado actualmente.
+    combat->turn.current.selectionIndex = pkm - 1;
+}
+
+//Muestra los items disponibles en la mochila.
 int showBag (struct Combat* combat)
 {
     int j = 0;
@@ -262,6 +316,7 @@ int showBag (struct Combat* combat)
     return j;
 }
 
+//Obtiene la posición del pokemon.
 int getPkmPos(struct Combat* combat)
 {
     int pkm;
@@ -279,6 +334,7 @@ int getPkmPos(struct Combat* combat)
     return (pkm);
 }
 
+//Permite utilizar los items disponibles en la mochila.
 void checkBag(struct Combat *combat)
 {
     int in;//numero item.
@@ -361,9 +417,10 @@ void checkBag(struct Combat *combat)
     combat->turn.current.ptr->inventory[in].qty--;
 }
 
-
+//Maneja el combate en su generalidad.
 void initCombat(Player *players, HashMap *effective, HashMap *uneffective)
 {
+    //si el jugador 1/2 no se han registrado.
     if (!(players[0].canPlay) || !(players[1].canPlay))
     {
         printf("Para iniciar un combate es necesario cargar los perfiles.\n");
@@ -420,11 +477,14 @@ void initCombat(Player *players, HashMap *effective, HashMap *uneffective)
 #ifdef DEBUG
         printf("DEBUG: menú combate j = %d\n", j);
 #endif
+        //Maneja la opción escogida por el jugador.
         switch (j)
         {
             case 0: // Huir
+            {
                 tryToEscape(&combat);
                 break;
+            }
             case 1: // Atacar
             {
                 printf("%s está al frente.\n", combat.turn.current.selection->ptr->name);
@@ -577,9 +637,15 @@ reask:
                     nextSelection(&combat);
                 break;
             }
+            //Abrir la mochila.
             case 2:
             {
                 checkBag(&combat);
+            }
+            //Cambiar el pokemon con el que se ataca.
+            case 3:
+            {
+                changePokemon(&combat);
             }
         }
     }

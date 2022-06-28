@@ -51,6 +51,7 @@ int canAllOutAttack(struct Combat *combat);
 void doAllOutAttack(struct Combat *combat);
 void nextSelection(struct Combat *combat);
 void updateTurn(struct Combat *combat);
+void changePokemon(struct Combat* combat);
 int showBag (struct Combat* combat);
 int getPkmPos(struct Combat* combat);
 void checkBag(struct Combat *combat);

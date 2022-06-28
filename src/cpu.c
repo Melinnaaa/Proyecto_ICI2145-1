@@ -133,17 +133,21 @@ void fileToPlayer(Player* dest, char* name, HashMap* pokemon, HashMap* moves)
 Player createCPU (HashMap* pokemon, HashMap* moves)
 {
     DIR* dirp;
+
     //Guarda el perfil cargado desde un archivo binario.
     Player cpu;
     //Cantidad de archivos.
     int numArchives = countArchives();
+
     //Se obtiene un archivo random.
     int random = randomNumber(0, numArchives-1);
     struct dirent * entry;
+
     //Cuenta los archivos leidos.
     int i = 0;
     //Se abre el directorio.
-    dirp = opendir("cache"); 
+    dirp = opendir("cache");
+
     //Mientras existan archivos en el directorio.
     while ((entry = readdir(dirp)) != NULL) {
         //No se leen los archivos basura.
@@ -162,6 +166,7 @@ Player createCPU (HashMap* pokemon, HashMap* moves)
 
     //Se Carga el archivo en la variable cpu.
     fileToPlayer(&cpu,entry->d_name, pokemon, moves);
+    
     //Se cierra el directorio.
     closedir(dirp);
     return cpu;
@@ -243,6 +248,7 @@ void initCpuCombat (Player* players, Player* cpu, HashMap* effective, HashMap* u
 #ifdef DEBUG
         printf("DEBUG: menú combate j = %d\n", j);
 #endif
+        //Maneja la opción escogida por el jugador.
         switch (j)
         {
             // Huir
@@ -443,9 +449,15 @@ reask:
                     nextSelection(&combat);
                 break;
             }
+            //Utilizar item de la mochila.
             case 2:
             {
                 checkBag(&combat);
+            }
+            //Cambiar de pokemon.
+            case 3:
+            {
+                changePokemon(&combat);
             }
         }
     }
