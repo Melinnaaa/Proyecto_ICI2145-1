@@ -7,9 +7,10 @@
 #include "util.h"
 #include "item.h"
 
+//Carga los pokemons y los almacena en un mapa.
 void loadPokemons(HashMap *map)
 {
-    FILE* pokemon = fopen ("out.csv", "r");
+    FILE* pokemon = fopen ("pokemon.csv", "r");
     char linea[1024];
     //Se lee el archivo csv linea por linea.
     while (fgets (linea, 1023, pokemon) != NULL) 
@@ -47,9 +48,11 @@ void loadPokemons(HashMap *map)
     fclose(pokemon);
 }
 
+//Carga los movimientos y los almacena en dos mapas.
+//Uno por nombre y otro por tipo.
 void loadMovements(HashMap* movementMap, HashMap* movements)
 {
-    FILE* moves = fopen ("move-data-clean.csv", "r");
+    FILE* moves = fopen ("moves.csv", "r");
     char linea[1024];
 
     //Se lee el archivo csv linea por linea.
@@ -116,6 +119,7 @@ void loadMovements(HashMap* movementMap, HashMap* movements)
     fclose(moves);
 }
 
+//Se cargan los items y se almacenan en un arreglo.
 void loadItems(Item* items)
 {
     FILE* moves = fopen ("items.csv", "r");
@@ -132,7 +136,7 @@ void loadItems(Item* items)
     }
 }
 
-// pain
+// Se randomizan los movimientos de un pokemon a partir de su(s) tipo(s).
 void randomizeMovements(PlayerPokemon *ppk, HashMap* map)
 {
     /* Recorremos la lista de los tipos */
@@ -219,6 +223,7 @@ repeat:
 //    showPlayerPokemon(ppk);
 }
 
+//Muestra los datos del pkemon.
 void showPokemon(Pokemon* pokemon)
 {
     printf("Nombre : %s\n", pokemon->name);
@@ -228,6 +233,7 @@ void showPokemon(Pokemon* pokemon)
     putchar('\n');
 }
 
+//muestra los movimientos del pokemon.
 void showPlayerPokemon(PlayerPokemon *pokemon)
 {
     showPokemon(pokemon->ptr);
