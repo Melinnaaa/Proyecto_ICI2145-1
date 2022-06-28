@@ -6,9 +6,9 @@
 
 void printsFirstLeader()
 {
-    printf("Yo soy LapsoJr, del ALTO MANDO!\n");
+    printf("\nYo soy LapsoJr, del ALTO MANDO!\n");
     getchar();
-    printf("Tus pokemons estarán a mi merced cuando luchemos!\n");
+    printf("Tus pokemons estaran a mi merced cuando luchemos!\n");
     getchar();
     printf("Comenzamos?\n");
     getchar();
@@ -50,7 +50,7 @@ void printsThirdLeader(Player* players)
 {
     printf("Yo soy krr, del ALTO MANDO!\n");
     getchar();
-    printf("He oido que Ignacio te tiene mucha admiración %s\n", players->name);
+    printf("He oido que Ignacio te tiene mucha admiracion %s\n", players->name);
     getchar();
     printf("El era muy fuerte, pero ya ha pasado mucho tiempo desde entonces, es la sombra de lo que fue\n");
     getchar();
@@ -145,6 +145,7 @@ void initComputerLeague(Player* players, HashMap* effective, HashMap* uneffectiv
     while (1)
     {
 
+        //Si el jugador perdió un combate.
         if(win == -1) 
         {
             printf("Esperaba mas de ti %s...\n", players->name);
@@ -154,17 +155,17 @@ void initComputerLeague(Player* players, HashMap* effective, HashMap* uneffectiv
             return;
         }
         
+        //Maneja los combates de la liga.
         switch (win)
         {
             case 0://1er combate.
             {
                 printsFirstLeader();
-                getchar();
                 Player leader1;
                 fileToPlayer(&leader1, "5968c0.pkdb", pkmMap, moves);
                 initCpuCombat(players, &leader1, effective, uneffective, &win);
-                if (win == 0) return;
-                else printFirstWinText();
+                if (win == 1) printFirstWinText();
+                if (win == 0) return;//Caso en que no exista perfil
                 break;
             }    
             case 1://2do combate.
