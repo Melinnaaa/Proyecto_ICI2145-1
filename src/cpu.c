@@ -453,11 +453,13 @@ reask:
             case 2:
             {
                 checkBag(&combat);
+                break;
             }
             //Cambiar de pokemon.
             case 3:
             {
                 changePokemon(&combat);
+                break;
             }
         }
     }

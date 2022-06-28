@@ -641,11 +641,13 @@ reask:
             case 2:
             {
                 checkBag(&combat);
+                break;
             }
             //Cambiar el pokemon con el que se ataca.
             case 3:
             {
                 changePokemon(&combat);
+                break;
             }
         }
     }
