@@ -195,6 +195,9 @@ void initCpuCombat (Player* players, Player* cpu, HashMap* effective, HashMap* u
     combat.turn.current.selection = cpu->pokemons;
     combat.turn.current.selectionIndex = 0;
 
+    //Verifica que el jugador no haya huido.
+    int escape;
+
     //Guardar los pps
     for (int i = 0 ; i < 4 ; i++)
     {
@@ -236,6 +239,7 @@ void initCpuCombat (Player* players, Player* cpu, HashMap* effective, HashMap* u
         {
             j = 1;
         }
+        escape = j;
 #ifdef DEBUG
         printf("DEBUG: menú combate j = %d\n", j);
 #endif
@@ -446,10 +450,13 @@ reask:
         }
     }
 
+    //Si no existe ganador.
     if (!combat.winner)
     {
         printf("Algo salió mal. (El combate terminó y no hay ganador)\n");
-    } else {
+    }
+    //Si existe ganador.
+    else {
         
         printf("El ganador es %s!\n", combat.winner->name);
         if (combat.winner != cpu)
@@ -463,8 +470,8 @@ reask:
             *win = *win + 1;
         }
         else *win = -1;
-        //Se aumentan las derrotas del perdedor.
-        combat.turn.enemy.ptr->losses ++;
+        if (escape == 0) combat.turn.current.ptr->losses ++; //El jugador huyó.
+        else combat.turn.enemy.ptr->losses ++;//El jugador no huyó
         getchar();
     }
     //Se reinician las estadisticas de los pokemons del usuario.

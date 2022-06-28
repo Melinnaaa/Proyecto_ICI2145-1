@@ -404,13 +404,19 @@ void initCombat(Player *players, HashMap *effective, HashMap *uneffective)
 
     // Nadie ha ganado aún.
     combat.winner = NULL;
-
+    int escape = -1; // Verifica que el jugador no haya huido.
     // mientras el combate no deba acabar.
     while (!(combat.shouldClose))
     {
         showCombatMenu(&combat);
+        //Opción del menu.
         int j = checkNum(1, 3);
-        int k, l;
+        //Escapó o no.
+        escape = j;
+        // Pokemon a atacar.
+        int k;
+        // Ataque a realizar.
+        int l;
 #ifdef DEBUG
         printf("DEBUG: menú combate j = %d\n", j);
 #endif
@@ -427,7 +433,9 @@ void initCombat(Player *players, HashMap *effective, HashMap *uneffective)
 repeat:
                 l = checkNum(1, 4);
                 if (l == 0) continue;
+                // Guarda el movimiento a realizar.
                 Movement *movement = (combat.turn.current.selection->movements)[l - 1];
+                //Verifica que al ataque le queden pps.
                 if (combat.turn.current.selection->pps[l-1] == 0)
                 {
                     printf("No le quedan pps al ataque. Selecciona otro ataque.\n");
@@ -436,12 +444,13 @@ repeat:
                 printf("A quién quieres atacar?\n");
                 showAttackable(&combat);
 reask:
-                k = checkNum(1,4);
-                if (k == 0) continue;
+                k = checkNum(1,4); // Preguntar el pokemon a atacar.
+                if (k == 0) continue;// Si es 0 volvemos.
 
-                PlayerPokemon *pkm = getEnemyPokemon(&combat, k - 1);
+                //Guardamos el pokemon a atacar.
+                PlayerPokemon *pkm = getEnemyPokemon(&combat, k - 1); 
 
-                if ( ! (pkm->hp) )
+                if ( ! (pkm->hp) )// Se verifica que el pokemon a atacar este vivo.
                 {
                     printf("%s está muerto. Elige otro objetivo.\n", pkm->ptr->name);
                     goto reask;
@@ -453,9 +462,12 @@ reask:
                 putchar('\n');
                 //Se restan los pps del ataque utilizado.
                 combat.turn.current.selection->pps[l-1] -=1;
+                //Si es 1 le toca al siguiente jugador, si es 0 sigue en el mismo turno.
                 int flag = 1;
-                List *types = pkm->ptr->type;
-                float damage = movement->damage*0.25;
+                List *types = pkm->ptr->type; // Lista de tipos de pokemons.
+                float damage = movement->damage*0.25; // Se disminuye el daño por temas de balance.
+                
+                //Se recorre la lista de tipos.
                 for (char *type = listFirst(types);
                         type;
                         type = listNext(types)) {
@@ -463,12 +475,14 @@ reask:
                     if (isEffective(&combat, movement->type, type) && flag)
                     {
                         printf("Es super efectivo!");
-                        damage *= 1.5;
+                        damage *= 1.5; // Al ser efectivo se aumenta el daño.  
+                        //Si ya estaba noqueado se acaba el turno.
                         if (combat.turn.enemy.knocked[k-1] == 1)
                         {
                             combat.turn.current.selection->consumed = 1;
                             combat.turn.current.consumed[combat.turn.current.selectionIndex] = 1;
                         }
+                        //Si no estaba noqueado se muestra un mensaje y sigue el turno con el sgte pokemon.
                         else
                         {
                             flag = 0;
@@ -496,6 +510,7 @@ reask:
                     }
                 }
 
+                //Si el daño fue distinto de 0 se muestra el daño realizado.
                 if (damage)
                     printf("%s le quitó %d HP a %s!", combat.turn.current.selection->ptr->name, 
                             (int)damage,
@@ -504,14 +519,16 @@ reask:
                 getchar();
                 putchar('\n');
 
-
+                //Si el pokemon murió con el ataque.
                 if ((pkm->hp - damage) <= 0)
                 {
                     printf("%s murió.", pkm->ptr->name);
                     getchar();
                     putchar('\n');
                     pkm->hp = 0;
-                } else {
+                }
+                //Si el pokemon no murio, se muestra la vida actual. 
+                else {
                     pkm->hp -= damage;
                     printf("%s ahora tiene %d HP", pkm->ptr->name, pkm->hp);
                     getchar();
@@ -519,13 +536,16 @@ reask:
 
                 }
 
+                //Se verifica que si puede realizar un all-out attcack.
                 if (canAllOutAttack(&combat) == 1) 
                 {
                     int allOut;
                     printf("Todos los pokemons estan noqueados, es tu oportunidad para realizar un All-out Attack!\n");
                     getchar();
                     printf("1.Si \t 2.No\n\n");
+                    //Se verifica si quiere realizar el ataque.
                     allOut = checkNum(1, 2);
+                    //Si lo realiza se aplica el daño correspondiente.
                     if (allOut == 1)
                     {     
                         printf("Beat 'em up!\n");
@@ -534,8 +554,10 @@ reask:
                         if (checkEnemy(&combat) == 1);
                         else flag = 1;
                     }
+                    //Sino se reinician los noqueos.
                     else 
                     {
+                        //Si estamos en el ultimo pokemon no puede seguir atacando.
                         if (combat.turn.current.selectionIndex == 3) flag = 1;
                         for (int i = 0 ; i < 4 ; i++)
                             combat.turn.enemy.knocked[i] = 0;
@@ -549,7 +571,9 @@ reask:
 #ifdef DEBUG
                     printf("DEBUG: Ataque normal\n");
 #endif
-                } else
+                }
+                //Sino el jugador sigue atacando. 
+                else
                     nextSelection(&combat);
                 break;
             }
@@ -560,18 +584,25 @@ reask:
         }
     }
 
+    //Si no existe ganador.
     if (!combat.winner)
     {
         printf("Algo salió mal. (El combate terminó y no hay ganador)\n");
-    } else {
+    } 
+    //Si existe ganador.
+    else {
+        //Se da dinero al jugador en un rango determinado.
         int money = randomNumber(500,1000);
         printf("El ganador es %s!\n", combat.winner->name);
-        printf("Felicidades, ganaste $%d!\n", money);
+        printf("Felicidades %s, ganaste $%d!\n", combat.winner->name, money);
+        //Se aumenta el dinero y victorias del ganador.
         combat.winner->money += money;
         combat.winner->wins ++;
-        combat.turn.enemy.ptr->losses ++;
+        if (escape == 0) combat.turn.current.ptr->losses ++; //El jugador huyó.
+        else combat.turn.enemy.ptr->losses ++;//El jugador no huyó
         getchar();
     }
+    //Se reinician las estadisticas de los pokemons.
     for (int j = 0; j < 2; j++)
         for (int i = 0; i < 4; i++)
         {
