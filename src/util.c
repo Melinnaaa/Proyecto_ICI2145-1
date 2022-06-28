@@ -1,4 +1,6 @@
 #include "util.h"
+
+#include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 #include <dirent.h>
@@ -57,8 +59,6 @@ int hayQueEliminar(char c, char* string_chars)
     return 0;
 }
 
-#include <stdio.h>
-
 //Función que quita los caracteres excluidos.
 char* quitar_caracteres(char* string, char* c)
 {
@@ -115,6 +115,7 @@ int checkNum(int min, int max)
     return tmp;
 }
 
+//Genera un numero random en un rango determinado.
 int randomNumber(int lowerbound, int upperbound)
 {
     return (rand() % (upperbound - lowerbound + 1) + lowerbound);
@@ -131,6 +132,7 @@ unsigned long djb2hash(unsigned char *str)
     return hash;
 }
 
+//Cuenta la cantidad de archivos encontrados en un directorio.
 int countArchives()
 {
     int file_count = 0;
