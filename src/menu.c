@@ -8,6 +8,7 @@
 #include "pokemon.h"
 #include "util.h"
 
+//Muestra las opciones del manu principal.
 void showMenu()
 {
     printf("1. Nueva partida: \t\t");
@@ -17,7 +18,7 @@ void showMenu()
     printf("4. Guardar partida: \n");
 
     printf("5. Tienda: \t\t\t");
-    printf("6. Combate: \n");
+    printf("6. Jugador vs Jugador: \n");
     printf("7. Combate vs CPU: \t\t");
     printf("8. Liga informatica: \n");
 #ifdef DEBUG
@@ -42,6 +43,32 @@ typedef struct PlayerExport {
 } PlayerExport;
 */
 
+//Imprime el dialogo de bienvenida al juego.
+void printOakText()
+{
+
+    printf("Hola!, Este es el mundo de Pokemon!\n");
+    getchar();
+    printf("Me llamo Ignacio!\n");
+    getchar();
+    printf("Pero la gente me llama Profesor Pokemon!\n");
+    getchar(),
+    printf("Este mundo esta habitado por unas criaturas llamadas POKEMON!\n");
+    getchar();
+    printf("Para algunos, los POKEMON son mascotas.\n");
+    getchar();
+    printf("Pero otros los usan para pelear.\n");
+    getchar();
+    printf("En cuanto a mi...\n");
+    getchar();
+    printf("Estudio a los POKEMON como profesion.\n");
+    getchar();
+    printf("Bueno, cuentame algo de ti\n");
+    getchar();
+    printf("Pero primero dime como te llamas: ");
+}
+
+//Crea el perfil de un usuario.
 void createProfile(Player *player, HashMap *pokeMap, HashMap *movements)
 {
     /* Par y pokémon utilizados para la búsqueda */
@@ -59,13 +86,15 @@ void createProfile(Player *player, HashMap *pokeMap, HashMap *movements)
         return;
     }
 
+    printOakText();
+
     //Se solicita el nombre del usuario.
-    printf("Cuál es tu nombre?:  ");
+    
     scanf("%[^\n]*s", player->name);
     getchar();
     player->money = 2000;
     //Ciclo que se encarga de guardar 4 pokemons.
-    printf("\nPara que empieces tu aventura te otorgaré 4 pokémons, así que eligelos sabiamente.\n\n ");
+    printf("\nPara que empieces tu aventura te otorgare 4 pokemons, asi que eligelos sabiamente.\n\n ");
     for (int i = 0; i < 4; i++)
     {
 reask:
@@ -125,6 +154,10 @@ reask:
         }
     }
     player->canPlay = 1;
+    printf("Tu propia leyenda pokemon esta a punto de comenzar!\n");
+    getchar();
+    printf("Adelante!\n");
+    getchar();
 }
 
 //Guardar los datos del jugador o sobreescribirlos.
@@ -340,6 +373,7 @@ repeat:
     
 }
 
+//Carga los ataques efectivos y los almacena en un mapa (grafo)
 void getEffectiveNodes(HashMap* effective)
 {
     FILE* affinities = fopen ("Affinities.csv", "r");
@@ -352,21 +386,17 @@ void getEffectiveNodes(HashMap* effective)
     fclose(affinities);
 }
 
+//Carga los ataques inefectivos y los almacena en un mapa (grafo)
 void getUneffectiveNodes(HashMap* uneffectiveMap)
 {
-    // printf("ola");
-    FILE* uneffective = fopen("rip.csv", "r");
-    if (uneffective == NULL)
-    {
-//   printf("cagué");
-    }
+
+    FILE* uneffective = fopen("inefectivos.csv", "r");
     char linea[1024];
     //Se lee el archivo csv linea por linea.
     while (fgets (linea, 1023, uneffective) != NULL)
     {
         insertMap(uneffectiveMap, get_csv_field(linea, 0), strToList(get_csv_field(linea, 1), ", "));
     }
-  //   printf("salí");
     fclose(uneffective);
 }
 
