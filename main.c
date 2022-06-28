@@ -233,7 +233,14 @@ int main() {
             }
             case 8:
             {
-                printf("Esta es la liga pokemon!\n");
+                //Se verifica que el jugador pueda ingresar a la liga.
+                if (players[0].canPlay == 0)
+                {
+                    printf("\nPara ingresar a la liga es necesario crear un perfil...\n");
+                    getchar();
+                    continue;
+                }
+                printf("\nEsta es la liga pokemon!\n");
                 initComputerLeague(&players[0], effective, uneffective, pokemonsStr, movements);
                 break;
             }
